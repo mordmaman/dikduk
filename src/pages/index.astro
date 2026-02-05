@@ -1,0 +1,210 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/ui/Button.svelte';
+import Card from '@/components/ui/Card.svelte';
+---
+
+<BaseLayout title="Learn Biblical Hebrew Grammar">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-blue-50 to-background dark:from-gray-900 dark:to-background-dark py-16 sm:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-4xl sm:text-5xl font-bold text-text dark:text-text-dark mb-4">
+        Turn "I can read it" into <br class="hidden sm:block" />
+        <span class="text-primary dark:text-primary-light">"I understand it"</span>
+      </h1>
+      <p class="text-xl text-muted dark:text-muted-dark mb-8 max-w-2xl mx-auto">
+        Learn Biblical Hebrew grammar interactively. Based on Weingreen's classic textbook,
+        designed for those who can read Hebrew but never formally learned the grammar.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button client:load variant="primary" size="lg" href="/curriculum">
+          Start Learning
+        </Button>
+        <Button client:load variant="outline" size="lg" href="#how-it-works">
+          How It Works
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hebrew Sample -->
+  <section class="py-12 bg-surface dark:bg-surface-dark border-y border-gray-200 dark:border-gray-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p lang="he" dir="rtl" class="font-hebrew text-3xl sm:text-4xl text-hebrew dark:text-hebrew-dark leading-relaxed">
+        בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ
+      </p>
+      <p class="text-muted dark:text-muted-dark mt-4">
+        Every mark, every vowel, every pattern has meaning. Learn to see it.
+      </p>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-16 sm:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-text dark:text-text-dark text-center mb-12">
+        How Dikduk Works
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <Card client:load>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-primary/10 dark:bg-primary-light/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-primary dark:text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text dark:text-text-dark mb-2">
+              Read the Lesson
+            </h3>
+            <p class="text-muted dark:text-muted-dark">
+              Clear explanations with examples from daily prayers and Torah readings you already know.
+            </p>
+          </div>
+        </Card>
+
+        <Card client:load>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text dark:text-text-dark mb-2">
+              Practice with Exercises
+            </h3>
+            <p class="text-muted dark:text-muted-dark">
+              Interactive exercises with instant feedback. No Hebrew typing required — just tap to answer.
+            </p>
+          </div>
+        </Card>
+
+        <Card client:load>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-success/10 dark:bg-success-dark/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-success dark:text-success-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-text dark:text-text-dark mb-2">
+              Track Your Progress
+            </h3>
+            <p class="text-muted dark:text-muted-dark">
+              See your progress, maintain streaks, and pick up where you left off on any device.
+            </p>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-text dark:text-text-dark text-center mb-12">
+        Built for How You Learn
+      </h2>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <svg class="w-6 h-6 text-primary dark:text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-text dark:text-text-dark mb-1">100% Free, Always</h3>
+            <p class="text-muted dark:text-muted-dark text-sm">
+              All lessons and exercises are free. No paywalls, no premium tiers.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <svg class="w-6 h-6 text-primary dark:text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-text dark:text-text-dark mb-1">No Account Required</h3>
+            <p class="text-muted dark:text-muted-dark text-sm">
+              Start learning immediately. Create an account only if you want to sync across devices.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <svg class="w-6 h-6 text-primary dark:text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-text dark:text-text-dark mb-1">Works Offline</h3>
+            <p class="text-muted dark:text-muted-dark text-sm">
+              Install as an app and continue learning even without internet.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <svg class="w-6 h-6 text-primary dark:text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-text dark:text-text-dark mb-1">Based on Weingreen</h3>
+            <p class="text-muted dark:text-muted-dark text-sm">
+              Following the proven curriculum of "A Practical Grammar for Classical Hebrew."
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <svg class="w-6 h-6 text-primary dark:text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-text dark:text-text-dark mb-1">No Typing Hebrew</h3>
+            <p class="text-muted dark:text-muted-dark text-sm">
+              All exercises use tap-to-select. No struggling with Hebrew keyboards.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <svg class="w-6 h-6 text-primary dark:text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-semibold text-text dark:text-text-dark mb-1">Familiar Examples</h3>
+            <p class="text-muted dark:text-muted-dark text-sm">
+              Learn with words from prayers and Torah readings you already know.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 sm:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-bold text-text dark:text-text-dark mb-4">
+        Ready to understand what you're reading?
+      </h2>
+      <p class="text-xl text-muted dark:text-muted-dark mb-8">
+        Start with the Foundations unit and build your understanding from the ground up.
+      </p>
+      <Button client:load variant="primary" size="lg" href="/curriculum">
+        View Curriculum
+      </Button>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,195 @@
+---
+title: "Dagesh"
+hebrewTitle: "דָּגֵשׁ"
+unit: "foundations"
+chapter: 12
+weingreenRef: "Chapter 8"
+description: "Understanding the dot inside Hebrew letters — when it hardens and when it doubles."
+order: 12
+---
+
+import HebrewWord from '@/components/lesson/HebrewWord.svelte';
+import WordConstruction from '@/components/lesson/WordConstruction.svelte';
+import ExampleTable from '@/components/lesson/ExampleTable.svelte';
+import Callout from '@/components/lesson/Callout.svelte';
+
+## Introduction
+
+You've seen it thousands of times — a small dot sitting inside a Hebrew letter. This is a **dagesh** (דָּגֵשׁ, meaning "piercing"). But what does it actually do?
+
+A dagesh does one of two things depending on which letter it's in and where it appears:
+- It can **harden** a letter's sound
+- It can **double** a letter
+
+These are called:
+- **Dagesh Lene** / דָּגֵשׁ קַל (the "light" dagesh) — hardens
+- **Dagesh Forte** / דָּגֵשׁ חָזָק (the "strong" dagesh) — doubles
+
+## The Six Special Letters: בְּגַדְכְּפַת
+
+Six Hebrew letters have two pronunciations — soft and hard:
+
+<ExampleTable
+  client:visible
+  headers={["Letter", "Without Dagesh (soft)", "With Dagesh (hard)"]}
+  rows={[
+    ["ב", "v (as in 'vest')", "b (as in 'boy')"],
+    ["ג", "gh (soft throat sound)", "g (as in 'go')"],
+    ["ד", "dh (as in 'this')", "d (as in 'door')"],
+    ["כ", "kh (as in 'Bach')", "k (as in 'king')"],
+    ["פ", "f (as in 'food')", "p (as in 'park')"],
+    ["ת", "th (as in 'think')", "t (as in 'top')"],
+  ]}
+/>
+
+These are known as the **BeGaD KePhaT** letters (בְּגַדְ כְּפַת) — a mnemonic for remembering them.
+
+<Callout type="note" client:visible>
+In modern Israeli Hebrew, only three of these distinctions are still pronounced: בּ/ב (b/v), כּ/כ (k/kh), and פּ/פ (p/f). But in Biblical Hebrew, all six had distinct sounds.
+</Callout>
+
+## Dagesh Lene (דָּגֵשׁ קַל): The Hardening Dot
+
+When a dagesh appears in a BeGaD KePhaT letter, it *may* be a Dagesh Lene — hardening the sound from soft to hard.
+
+**The Rule:** Dagesh Lene appears when:
+1. The letter is one of the six (בגדכפת), AND
+2. The letter begins a syllable, AND
+3. No vowel comes immediately before it
+
+**Examples with Dagesh Lene:**
+
+<ExampleTable
+  client:visible
+  headers={["Word", "Letter", "Why Dagesh Lene?"]}
+  rows={[
+    ["בָּרוּךְ", "בּ", "Begins the word — no vowel before"],
+    ["כֹּל", "כּ", "Begins the word — no vowel before"],
+    ["תּוֹרָה", "תּ", "Begins the word — no vowel before"],
+    ["מֶלֶךְ", "כ", "Begins final syllable, preceded by sheva"],
+  ]}
+/>
+
+**Examples without Dagesh Lene:**
+
+<ExampleTable
+  client:visible
+  headers={["Word", "Letter", "Why no dagesh?"]}
+  rows={[
+    ["יִבְרָא", "ב", "The ב follows a vowel (chirik under י)"],
+    ["לֵב", "ב", "The ב ends the syllable, doesn't begin one"],
+    ["אָב", "ב", "Same — ב closes the syllable"],
+  ]}
+/>
+
+## Dagesh Forte (דָּגֵשׁ חָזָק): The Doubling Dot
+
+A Dagesh Forte tells you a letter is **doubled** — as if there were two of that letter.
+
+**Key differences from Dagesh Lene:**
+- Can appear in **almost any letter** (not just בגדכפת)
+- **Cannot** appear in gutturals (אהחע) or ר — these letters refuse to double
+- Always follows a vowel (the opposite of Dagesh Lene!)
+
+**Three reasons a letter might double:**
+
+### (i) Compensative (מְשַׁלֵּם)
+
+A letter disappeared, so the next one doubles to compensate.
+
+The preposition מִן ("from") often merges with the next word:
+
+<WordConstruction
+  client:visible
+  parts={[
+    { text: "מִן", label: "from" },
+    { text: "+", label: "" },
+    { text: "שָׁם", label: "there" },
+    { text: "→", label: "" },
+    { text: "מִשָּׁם", label: "from there" },
+  ]}
+  note="The נ disappears, שׁ doubles to compensate"
+/>
+
+### (ii) Characteristic (אָפְיָנִי)
+
+Certain verb patterns (binyanim) require doubling.
+
+In Pi'el verbs, the middle root letter doubles:
+- בִּקֵּשׁ (to seek) — the ק is doubled
+- דִּבֵּר (to speak) — the ב is doubled
+- קַדֵּשׁ (to sanctify) — the ד is doubled
+
+### (iii) Euphonic (לְנֹעַם הַשְּׁמִיעָה)
+
+Sometimes a letter doubles simply for smoother pronunciation.
+
+## The Tricky Case: Both at Once
+
+When a בגדכפת letter has a Dagesh Forte, the dagesh does double duty:
+- It **hardens** the sound (Lene function)
+- It **doubles** the letter (Forte function)
+
+<WordConstruction
+  client:visible
+  parts={[
+    { text: "מִן", label: "from" },
+    { text: "+", label: "" },
+    { text: "כֹּל", label: "all" },
+    { text: "→", label: "" },
+    { text: "מִכֹּל", label: "from all" },
+  ]}
+  note="The כּ is both hardened (k not kh) AND doubled (mik-kol)"
+/>
+
+## When Doubling Can't Happen
+
+Gutturals (אהחע) and ר cannot be doubled. So what happens when a word *should* have doubling in one of these letters?
+
+**The vowel before it lengthens instead.**
+
+<WordConstruction
+  client:visible
+  parts={[
+    { text: "מִן", label: "from" },
+    { text: "+", label: "" },
+    { text: "אִישׁ", label: "man" },
+    { text: "→", label: "" },
+    { text: "מֵאִישׁ", label: "from a man" },
+  ]}
+  note="Can't double א, so the chirik (short i) becomes tsere (long e)"
+/>
+
+## In Your Tefillah
+
+You say these words every day. Here's what's happening:
+
+<ExampleTable
+  client:visible
+  headers={["Word", "Where you say it", "What's happening"]}
+  rows={[
+    ["בָּרוּךְ", "Every berakha", "בּ has Dagesh Lene — begins the word"],
+    ["אַתָּה", "Every berakha", "תּ has Dagesh Forte — doubled"],
+    ["הַמֶּלֶךְ", "Amidah, blessings", "מּ has Dagesh Forte — doubled after הַ"],
+    ["הַשָּׁמַיִם", "Shema, blessings", "שּׁ has Dagesh Forte — doubled after הַ"],
+    ["שַׁבָּת", "Shabbat prayers", "בּ has Dagesh Forte — doubled"],
+    ["מִכָּל", "Birkat Hamazon", "כּ has both Lene AND Forte"],
+  ]}
+/>
+
+<Callout type="tip" client:visible>
+**Try this:** Next time you say בָּרוּךְ אַתָּה, notice the בּ (hardened, beginning of word) and the תּ (doubled). You're seeing both types of dagesh in the first two words of every blessing.
+</Callout>
+
+## Summary
+
+| Type | Hebrew | What it does | Which letters | Rule |
+|------|--------|--------------|---------------|------|
+| Dagesh Lene | דָּגֵשׁ קַל | Hardens sound | Only בגדכפת | Beginning of syllable, no vowel before |
+| Dagesh Forte | דָּגֵשׁ חָזָק | Doubles letter | All except אהחע and ר | Always after a vowel |
+
+**Remember:**
+- Same dot, different jobs
+- בגדכפת letters can have either type
+- Other letters can only have Dagesh Forte
+- When a guttural or ר should double but can't, the preceding vowel lengthens

@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SignupForm from '@/components/auth/SignupForm.svelte';
+
+const redirectTo = Astro.url.searchParams.get('redirectTo') || '/curriculum';
+---
+
+<BaseLayout title="Create Account" showFooter={false}>
+  <div class="min-h-[80vh] flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md">
+      <SignupForm client:load redirectTo={redirectTo} />
+    </div>
+  </div>
+</BaseLayout>

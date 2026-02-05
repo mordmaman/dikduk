@@ -1,0 +1,66 @@
+---
+// This page handles OAuth callbacks and email confirmations
+// It runs on the server and redirects appropriately
+---
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Authenticating...</title>
+  </head>
+  <body>
+    <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: system-ui, sans-serif;">
+      <div style="text-align: center;">
+        <p>Completing authentication...</p>
+      </div>
+    </div>
+
+    <script>
+      import { supabase, isSupabaseConfigured } from '@/lib/supabase';
+      import { setUser } from '@/stores/auth';
+      import { migrateGuestProgress } from '@/lib/progress';
+
+      async function handleCallback() {
+        if (!isSupabaseConfigured() || !supabase) {
+          window.location.href = '/';
+          return;
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const redirectTo = params.get('redirectTo') || '/curriculum';
+        const type = params.get('type');
+
+        // Handle the auth callback
+        const { data: { session }, error } = await supabase.auth.getSession();
+
+        if (error) {
+          console.error('Auth callback error:', error);
+          window.location.href = `/auth/login?error=${encodeURIComponent(error.message)}`;
+          return;
+        }
+
+        if (session?.user) {
+          setUser(session.user);
+
+          // Migrate guest progress if this is a new signup
+          try {
+            await migrateGuestProgress();
+          } catch (e) {
+            console.error('Failed to migrate progress:', e);
+          }
+
+          // If this is a password recovery, redirect to settings
+          if (type === 'recovery') {
+            window.location.href = '/settings?tab=password';
+          } else {
+            window.location.href = redirectTo;
+          }
+        } else {
+          window.location.href = '/auth/login';
+        }
+      }
+
+      handleCallback();
+    </script>
+  </body>
+</html>

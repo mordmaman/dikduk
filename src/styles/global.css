@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fonts loaded via Google Fonts CDN in BaseLayout.astro */
+
+/* Base styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-text font-sans antialiased;
+    @apply dark:bg-background-dark dark:text-text-dark;
+  }
+
+  /* Hebrew text base styles */
+  [lang="he"] {
+    font-family: 'Frank Ruhl Libre', 'SBL Hebrew', 'Ezra SIL', 'Noto Serif Hebrew', serif;
+    direction: rtl;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Hebrew text styling - minimum 1.25x English size */
+  .hebrew-text {
+    @apply font-hebrew text-hebrew dark:text-hebrew-dark;
+    font-size: 1.25em;
+    line-height: 1.6;
+    direction: rtl;
+  }
+
+  .hebrew-text-lg {
+    @apply font-hebrew text-hebrew dark:text-hebrew-dark;
+    font-size: 1.5em;
+    line-height: 1.6;
+    direction: rtl;
+  }
+
+  .hebrew-text-xl {
+    @apply font-hebrew text-hebrew dark:text-hebrew-dark;
+    font-size: 2em;
+    line-height: 1.5;
+    direction: rtl;
+  }
+
+  /* Card styling */
+  .card {
+    @apply bg-surface dark:bg-surface-dark rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6;
+  }
+
+  /* Button variants */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-blue-700 focus:ring-primary;
+    @apply dark:bg-primary-light dark:text-gray-900 dark:hover:bg-blue-400;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary text-gray-900 hover:bg-yellow-500 focus:ring-secondary;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary;
+    @apply dark:border-primary-light dark:text-primary-light dark:hover:bg-primary-light dark:hover:text-gray-900;
+  }
+
+  .btn-ghost {
+    @apply btn text-gray-600 hover:bg-gray-100 focus:ring-gray-300;
+    @apply dark:text-gray-300 dark:hover:bg-gray-800;
+  }
+
+  /* Badge styling */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+  }
+
+  .badge-success {
+    @apply badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+  }
+
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+  }
+
+  .badge-error {
+    @apply badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200;
+  }
+
+  /* Callout styles */
+  .callout {
+    @apply rounded-lg p-4 my-4 border-l-4;
+  }
+
+  .callout-note {
+    @apply callout bg-blue-50 border-blue-500 dark:bg-blue-900/20 dark:border-blue-400;
+  }
+
+  .callout-tip {
+    @apply callout bg-green-50 border-green-500 dark:bg-green-900/20 dark:border-green-400;
+  }
+
+  .callout-warning {
+    @apply callout bg-yellow-50 border-yellow-500 dark:bg-yellow-900/20 dark:border-yellow-400;
+  }
+
+  /* Exercise feedback styles */
+  .feedback-correct {
+    @apply bg-green-50 border border-green-200 text-green-800 rounded-lg p-4;
+    @apply dark:bg-green-900/20 dark:border-green-700 dark:text-green-200;
+  }
+
+  .feedback-incorrect {
+    @apply bg-red-50 border border-red-200 text-red-800 rounded-lg p-4;
+    @apply dark:bg-red-900/20 dark:border-red-700 dark:text-red-200;
+  }
+
+  /* Option buttons for exercises */
+  .option-btn {
+    @apply w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-primary transition-colors;
+    @apply dark:border-gray-600 dark:hover:border-primary-light;
+  }
+
+  .option-btn-selected {
+    @apply option-btn border-primary bg-primary/5;
+    @apply dark:border-primary-light dark:bg-primary-light/10;
+  }
+
+  .option-btn-correct {
+    @apply option-btn border-success bg-success/10 cursor-default;
+    @apply dark:border-success-dark dark:bg-success-dark/10;
+  }
+
+  .option-btn-incorrect {
+    @apply option-btn border-error bg-error/10 cursor-default;
+    @apply dark:border-error-dark dark:bg-error-dark/10;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  /* Focus visible for accessibility */
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+    @apply dark:focus-visible:ring-primary-light dark:focus-visible:ring-offset-background-dark;
+  }
+
+  /* Lesson content max width */
+  .lesson-content {
+    @apply max-w-lesson mx-auto px-4 sm:px-6;
+  }
+
+  /* Skip link for accessibility */
+  .skip-link {
+    @apply absolute -top-full left-4 z-50 bg-primary text-white px-4 py-2 rounded-b-lg;
+    @apply focus:top-0 transition-all;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

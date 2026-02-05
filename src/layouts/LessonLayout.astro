@@ -1,0 +1,76 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import LessonHeader from '@/components/lesson/LessonHeader.svelte';
+import ProgressBar from '@/components/lesson/ProgressBar.svelte';
+
+interface Props {
+  title: string;
+  hebrewTitle: string;
+  description: string;
+  unit: string;
+  chapter: number;
+  weingreenRef: string;
+  lessonId: string;
+}
+
+const { title, hebrewTitle, description, unit, chapter, weingreenRef, lessonId } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="lesson-content py-8">
+    <LessonHeader
+      client:load
+      title={title}
+      hebrewTitle={hebrewTitle}
+      unit={unit}
+      chapter={chapter}
+      weingreenRef={weingreenRef}
+    />
+
+    <article class="prose prose-lg dark:prose-dark max-w-none mt-8">
+      <slot />
+    </article>
+
+    <!-- Navigation to exercises -->
+    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+      <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
+        <p class="text-muted dark:text-muted-dark">
+          Ready to test your understanding?
+        </p>
+        <a
+          href={`/lessons/${lessonId}/exercises`}
+          class="btn-primary"
+        >
+          Start Exercises
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Custom prose styles for lesson content */
+  article :global(table) {
+    @apply w-full border-collapse;
+  }
+
+  article :global(th),
+  article :global(td) {
+    @apply border border-gray-200 dark:border-gray-700 px-4 py-2;
+  }
+
+  article :global(th) {
+    @apply bg-gray-50 dark:bg-gray-800 font-semibold;
+  }
+
+  article :global(tr:nth-child(even)) {
+    @apply bg-gray-50/50 dark:bg-gray-800/50;
+  }
+
+  /* Hebrew text in tables */
+  article :global(td[lang="he"]),
+  article :global(th[lang="he"]) {
+    @apply font-hebrew text-hebrew dark:text-hebrew-dark text-xl;
+    direction: rtl;
+  }
+</style>

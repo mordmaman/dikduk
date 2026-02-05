@@ -1,0 +1,124 @@
+---
+import '@/styles/global.css';
+import Header from '@/components/layout/Header.svelte';
+import Footer from '@/components/layout/Footer.svelte';
+import CookieConsent from '@/components/ui/CookieConsent.svelte';
+
+interface Props {
+  title: string;
+  description?: string;
+  showHeader?: boolean;
+  showFooter?: boolean;
+}
+
+const {
+  title,
+  description = 'Learn Biblical Hebrew grammar interactively based on Weingreen\'s "A Practical Grammar for Classical Hebrew."',
+  showHeader = true,
+  showFooter = true,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1e40af" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Dikduk" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Dikduk" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <title>{title} | Dikduk</title>
+
+    <!-- Theme initialization (prevents flash) -->
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem('dikduk_theme') || 'system';
+        let dark;
+        if (theme === 'dark') {
+          dark = true;
+        } else if (theme === 'light') {
+          dark = false;
+        } else {
+          dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+        if (dark) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-background dark:bg-background-dark">
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    {showHeader && <Header client:load />}
+
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+
+    {showFooter && <Footer />}
+
+    <CookieConsent client:load />
+
+    <!-- Analytics (loaded only after consent) -->
+    <script>
+      import { canLoadAnalytics } from '@/lib/cookies';
+
+      if (canLoadAnalytics()) {
+        // Vercel Analytics will be loaded here when configured
+        // import { inject } from '@vercel/analytics';
+        // inject();
+      }
+
+      // Listen for consent changes
+      window.addEventListener('cookie-preferences-changed', (e) => {
+        const detail = (e as CustomEvent).detail;
+        if (detail.analytics) {
+          // import { inject } from '@vercel/analytics';
+          // inject();
+        }
+      });
+    </script>
+
+    <!-- Initialize theme and sync -->
+    <script>
+      import { initTheme } from '@/stores/theme';
+      import { initSyncQueue } from '@/lib/sync-queue';
+
+      initTheme();
+      initSyncQueue();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,289 @@
+{
+  "lessonId": "foundations/12-dagesh",
+  "difficulty": "advanced",
+  "exercises": [
+    {
+      "id": "dagesh-adv-1",
+      "type": "multiple-choice",
+      "instruction": "Predict what happens",
+      "question": "You're adding the definite article הַ to סֵפֶר (book). What happens?",
+      "options": [
+        { "id": "a", "text": "הַסֵּפֶר — the ס doubles", "isCorrect": true },
+        { "id": "b", "text": "הַסֵפֶר — nothing changes", "isCorrect": false },
+        { "id": "c", "text": "הֵסֵפֶר — the vowel lengthens", "isCorrect": false }
+      ],
+      "explanation": "When הַ is added, the first letter of the noun doubles (Dagesh Forte). Since ס can take a dagesh, we get הַסֵּפֶר."
+    },
+    {
+      "id": "dagesh-adv-2",
+      "type": "multiple-choice",
+      "instruction": "Predict what happens",
+      "question": "You're adding the definite article הַ to עָם (nation). What happens?",
+      "options": [
+        { "id": "a", "text": "הַעָּם — the ע doubles", "isCorrect": false },
+        { "id": "b", "text": "הָעָם — the vowel under ה lengthens", "isCorrect": true },
+        { "id": "c", "text": "הַעָם — nothing changes", "isCorrect": false }
+      ],
+      "explanation": "ע is a guttural and cannot double. Instead, the patach under הַ lengthens to qamets: הָעָם."
+    },
+    {
+      "id": "dagesh-adv-3",
+      "type": "multiple-choice",
+      "instruction": "Predict what happens",
+      "question": "You're combining מִן with בַּיִת (house). What happens?",
+      "options": [
+        { "id": "a", "text": "מִנְבַּיִת — the נ stays", "isCorrect": false },
+        { "id": "b", "text": "מִבַּיִת — the נ assimilates, בּ doubles and hardens", "isCorrect": true },
+        { "id": "c", "text": "מֵבַיִת — the vowel lengthens", "isCorrect": false }
+      ],
+      "explanation": "The נ assimilates into the ב, which doubles (Dagesh Forte Compensative). Since ב is a BeGaD KePhaT letter, the dagesh also hardens it: מִבַּיִת (mib-bayit)."
+    },
+    {
+      "id": "dagesh-adv-4",
+      "type": "multiple-choice",
+      "instruction": "Predict what happens",
+      "question": "You're combining מִן with רֹאשׁ (head). What happens?",
+      "options": [
+        { "id": "a", "text": "מִרֹּאשׁ — the ר doubles", "isCorrect": false },
+        { "id": "b", "text": "מֵרֹאשׁ — the vowel lengthens because ר can't double", "isCorrect": true },
+        { "id": "c", "text": "מִנְרֹאשׁ — the נ stays", "isCorrect": false }
+      ],
+      "explanation": "The נ should assimilate and cause ר to double, but ר refuses to double. Instead, the chirik lengthens to tsere: מֵרֹאשׁ."
+    },
+    {
+      "id": "dagesh-adv-5",
+      "type": "multiple-choice",
+      "instruction": "Predict what happens",
+      "question": "You're combining מִן with גַּן (garden). What happens?",
+      "options": [
+        { "id": "a", "text": "מִגַּן — the נ assimilates, גּ doubles and hardens", "isCorrect": true },
+        { "id": "b", "text": "מֵגַן — the vowel lengthens", "isCorrect": false },
+        { "id": "c", "text": "מִנְגַּן — the נ stays", "isCorrect": false }
+      ],
+      "explanation": "The נ assimilates into the ג, which doubles (Dagesh Forte). Since ג is a BeGaD KePhaT letter, the dagesh also hardens it from 'gh' to 'g': מִגַּן (mig-gan)."
+    },
+    {
+      "id": "dagesh-adv-6",
+      "type": "multiple-choice",
+      "instruction": "Why doesn't this letter have a dagesh?",
+      "question": "Why does the ב in לֵבָב (heart) NOT have a dagesh?",
+      "hebrewWord": "לֵבָב",
+      "options": [
+        { "id": "a", "text": "ב never takes a dagesh", "isCorrect": false },
+        { "id": "b", "text": "Both בs follow vowels — they close syllables, not begin them", "isCorrect": true },
+        { "id": "c", "text": "It's a guttural letter", "isCorrect": false }
+      ],
+      "explanation": "Dagesh Lene only appears when a BeGaD KePhaT letter begins a syllable with no vowel before it. Both בs in לֵבָב follow vowels (tsere and qamets), so neither gets a dagesh."
+    },
+    {
+      "id": "dagesh-adv-7",
+      "type": "multiple-choice",
+      "instruction": "Why doesn't this letter have a dagesh?",
+      "question": "Why does the פ in אֶלֶף (thousand) NOT have a dagesh?",
+      "hebrewWord": "אֶלֶף",
+      "options": [
+        { "id": "a", "text": "The פ follows a vowel (segol under ל)", "isCorrect": true },
+        { "id": "b", "text": "פ never takes a dagesh at the end of a word", "isCorrect": false },
+        { "id": "c", "text": "It's not a BeGaD KePhaT letter", "isCorrect": false }
+      ],
+      "explanation": "The פ follows the segol under ל, so there's a vowel immediately before it. Dagesh Lene only appears when there's NO vowel before the letter."
+    },
+    {
+      "id": "dagesh-adv-8",
+      "type": "multiple-choice",
+      "instruction": "Why doesn't this letter have a dagesh?",
+      "question": "Why does the כ in מַלְאָךְ (angel) NOT have a dagesh?",
+      "hebrewWord": "מַלְאָךְ",
+      "options": [
+        { "id": "a", "text": "The כ begins the syllable after a sheva", "isCorrect": false },
+        { "id": "b", "text": "The כ follows a vowel (qamets under א)", "isCorrect": true },
+        { "id": "c", "text": "כ at the end of a word never takes a dagesh", "isCorrect": false }
+      ],
+      "explanation": "The כ follows the qamets under א. Since a vowel comes immediately before it, it cannot have Dagesh Lene."
+    },
+    {
+      "id": "dagesh-adv-9",
+      "type": "tap-to-select",
+      "instruction": "Tap every letter that contains a dagesh",
+      "question": "Which letters have a dagesh?",
+      "hebrewText": "וַיְדַבֵּר יְהוָה אֶל־מֹשֶׁה",
+      "correctIndices": [0, 4, 5],
+      "explanation": "וַ has a dagesh in the ו, דּ has Dagesh Lene (begins syllable after sheva), בּ has Dagesh Forte (Pi'el doubling)."
+    },
+    {
+      "id": "dagesh-adv-10",
+      "type": "tap-to-select",
+      "instruction": "Tap every letter that contains a dagesh",
+      "question": "Which letters have a dagesh?",
+      "hebrewText": "כִּי־טוֹב כִּי לְעוֹלָם חַסְדּוֹ",
+      "correctIndices": [0, 7, 18],
+      "explanation": "First כּ (Dagesh Forte after connecting hyphen), second כּ (Dagesh Lene — begins word), דּ (Dagesh Lene — begins syllable after sheva)."
+    },
+    {
+      "id": "dagesh-adv-11",
+      "type": "tap-to-select",
+      "instruction": "Tap every letter that contains a dagesh",
+      "question": "Which letters have a dagesh?",
+      "hebrewText": "בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם",
+      "correctIndices": [0, 7],
+      "explanation": "בּ (Dagesh Lene — begins the word), תּ (Dagesh Forte — doubled). Note: הָעוֹלָם has no dagesh — the ע is a guttural so the vowel lengthened instead."
+    },
+    {
+      "id": "dagesh-adv-12",
+      "type": "multiple-choice",
+      "instruction": "Analyse step by step",
+      "question": "In the word מִתּוֹךְ, the תּ has a dagesh. Work through the logic: Is there a vowel before the תּ?",
+      "hebrewWord": "מִתּוֹךְ",
+      "options": [
+        { "id": "a", "text": "Yes — chirik under מ comes before תּ, so this is Dagesh Forte (doubled)", "isCorrect": true },
+        { "id": "b", "text": "No — the תּ begins the word, so this is Dagesh Lene", "isCorrect": false },
+        { "id": "c", "text": "No — sheva comes before it, so this is Dagesh Lene", "isCorrect": false }
+      ],
+      "explanation": "The chirik under מ is a full vowel that comes immediately before תּ. When a vowel precedes a dagesh, it's Dagesh Forte. This is from מִן + תּוֹךְ — the נ assimilated and תּ doubled."
+    },
+    {
+      "id": "dagesh-adv-13",
+      "type": "multiple-choice",
+      "instruction": "Analyse step by step",
+      "question": "In the word בְּרֵאשִׁית, the בּ has a dagesh. Is there a vowel before the בּ?",
+      "hebrewWord": "בְּרֵאשִׁית",
+      "options": [
+        { "id": "a", "text": "Yes — so this is Dagesh Forte", "isCorrect": false },
+        { "id": "b", "text": "No — the בּ begins the word, so this is Dagesh Lene (hardened)", "isCorrect": true },
+        { "id": "c", "text": "No — but it's still Dagesh Forte because it's doubled", "isCorrect": false }
+      ],
+      "explanation": "Nothing comes before בּ — it's the first letter of the word. With no vowel before it and being a BeGaD KePhaT letter, this is Dagesh Lene, hardening the 'v' to 'b'."
+    },
+    {
+      "id": "dagesh-adv-14",
+      "type": "multiple-choice",
+      "instruction": "Tricky case",
+      "question": "The word כַּפְתּוֹר has TWO dageshim. What type is each?",
+      "hebrewWord": "כַּפְתּוֹר",
+      "options": [
+        { "id": "a", "text": "כּ is Dagesh Lene (begins word), תּ is Dagesh Lene (after sheva)", "isCorrect": true },
+        { "id": "b", "text": "Both are Dagesh Forte (both doubled)", "isCorrect": false },
+        { "id": "c", "text": "כּ is Dagesh Forte, תּ is Dagesh Lene", "isCorrect": false }
+      ],
+      "explanation": "כּ begins the word with no vowel before it — Dagesh Lene. תּ comes after the sheva under פ (sheva is not a full vowel), so it also has Dagesh Lene."
+    },
+    {
+      "id": "dagesh-adv-15",
+      "type": "multiple-choice",
+      "instruction": "Tricky case",
+      "question": "The word הִנֵּה has a dagesh in the נּ. What type and why?",
+      "hebrewWord": "הִנֵּה",
+      "options": [
+        { "id": "a", "text": "Dagesh Lene — נ is a BeGaD KePhaT letter", "isCorrect": false },
+        { "id": "b", "text": "Dagesh Forte — the נ is doubled (follows the chirik under ה)", "isCorrect": true },
+        { "id": "c", "text": "Neither — this is just a printing variation", "isCorrect": false }
+      ],
+      "explanation": "נ is NOT a BeGaD KePhaT letter, so it can only have Dagesh Forte. The dagesh shows the נ is doubled. This follows the chirik under ה."
+    },
+    {
+      "id": "dagesh-adv-16",
+      "type": "word-breakdown",
+      "instruction": "Break down what happened in this word",
+      "word": "מִמֶּנּוּ",
+      "parts": [
+        { "text": "מִ", "label": "from (מִן)", "type": "prefix" },
+        { "text": "מֶנּוּ", "label": "him/it (suffix)", "type": "suffix" }
+      ],
+      "explanation": "מִן + suffix = מִמֶּנּוּ. The נ of מִן assimilated into the following מ, which doubled. Then the pronoun suffix was added. The מּ has Dagesh Forte Compensative."
+    },
+    {
+      "id": "dagesh-adv-17",
+      "type": "word-breakdown",
+      "instruction": "Break down what happened in this word",
+      "word": "מִפְּנֵי",
+      "parts": [
+        { "text": "מִ", "label": "from (מִן)", "type": "prefix" },
+        { "text": "פְּנֵי", "label": "face of", "type": "root" }
+      ],
+      "explanation": "מִן + פָּנִים = מִפְּנֵי. The נ assimilated into the פ, which doubled (Dagesh Forte). Since פ is BeGaD KePhaT, it also hardened from 'f' to 'p'."
+    },
+    {
+      "id": "dagesh-adv-18",
+      "type": "word-breakdown",
+      "instruction": "Break down what happened in this word",
+      "word": "מֵהַר",
+      "parts": [
+        { "text": "מֵ", "label": "from (מִן)", "type": "prefix" },
+        { "text": "הַר", "label": "mountain", "type": "root" }
+      ],
+      "explanation": "מִן + הַר = מֵהַר. The נ should cause doubling, but ה is a guttural and can't double. The chirik lengthened to tsere to compensate."
+    },
+    {
+      "id": "dagesh-adv-19",
+      "type": "word-breakdown",
+      "instruction": "Break down what happened in this word",
+      "word": "מֵעַל",
+      "parts": [
+        { "text": "מֵ", "label": "from (מִן)", "type": "prefix" },
+        { "text": "עַל", "label": "upon/above", "type": "root" }
+      ],
+      "explanation": "מִן + עַל = מֵעַל. The נ should cause ע to double, but ע is a guttural. The chirik lengthened to tsere instead."
+    },
+    {
+      "id": "dagesh-adv-20",
+      "type": "matching",
+      "instruction": "Match each מִן combination to its result",
+      "pairs": [
+        { "left": "מִן + שָׁם", "right": "מִשָּׁם (שּׁ doubled)" },
+        { "left": "מִן + עֵדֶן", "right": "מֵעֵדֶן (vowel lengthened)" },
+        { "left": "מִן + כֹּל", "right": "מִכֹּל (כּ doubled + hardened)" },
+        { "left": "מִן + רֹאשׁ", "right": "מֵרֹאשׁ (vowel lengthened)" }
+      ]
+    },
+    {
+      "id": "dagesh-adv-21",
+      "type": "true-false",
+      "instruction": "True or false?",
+      "statement": "If a BeGaD KePhaT letter has Dagesh Forte, it still performs the Lene function (hardening) as well.",
+      "isTrue": true,
+      "explanation": "True. When a BeGaD KePhaT letter has Dagesh Forte, the dagesh does double duty — it doubles the letter AND hardens the sound."
+    },
+    {
+      "id": "dagesh-adv-22",
+      "type": "true-false",
+      "instruction": "True or false?",
+      "statement": "A sheva counts as a vowel when determining Dagesh Lene.",
+      "isTrue": false,
+      "explanation": "False. Sheva (whether silent or vocal) does not count as a full vowel. A BeGaD KePhaT letter following a sheva can have Dagesh Lene."
+    },
+    {
+      "id": "dagesh-adv-23",
+      "type": "true-false",
+      "instruction": "True or false?",
+      "statement": "The word שִׁמְשׁוֹן (Samson) contains a Dagesh Forte.",
+      "isTrue": false,
+      "explanation": "False. The שׁ at the beginning has Dagesh Lene (begins the word). The מ has no dagesh. There's no Dagesh Forte in this word."
+    },
+    {
+      "id": "dagesh-adv-24",
+      "type": "multiple-choice",
+      "instruction": "Apply your knowledge",
+      "question": "You see the word נָתַתִּי (I gave). The תּ in the middle has a dagesh. What type?",
+      "hebrewWord": "נָתַתִּי",
+      "options": [
+        { "id": "a", "text": "Dagesh Lene — it's a BeGaD KePhaT letter beginning a syllable", "isCorrect": false },
+        { "id": "b", "text": "Dagesh Forte — it follows a vowel (patach under ת) and is doubled", "isCorrect": true },
+        { "id": "c", "text": "Neither — this is a scribal error", "isCorrect": false }
+      ],
+      "explanation": "The תּ follows the patach under the first ת. A vowel before a dagesh = Dagesh Forte. The letter is doubled: na-TAT-ti."
+    },
+    {
+      "id": "dagesh-adv-25",
+      "type": "multiple-choice",
+      "instruction": "Apply your knowledge",
+      "question": "In קִדַּשְׁתָּנוּ (You sanctified us), the דּ has a dagesh. Why?",
+      "hebrewWord": "קִדַּשְׁתָּנוּ",
+      "options": [
+        { "id": "a", "text": "Dagesh Lene — ד begins a syllable", "isCorrect": false },
+        { "id": "b", "text": "Dagesh Forte Compensative — a letter assimilated", "isCorrect": false },
+        { "id": "c", "text": "Dagesh Forte Characteristic — this is a Pi'el verb", "isCorrect": true }
+      ],
+      "explanation": "קִדַּשְׁתָּנוּ is from the root ק-ד-שׁ in the Pi'el pattern. In Pi'el, the middle root letter (ד) doubles. This is Dagesh Forte Characteristic."
+    }
+  ]
+}
