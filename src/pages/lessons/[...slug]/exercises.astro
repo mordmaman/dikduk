@@ -1,20 +1,32 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import ExerciseLayout from '@/layouts/ExerciseLayout.astro';
 import ExerciseContainer from '@/components/exercises/ExerciseContainer.svelte';
+import type { Exercise } from '@/lib/types';
+
+// Type for raw JSON import (difficulty is string, not union literal)
+interface ExerciseSetRaw {
+  lessonId: string;
+  difficulty?: string;
+  exercises: Exercise[];
+}
 
 export async function getStaticPaths() {
   const lessons = await getCollection('lessons');
-  return lessons.map((lesson) => ({
+  return lessons.map((lesson: CollectionEntry<'lessons'>) => ({
     params: { slug: lesson.slug },
     props: { lesson },
   }));
 }
 
+interface Props {
+  lesson: CollectionEntry<'lessons'>;
+}
+
 const { slug } = Astro.params;
 
 // In dev mode, props might not be available, so fetch the lesson directly
-let lesson = Astro.props.lesson;
+let lesson: CollectionEntry<'lessons'> | undefined = Astro.props.lesson;
 if (!lesson && slug) {
   lesson = await getEntry('lessons', slug);
 }
@@ -24,14 +36,14 @@ if (!lesson) {
 }
 
 // Load exercises using Vite's glob import
-const exerciseFiles = import.meta.glob<{ default: { lessonId: string; difficulty?: string; exercises: any[] } }>(
+const exerciseFiles = import.meta.glob<{ default: ExerciseSetRaw }>(
   '/src/content/exercises/**/*.json',
   { eager: true }
 );
 
 // Find the matching basic exercise file
 const basicExercisePath = `/src/content/exercises/${lesson.slug}.json`;
-let basicExercises = { lessonId: lesson.slug, exercises: [] as any[] };
+let basicExercises: ExerciseSetRaw = { lessonId: lesson.slug, exercises: [] };
 
 if (exerciseFiles[basicExercisePath]) {
   basicExercises = exerciseFiles[basicExercisePath].default;
@@ -39,7 +51,7 @@ if (exerciseFiles[basicExercisePath]) {
 
 // Find the matching advanced exercise file (if exists)
 const advancedExercisePath = `/src/content/exercises/${lesson.slug}-advanced.json`;
-let advancedExercises: { lessonId: string; difficulty?: string; exercises: any[] } | null = null;
+let advancedExercises: ExerciseSetRaw | null = null;
 
 if (exerciseFiles[advancedExercisePath]) {
   advancedExercises = exerciseFiles[advancedExercisePath].default;

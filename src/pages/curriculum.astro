@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Card from '@/components/ui/Card.svelte';
 import Badge from '@/components/ui/Badge.svelte';
@@ -21,12 +21,14 @@ const units = [
   'unit-8',
 ];
 
-const unitLessons = units.map((unitId) => ({
+type LessonEntry = CollectionEntry<'lessons'>;
+
+const unitLessons: { id: string; name: string; lessons: LessonEntry[] }[] = units.map((unitId) => ({
   id: unitId,
   name: getUnitDisplayName(unitId),
   lessons: lessons
-    .filter((lesson) => lesson.data.unit === unitId)
-    .sort((a, b) => a.data.order - b.data.order),
+    .filter((lesson: LessonEntry) => lesson.data.unit === unitId)
+    .sort((a: LessonEntry, b: LessonEntry) => a.data.order - b.data.order),
 }));
 ---
 

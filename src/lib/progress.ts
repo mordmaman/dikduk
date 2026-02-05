@@ -368,7 +368,7 @@ export async function saveExerciseResult(result: ExerciseResult): Promise<void> 
       enqueue({
         table: 'exercise_results',
         action: 'insert',
-        data: result,
+        data: { ...result },
       });
     }
   }
@@ -415,7 +415,7 @@ export async function updateStreakForActivity(): Promise<void> {
       enqueue({
         table: 'streaks',
         action: 'upsert',
-        data: newStreak,
+        data: { ...newStreak },
       });
     }
   }

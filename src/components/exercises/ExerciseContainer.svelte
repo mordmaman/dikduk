@@ -1,14 +1,25 @@
 <script lang="ts">
-  import type { ExerciseSet } from '@/lib/types';
+  import type { ExerciseSet, Exercise } from '@/lib/types';
   import ExerciseWrapper from './ExerciseWrapper.svelte';
 
+  // More permissive input type to handle JSON imports where difficulty is typed as string
+  interface ExerciseSetInput {
+    lessonId: string;
+    difficulty?: string;
+    exercises: Exercise[];
+  }
+
   interface Props {
-    basicExerciseSet: ExerciseSet;
-    advancedExerciseSet: ExerciseSet | null;
+    basicExerciseSet: ExerciseSetInput;
+    advancedExerciseSet: ExerciseSetInput | null;
     lessonTitle: string;
   }
 
   let { basicExerciseSet, advancedExerciseSet, lessonTitle }: Props = $props();
+
+  // Cast to proper ExerciseSet type for internal use
+  const basicSet = basicExerciseSet as ExerciseSet;
+  const advancedSet = advancedExerciseSet as ExerciseSet | null;
 
   let showAdvanced = $state(false);
 
@@ -17,24 +28,24 @@
   }
 
   let hasAdvancedExercises = $derived(
-    advancedExerciseSet !== null && advancedExerciseSet.exercises.length > 0
+    advancedSet !== null && advancedSet.exercises.length > 0
   );
 
   let advancedExerciseCount = $derived(
-    advancedExerciseSet?.exercises.length ?? 0
+    advancedSet?.exercises.length ?? 0
   );
 </script>
 
-{#if showAdvanced && advancedExerciseSet}
+{#if showAdvanced && advancedSet}
   <ExerciseWrapper
-    exerciseSet={advancedExerciseSet}
+    exerciseSet={advancedSet}
     {lessonTitle}
     isAdvanced={true}
     hasAdvancedExercises={false}
   />
 {:else}
   <ExerciseWrapper
-    exerciseSet={basicExerciseSet}
+    exerciseSet={basicSet}
     {lessonTitle}
     isAdvanced={false}
     {hasAdvancedExercises}
