@@ -1,0 +1,20 @@
+# Dikduk
+
+Biblical Hebrew grammar for adults who already read Hebrew. Lessons follow the order of Weingreen's *A Practical Grammar for Classical Hebrew*; all explanations and exercises are written fresh.
+
+A static site for GitHub Pages. No accounts, no analytics, no cookies: progress is kept in the browser on each device.
+
+## Working on it
+
+```
+python3 build.py      # bundles src/ into index.html
+node tests/check.js   # checks lesson data, Hebrew marks, save logic
+```
+
+Edit files in `src/`, never `index.html` directly. No npm install is needed; `package.json` only sets the module type and script names.
+
+- `src/lessons/` holds one file per lesson. See `src/lesson-format.js` for the format; a new lesson file is picked up by the build automatically.
+- Lesson Hebrew is proofed outside this repo before it is added. Do not edit Hebrew text in lesson files.
+- Divine names are never printed in full. `tests/check.js` fails if one appears.
+
+Fonts: Frank Ruhl Libre (Hebrew subset), self-hosted under the SIL Open Font License; see `fonts/OFL.txt`.
