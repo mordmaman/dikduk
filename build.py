@@ -1,0 +1,151 @@
+#!/usr/bin/env python3
+"""Bundle src/ into a single index.html.
+
+- src/template.html is the page shell.
+- src/styles.css is inlined at /*@STYLES@*/.
+- The ES modules in src/*.js are concatenated in dependency order, starting from
+  src/main.js, with their import lines and export keywords removed, inside one
+  IIFE at /*@SCRIPT@*/.
+- Every src/lessons/*.js file is wrapped as a function returning its default
+  export, and the results become the LESSONS array that main.js reads.
+
+Modules must use single-line imports of the form
+    import { a, b } from './file.js';
+and top-level names must be unique across modules (the build checks this).
+
+Usage: python3 build.py            write index.html
+       python3 build.py --check    exit 1 if index.html is out of date
+"""
+
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+SRC = ROOT / "src"
+LESSONS = SRC / "lessons"
+OUT = ROOT / "index.html"
+ENTRY = "main.js"
+
+IMPORT_RE = re.compile(r"^import\s+\{[^}]*\}\s+from\s+'\./([\w-]+\.js)';\s*$", re.M)
+ANY_IMPORT_RE = re.compile(r"^\s*import\b", re.M)
+EXPORT_DECL_RE = re.compile(r"^export\s+(?=(?:async\s+)?(?:const|let|var|function|class)\b)", re.M)
+EXPORT_LIST_RE = re.compile(r"^export\s*\{[^}]*\};?\s*$", re.M)
+TOP_NAME_RE = re.compile(r"^(?:export\s+)?(?:async\s+)?(?:const|let|var|function\*?|class)\s+([A-Za-z_$][\w$]*)", re.M)
+EXPORT_DEFAULT_RE = re.compile(r"^export\s+default\s+", re.M)
+
+
+class BuildError(Exception):
+    pass
+
+
+def read(path: Path) -> str:
+    return path.read_text(encoding="utf-8")
+
+
+def module_order() -> list[str]:
+    """Depth-first order from the entry module so dependencies come first."""
+    order: list[str] = []
+    visiting: set[str] = set()
+
+    def visit(name: str, chain: list[str]) -> None:
+        if name in order:
+            return
+        if name in visiting:
+            raise BuildError("import cycle: " + " -> ".join(chain + [name]))
+        path = SRC / name
+        if not path.exists():
+            raise BuildError(f"{chain[-1] if chain else '?'} imports missing module {name}")
+        visiting.add(name)
+        text = read(path)
+        deps = IMPORT_RE.findall(text)
+        n_imports = len(ANY_IMPORT_RE.findall(text))
+        if n_imports != len(deps):
+            raise BuildError(f"{name}: use single-line imports of the form import {{ x }} from './file.js';")
+        for dep in deps:
+            visit(dep, chain + [name])
+        visiting.discard(name)
+        order.append(name)
+
+    visit(ENTRY, [])
+    return order
+
+
+def strip_module(name: str, text: str) -> str:
+    text = IMPORT_RE.sub("", text)
+    text = EXPORT_LIST_RE.sub("", text)
+    text = EXPORT_DECL_RE.sub("", text)
+    if re.search(r"^export\b", text, re.M):
+        raise BuildError(f"{name}: unsupported export form (use export const / function / class)")
+    return f"// ---- {name} ----\n{text.strip()}\n"
+
+
+def lesson_bundle() -> str:
+    files = sorted(LESSONS.glob("*.js"))
+    parts = []
+    for f in files:
+        text = read(f)
+        if ANY_IMPORT_RE.search(text):
+            raise BuildError(f"lessons/{f.name}: lesson files may not import anything")
+        if len(EXPORT_DEFAULT_RE.findall(text)) != 1 or re.search(r"^export\s+(?!default)", text, re.M):
+            raise BuildError(f"lessons/{f.name}: must have exactly one 'export default' and no other exports")
+        body = EXPORT_DEFAULT_RE.sub("return ", text).strip()
+        parts.append(f"// ---- lessons/{f.name} ----\n(function () {{\n{body}\n}})()")
+    return "const LESSONS = [\n" + ",\n".join(parts) + "\n];\n"
+
+
+def check_names(chunks: dict[str, str]) -> None:
+    seen: dict[str, str] = {}
+    for name, text in chunks.items():
+        for ident in TOP_NAME_RE.findall(text):
+            if ident in seen:
+                raise BuildError(f"top-level name '{ident}' is declared in both {seen[ident]} and {name}")
+            seen[ident] = name
+    if "LESSONS" in seen:
+        raise BuildError(f"{seen['LESSONS']} declares LESSONS, which the build reserves")
+
+
+def build() -> str:
+    order = module_order()
+    unused = sorted(p.name for p in SRC.glob("*.js") if p.name not in order)
+    if unused:
+        print(f"note: not imported, left out: {', '.join(unused)}", file=sys.stderr)
+    sources = {name: read(SRC / name) for name in order}
+    check_names(sources)
+
+    script = "(() => {\n'use strict';\n" + lesson_bundle() + "\n" + "\n".join(
+        strip_module(n, sources[n]) for n in order
+    ) + "})();\n"
+    script = script.replace("</script", "<\\/script")
+
+    page = read(SRC / "template.html")
+    styles = read(SRC / "styles.css")
+    for marker in ("/*@STYLES@*/", "/*@SCRIPT@*/"):
+        if page.count(marker) != 1:
+            raise BuildError(f"template.html must contain {marker} exactly once")
+    page = page.replace("/*@STYLES@*/", styles.strip()).replace("/*@SCRIPT@*/", script.strip())
+    banner = "<!-- Built by build.py from src/. Do not edit this file directly. -->\n"
+    return banner + page
+
+
+def main() -> int:
+    try:
+        html = build()
+    except BuildError as e:
+        print(f"build failed: {e}", file=sys.stderr)
+        return 1
+    if "--check" in sys.argv[1:]:
+        current = OUT.read_text(encoding="utf-8") if OUT.exists() else ""
+        if current != html:
+            print("index.html is out of date; run python3 build.py", file=sys.stderr)
+            return 1
+        print("index.html is up to date")
+        return 0
+    OUT.write_text(html, encoding="utf-8")
+    n = len(list(LESSONS.glob("*.js")))
+    print(f"wrote {OUT.name} ({len(html.encode('utf-8')) // 1024} KB, {n} lesson{'s' if n != 1 else ''})")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
