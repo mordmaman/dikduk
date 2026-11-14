@@ -189,7 +189,7 @@ function match(q, step, onChange) {
     leftCol.append(b);
   });
   for (const j of step.order) {
-    const b = h('button', { type: 'button', class: 'option match-item', 'aria-pressed': 'false' },
+    const b = h('button', { type: 'button', class: 'option match-item', 'aria-pressed': 'false', 'data-i': j },
       h('span', { class: 'badge', 'aria-hidden': 'true' }), h('span', { class: 'option-text', html: formatText(q.pairs[j].right) }));
     b.addEventListener('click', () => clickRight(j));
     rightBtns[j] = b;
@@ -197,8 +197,8 @@ function match(q, step, onChange) {
   }
 
   function clickLeft(i) {
-    if (pairOf[i] !== undefined) { pairOf[i] = undefined; activeLeft = undefined; }
-    else activeLeft = activeLeft === i ? undefined : i;
+    if (pairOf[i] !== undefined) pairOf[i] = undefined; // tapping a paired item undoes the pair
+    activeLeft = i;
     paint();
   }
   function clickRight(j) {
@@ -239,7 +239,6 @@ function match(q, step, onChange) {
     promptEl(q.prompt || 'Match each item on the left with one on the right.'),
     h('p', { class: 'hint' }, 'Tap an item on the left, then its match on the right. Tap a pair again to undo.'),
     h('div', { class: 'match-grid' }, leftCol, rightCol), status, answers);
-  activeLeft = 0;
   queueMicrotask(paint);
   return {
     el,
