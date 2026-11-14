@@ -1,30 +1,9 @@
-# Environment variables
-.env
-.env.local
-.env.production
-
-# Dependencies
 node_modules/
-
-# Build output
-dist/
-.astro/
-
-# Vercel
-.vercel/
-
-# Editor directories
+.DS_Store
+Thumbs.db
 .idea/
 .vscode/
 *.swp
-*.swo
 *~
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Debug logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+.env
+.env.*

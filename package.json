@@ -1,31 +1,10 @@
 {
   "name": "dikduk",
-  "type": "module",
-  "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "description": "Biblical Hebrew grammar for people who already read Hebrew. Static site, no dependencies.",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "check": "astro check"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.0.2",
-    "@astrojs/svelte": "^7.0.3",
-    "@astrojs/tailwind": "^6.0.1",
-    "@astrojs/vercel": "^8.0.2",
-    "@supabase/supabase-js": "^2.46.2",
-    "astro": "^5.1.1",
-    "nanostores": "^0.11.3",
-    "@nanostores/persistent": "^0.10.2",
-    "svelte": "^5.11.0",
-    "tailwindcss": "^3.4.16",
-    "typescript": "^5.7.2"
-  },
-  "devDependencies": {
-    "@tailwindcss/typography": "^0.5.15"
+    "build": "python3 build.py",
+    "test": "node tests/check.js"
   }
 }
