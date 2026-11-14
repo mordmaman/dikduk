@@ -203,21 +203,25 @@ export function validateLesson(lesson, file = '') {
 // --- Text-level checks, run over the raw file text ---------------------------
 
 // Divine names must never be printed in full. Returns the offending words.
+// The patterns are written as escaped code points so this file does not print
+// them either. Final letter forms are folded to their ordinary forms first.
+const FINALS = { '\u05DA': '\u05DB', '\u05DD': '\u05DE', '\u05DF': '\u05E0', '\u05E3': '\u05E4', '\u05E5': '\u05E6' };
+const NAME_YHWH = '\u05D9\u05D4\u05D5\u05D4';
+const NAME_ELOK = /\u05D0\u05DC\u05D5?\u05D4\u05D9/; // Elokim and its forms, unaltered
+const NAME_ELOAH = /\u05D0\u05DC\u05D5\u05D4$/; // Eloah, unaltered
+const NAME_ADNY = '\u05D0\u05D3\u05E0\u05D9'; // the Name only with kamatz under the nun
+const NAME_SHDY = '\u05E9\u05D3\u05D9'; // the Name only with shin dot and a dagesh in the dalet
+
 export function findDivineNames(text) {
   const found = [];
   const words = text.split(/[^֑-ׇא-תיִ-ﭏ]+/).filter(Boolean);
   for (const word of words) {
     const letters = lettersOf(word);
-    const bare = letters.map((l) => l.base).join('').replace(/[ךםןףץ]/g, (c) => 'כמנפצ'['ךםןףץ'.indexOf(c)]);
-    let hit = false;
-    if (bare.includes('יהוה')) hit = true;
-    if (/אלו?הי/.test(bare)) hit = true; // אלהים, אלהינו, אלהי, אלוהים ...
-    if (/אלוה$/.test(bare)) hit = true; // אלוה
-    // אדני with kamatz under the nun (the Name), not "my lord" with patach or chirik
-    const adon = bare.indexOf('אדני');
+    const bare = letters.map((l) => FINALS[l.base] || l.base).join('');
+    let hit = bare.includes(NAME_YHWH) || NAME_ELOK.test(bare) || NAME_ELOAH.test(bare);
+    const adon = bare.indexOf(NAME_ADNY);
     if (adon !== -1 && hasFeature(letters[adon + 2], 'kamatz')) hit = true;
-    // שדי with shin dot and a dagesh in the dalet, not שָׂדַי "my field"
-    const shad = bare.indexOf('שדי');
+    const shad = bare.indexOf(NAME_SHDY);
     if (shad !== -1 && hasFeature(letters[shad], 'shin-dot') && hasFeature(letters[shad + 1], 'dagesh')) hit = true;
     if (hit) found.push(word);
   }

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "lessons": {
+    "dagesh": { "completed": true, "bestTest": 90, "lastTest": 70, "attempts": 3, "bestChallenge": 85, "star": true },
+    "sheva": { "completed": false, "bestTest": null, "lastTest": null, "attempts": 0, "bestChallenge": null, "star": false }
+  },
+  "missed": { "dagesh/tap-baruch": { "right": 1 } },
+  "last": "dagesh",
+  "settings": { "theme": "dark", "textSize": "large" }
+}
