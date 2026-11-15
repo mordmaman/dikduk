@@ -42,7 +42,7 @@ export default {
       id: 'long-short',
       heading: 'Long and short vowels',
       body: [
-        'The vowels come in pairs: one long and one short for each sound.',
+        'The vowels come in pairs: one long and one short for each sound. (In Ashkenazi pronunciation the long kamatz is said o or aw, but it is still the long partner of patach.)',
         'As a rule an open syllable has a long vowel and a closed syllable a short one. The stress can bend that rule, but one part of it never bends: **a closed syllable without the stress must have a short vowel**.',
       ],
       table: {

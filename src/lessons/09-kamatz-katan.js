@@ -23,6 +23,10 @@ export default {
         { he: 'שָׁלוֹם', note: 'sha-lom: open syllable, read a.', letters: [0] },
         { he: 'כָּל־גּוֹיִם', note: 'Tehillim 117:1, kol-go-yim: closed and unstressed, read o.', letters: [0] },
       ],
+      callout: {
+        kind: 'note',
+        text: 'If you read with an Ashkenazi pronunciation, kamatz is already said o or aw, so the two often sound alike. The difference still matters for grammar: kamatz katan is a short vowel, which tells you its syllable is closed and unstressed.',
+      },
       check: [
         {
           id: 'chk-closed-unstressed',

@@ -410,6 +410,10 @@ return {
         { he: 'בְּרֵאשִׁית', note: 'The י shows i (Bereshit 1:1).', mark: 'vowel-letter' },
         { he: 'בָּרוּךְ', note: 'The ו shows u.', mark: 'vowel-letter' },
       ],
+      callout: {
+        kind: 'note',
+        text: 'The pronunciations in these lessons, such as ba-ruch, follow Sephardi and modern Israeli Hebrew. If you read with an Ashkenazi pronunciation, some sounds differ: kamatz is said o or aw, tzere often ei, and a ת without a dagesh s. The grammar is the same either way.',
+      },
       check: [
         {
           id: 'chk-tap-torah',
@@ -666,7 +670,7 @@ return {
       id: 'long-short',
       heading: 'Long and short vowels',
       body: [
-        'The vowels come in pairs: one long and one short for each sound.',
+        'The vowels come in pairs: one long and one short for each sound. (In Ashkenazi pronunciation the long kamatz is said o or aw, but it is still the long partner of patach.)',
         'As a rule an open syllable has a long vowel and a closed syllable a short one. The stress can bend that rule, but one part of it never bends: **a closed syllable without the stress must have a short vowel**.',
       ],
       table: {
@@ -2375,6 +2379,10 @@ return {
         { he: 'שָׁלוֹם', note: 'sha-lom: open syllable, read a.', letters: [0] },
         { he: 'כָּל־גּוֹיִם', note: 'Tehillim 117:1, kol-go-yim: closed and unstressed, read o.', letters: [0] },
       ],
+      callout: {
+        kind: 'note',
+        text: 'If you read with an Ashkenazi pronunciation, kamatz is already said o or aw, so the two often sound alike. The difference still matters for grammar: kamatz katan is a short vowel, which tells you its syllable is closed and unstressed.',
+      },
       check: [
         {
           id: 'chk-closed-unstressed',
@@ -3741,6 +3749,7 @@ function renderSettings(app, ctx) {
       h('section', { class: 'about' }, h('h2', {}, 'About'),
         h('p', {}, 'Progress is kept in this browser on this device only. There are no accounts, no analytics and no cookies, and nothing is sent anywhere.'),
         h('p', {}, 'The explanations, examples and exercises are all original. Examples are taken from Tanakh and the siddur.'),
+        h('p', {}, 'Pronunciations follow Sephardi and modern Israeli Hebrew. Ashkenazi readers will say some vowels differently; the grammar is the same.'),
         h('p', {}, 'Divine names are not printed in full.'),
         h('p', {}, 'Hebrew is set in Frank Ruhl Libre, under the SIL Open Font License.'))),
     footer());

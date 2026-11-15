@@ -23,6 +23,10 @@ export default {
         { he: 'בְּרֵאשִׁית', note: 'The י shows i (Bereshit 1:1).', mark: 'vowel-letter' },
         { he: 'בָּרוּךְ', note: 'The ו shows u.', mark: 'vowel-letter' },
       ],
+      callout: {
+        kind: 'note',
+        text: 'The pronunciations in these lessons, such as ba-ruch, follow Sephardi and modern Israeli Hebrew. If you read with an Ashkenazi pronunciation, some sounds differ: kamatz is said o or aw, tzere often ei, and a ת without a dagesh s. The grammar is the same either way.',
+      },
       check: [
         {
           id: 'chk-tap-torah',

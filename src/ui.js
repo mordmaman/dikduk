@@ -118,6 +118,7 @@ export function renderSettings(app, ctx) {
       h('section', { class: 'about' }, h('h2', {}, 'About'),
         h('p', {}, 'Progress is kept in this browser on this device only. There are no accounts, no analytics and no cookies, and nothing is sent anywhere.'),
         h('p', {}, 'The explanations, examples and exercises are all original. Examples are taken from Tanakh and the siddur.'),
+        h('p', {}, 'Pronunciations follow Sephardi and modern Israeli Hebrew. Ashkenazi readers will say some vowels differently; the grammar is the same.'),
         h('p', {}, 'Divine names are not printed in full.'),
         h('p', {}, 'Hebrew is set in Frank Ruhl Libre, under the SIL Open Font License.'))),
     footer());
