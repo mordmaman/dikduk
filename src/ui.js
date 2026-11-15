@@ -118,6 +118,8 @@ export function renderSettings(app, ctx) {
       h('section', { class: 'about' }, h('h2', {}, 'About'),
         h('p', {}, 'Progress is kept in this browser on this device only. There are no accounts, no analytics and no cookies, and nothing is sent anywhere.'),
         h('p', {}, 'The explanations, examples and exercises are all original. Examples are taken from Tanakh and the siddur.'),
+        h('p', {}, 'Pronunciations follow Sephardi and modern Israeli Hebrew. Ashkenazi readers will say some vowels differently; the grammar is the same.'),
+        h('p', {}, 'Further reading: ', h('a', { href: 'https://en.wikisource.org/wiki/Gesenius%27_Hebrew_Grammar', target: '_blank', rel: 'noopener' }, 'Gesenius\' Hebrew Grammar'), ' (1910), free on Wikisource.'),
         h('p', {}, 'Divine names are not printed in full.'),
         h('p', {}, 'Hebrew is set in Frank Ruhl Libre, under the SIL Open Font License.'))),
     footer());
@@ -244,8 +246,13 @@ function teachView(screen) {
     screen.table ? h('div', { class: 'table-wrap' }, h('table', {},
       h('thead', {}, h('tr', {}, screen.table.headers.map((c) => textEl('th', c, { scope: 'col' })))),
       h('tbody', {}, screen.table.rows.map((r) => h('tr', {}, r.map((c) => textEl('td', c))))))) : null,
-    screen.callout ? h('aside', { class: `callout callout-${screen.callout.kind}` },
-      h('strong', {}, screen.callout.kind === 'tip' ? 'Try this' : 'Note'), ' ', h('span', { html: formatText(screen.callout.text) })) : null);
+    calloutsOf(screen).map((c) => h('aside', { class: `callout callout-${c.kind}` },
+      h('strong', {}, c.kind === 'tip' ? 'Try this' : 'Note'), ' ', h('span', { html: formatText(c.text) }))));
+}
+
+function calloutsOf(screen) {
+  if (!screen.callout) return [];
+  return Array.isArray(screen.callout) ? screen.callout : [screen.callout];
 }
 
 function introView(lesson, step) {

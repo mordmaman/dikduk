@@ -1,5 +1,5 @@
-// Sheva. Explanations
-// and examples are original; example words were checked against the Masoretic
+// Sheva. Rules checked against Gesenius' Hebrew Grammar (1910), §10, §28, §102.
+// Explanations and examples are original; example words were checked against the Masoretic
 // text and the siddur on Sefaria (Bereshit 1:5, 12:2; Shemot 12:2, 12:28, 19:3,
 // 34:6; Devarim 6:4, 16:18, 27:15; Shoftim 9:15; Tehillim 96:11; Kaddish;
 // birchot hamitzvot).
@@ -16,8 +16,8 @@ export default {
       id: 'what-is-sheva',
       heading: 'Two dots, two kinds',
       body: [
-        'The two dots under a letter are a **sheva** (שְׁוָא). They mark a letter that has no full vowel of its own.',
-        'A sheva is either **vocal** or **silent**. A vocal sheva is heard as a quick, half-swallowed e, and it begins a syllable. A silent sheva is not heard at all; it closes a syllable.',
+        'The two dots under a letter are a **sheva** (שְׁוָא). They mark a letter that has no vowel of its own: no a, e, i, o or u.',
+        'A sheva is either **vocal** (שְׁוָא נָע, "moving sheva") or **silent** (שְׁוָא נָח, "resting sheva"). A vocal sheva is heard as a quick, half-swallowed e, and it begins a syllable. A silent sheva is not heard at all; it closes a syllable.',
         'Compare שְׁמַע, said sh\'ma, with יִשְׂרָאֵל, said yis-ra-el. The two words that open the Shema have one of each.',
       ],
       examples: [
@@ -42,12 +42,12 @@ export default {
       id: 'start-middle-end',
       heading: 'Start, middle and end',
       body: [
-        'At the **start of a word**, a sheva is always vocal: בְּרָכָה is b\'ra-chah.',
-        'In the **middle of a word**, a sheva that closes a syllable is silent: מִשְׁפָּט is mish-pat.',
-        'Under the **last letter** of a word, a sheva is silent. It is mostly written in a final ךְ, as in מֶלֶךְ.',
+        'At the **start of a word**, a sheva is vocal: בְּרָכָה is b\'ra-cha.',
+        'In the **middle of a word**, a sheva is often silent and ends the syllable: מִשְׁפָּט is mish-pat. The next screens show how to tell.',
+        'Under the **last letter** of a word, a sheva is silent. Usually it is not printed at all; you mostly see it in a final ךְ, as in מֶלֶךְ.',
       ],
       examples: [
-        { he: 'בְּרָכָה', note: 'b\'ra-chah: vocal at the start (Bereshit 12:2).', mark: 'sheva' },
+        { he: 'בְּרָכָה', note: 'b\'ra-cha: vocal at the start (Bereshit 12:2).', mark: 'sheva' },
         { he: 'מִשְׁפָּט', note: 'mish-pat: silent in the middle.', mark: 'sheva' },
         { he: 'מֶלֶךְ', note: 'me-lech: silent under the last letter.', mark: 'sheva' },
       ],
@@ -59,7 +59,7 @@ export default {
           he: 'בְּרָכָה',
           feature: 'sheva',
           answer: [0],
-          explain: 'The ב. A sheva under the first letter of a word is always vocal.',
+          explain: 'The ב. A sheva under the first letter of a word is vocal.',
         },
       ],
     },
@@ -67,13 +67,17 @@ export default {
       id: 'long-short-before',
       heading: 'Look at the vowel before it',
       body: [
-        'In the middle of a word, the vowel just before the sheva usually decides. After a **short** vowel the sheva is silent. After a **long** vowel it is vocal.',
-        'Two words that end in אָמֵן show it side by side. In Kaddish we say וְאִמְרוּ, ve-im-ru: a short chirik, so the sheva is silent. In the Torah the people answer וְאָמְרוּ, ve-a-m\'ru: a long kamatz, so the sheva is vocal.',
+        'In the middle of a word, look at the vowel just before the sheva. After a **short** vowel the sheva is usually silent. After a **long** vowel it is usually vocal.',
+        'Two phrases that end with אָמֵן show it side by side. In Kaddish we say וְאִמְרוּ, ve-im-ru: a short chirik, so the sheva is silent. In the Torah the people answer וְאָמְרוּ, ve-a-m\'ru: a long kamatz, so the sheva is vocal.',
       ],
       examples: [
         { he: 'וְאִמְרוּ', note: 'Kaddish: ve-im-ru. Short chirik, silent sheva.', letters: [2] },
         { he: 'וְאָמְרוּ', note: 'Devarim 27:15: ve-a-m\'ru. Long kamatz, vocal sheva.', letters: [2] },
       ],
+      callout: {
+        kind: 'note',
+        text: 'Two things can change this. If the syllable before the sheva carries the stress, the sheva is silent even after a long vowel: לָיְלָה, LAI-la. And a small upright line beside the vowel, called a **meteg**, marks the sheva as vocal even after a short vowel: וַֽיְהִי is va-y\'hi (Bereshit 1:5). The next lesson is about the meteg.',
+      },
       check: [
         {
           id: 'chk-amru-why',
@@ -84,25 +88,20 @@ export default {
             { text: 'It is at the start of the word' },
             { text: 'It is under the last letter' },
           ],
-          explain: 'After a long vowel, a sheva in the middle of a word is vocal: ve-a-m\'ru. After the short chirik in וְאִמְרוּ it is silent: ve-im-ru.',
+          explain: 'After a long vowel, a sheva in the middle of a word is usually vocal: ve-a-m\'ru. After the short chirik in וְאִמְרוּ it is silent: ve-im-ru.',
         },
       ],
     },
     {
-      id: 'two-and-doubled',
-      heading: 'Two shevas, and a doubled letter',
+      id: 'two-shevas',
+      heading: 'Two shevas together',
       body: [
-        'When two shevas stand together in the middle of a word, the first is silent and the second is vocal. The first closes one syllable; the second opens the next. יִשְׂמְחוּ, from Tehillim 96 in Kabbalat Shabbat, is yis-m\'chu.',
-        'A sheva under a letter with a dagesh forte, a dot that doubles the letter, is vocal. The doubled letter closes one syllable and starts the next, so its sheva is sounded: קִדְּשָׁנוּ is kid-d\'sha-nu.',
+        'When two shevas stand together in the middle of a word, the first is silent and the second is vocal. The first closes one syllable; the second opens the next.',
+        'יִשְׂמְחוּ, from Tehillim 96 in Kabbalat Shabbat, is yis-m\'chu.',
       ],
       examples: [
         { he: 'יִשְׂמְחוּ', note: 'yis-m\'chu: silent, then vocal.', mark: 'sheva' },
-        { he: 'קִדְּשָׁנוּ', note: 'kid-d\'sha-nu: vocal under the doubled ד.', mark: 'sheva' },
       ],
-      callout: {
-        kind: 'note',
-        text: 'A small upright line beside a vowel, the meteg, tells you to pause on that vowel. When it comes before a sheva, the sheva is vocal even after a short vowel: וַֽיְהִי is va-y\'hi (Bereshit 1:5).',
-      },
       check: [
         {
           id: 'chk-tap-yismechu',
@@ -117,10 +116,34 @@ export default {
       ],
     },
     {
-      id: 'composite',
-      heading: 'The gutturals and the composite sheva',
+      id: 'doubled',
+      heading: 'A sheva under a doubled letter',
       body: [
-        'The gutturals א ה ח ע do not take a plain vocal sheva. Instead they take a sheva joined to a short vowel, called a **chataf** ("hurried") vowel, or a composite sheva.',
+        'Sometimes a letter has a dot in it called a **dagesh forte** (דָּגֵשׁ חָזָק). It means the letter is said twice: once to end one syllable and once to start the next. Lesson 5 covers it fully.',
+        'A sheva under such a letter is vocal, because the second half of the letter starts a new syllable: קִדְּשָׁנוּ is kid-d\'sha-nu.',
+      ],
+      examples: [
+        { he: 'קִדְּשָׁנוּ', note: 'kid-d\'sha-nu: vocal under the doubled ד.', mark: 'sheva' },
+      ],
+      check: [
+        {
+          id: 'chk-kiddeshanu-why',
+          type: 'choice',
+          prompt: 'Why is the sheva under the ד in קִדְּשָׁנוּ vocal?',
+          options: [
+            { text: 'The ד is doubled, so it also starts the next syllable', correct: true },
+            { text: 'It follows a short vowel' },
+            { text: 'It is at the start of the word' },
+          ],
+          explain: 'The dagesh forte doubles the ד: kid-d\'sha-nu. The first ד closes kid; the second starts a new syllable, so its sheva is sounded.',
+        },
+      ],
+    },
+    {
+      id: 'composite',
+      heading: 'The gutturals and the chataf vowels',
+      body: [
+        'The throat letters, or **gutturals** (אוֹתִיּוֹת הַגָּרוֹן), א ה ח ע, do not take a plain vocal sheva. Instead they take a sheva and a short vowel written together, called a **chataf** ("hurried") vowel. It is said as a quick a, e or o.',
         'There are three: **chataf patach** as in אֲשֶׁר, **chataf segol** as in אֱמֶת, and **chataf kamatz** as in חֳדָשִׁים (Shemot 12:2).',
       ],
       examples: [
@@ -146,13 +169,18 @@ export default {
       id: 'no-two-at-start',
       heading: 'No word starts with two vocal shevas',
       body: [
-        'A word cannot open with two vocal shevas in a row. When a prefix with a sheva, such as לְ ("to"), meets a word that starts with a vocal sheva, the first sheva turns into a chirik: לְ + בְּנֵי gives לִבְנֵי, as in Shemot 19:3. (The ב also loses its dagesh, since a vowel now comes before it.)',
-        'Before a composite sheva, the prefix takes the matching short vowel instead: כְּ + אֲשֶׁר gives כַּאֲשֶׁר.',
+        'A word cannot open with two vocal shevas in a row.',
+        'Some one-letter words, such as לְ ("to"), are written joined to the front of the next word. These are called **prefixes**. When a prefix with a sheva meets a word that starts with a vocal sheva, the first sheva turns into a chirik: לְ + בְּנֵי gives לִבְנֵי, as in Shemot 19:3. (The dot in the ב goes too; lesson 5 explains why.)',
+        'Before a chataf vowel, the prefix takes the matching short vowel instead: כְּ + אֲשֶׁר gives כַּאֲשֶׁר.',
       ],
       examples: [
         { he: 'לִבְנֵי', note: 'לְ + בְּנֵי: the first sheva becomes a chirik.', letters: [0] },
         { he: 'כַּאֲשֶׁר', note: 'כְּ + אֲשֶׁר: patach to match the chataf patach.', letters: [0] },
       ],
+      callout: {
+        kind: 'note',
+        text: 'Two exceptions you meet constantly. The prefix וְ becomes וּ instead, as in וּבְכָל in the Shema. And before a few words starting with א, the prefix takes a tzere and the א falls silent: לֵאמֹר, "saying" (le-mor).',
+      },
       check: [
         {
           id: 'chk-predict-livnei',
@@ -195,12 +223,12 @@ export default {
       type: 'choice',
       prompt: 'A sheva under the first letter of a word is…',
       options: [
-        { text: 'always vocal', correct: true },
-        { text: 'always silent' },
+        { text: 'vocal', correct: true },
+        { text: 'silent' },
         { text: 'vocal or silent, depending on the next letter' },
       ],
       keepOrder: true,
-      explain: 'Always vocal: it begins the first syllable.',
+      explain: 'Vocal: it begins the first syllable. (There is one rare exception, not worth worrying about yet.)',
     },
     {
       id: 'mishpat-silent',
@@ -230,7 +258,7 @@ export default {
     {
       id: 'bank-emet',
       type: 'wordbank',
-      before: 'The composite sheva under the א of אֱמֶת is chataf ',
+      before: 'The chataf vowel under the א of אֱמֶת is chataf ',
       after: '.',
       options: [
         { text: 'segol', correct: true },
@@ -290,13 +318,13 @@ export default {
     {
       id: 'chal-vayehi-meteg',
       type: 'choice',
-      prompt: 'In וַֽיְהִי the sheva follows a short patach, yet it is vocal: va-y\'hi. Why?',
+      prompt: 'In וַֽיְהִי the sheva follows a short patach, yet it is vocal: va-y\'hi. What tells the reader?',
       options: [
-        { text: 'The meteg beside the patach marks a pause, so the sheva is sounded', correct: true },
+        { text: 'The meteg beside the patach marks the sheva as vocal', correct: true },
         { text: 'A sheva after a patach is always vocal' },
         { text: 'A י can never have a silent sheva' },
       ],
-      explain: 'The meteg tells the reader to pause on the patach, which leaves the syllable open, so the sheva that follows starts a new syllable and is vocal.',
+      explain: 'The meteg is the signal. The reason behind it comes in the Rafeh lesson: this י has lost a doubling, and a letter that loses its doubling keeps a vocal sheva.',
     },
     {
       id: 'chal-predict-beemet',

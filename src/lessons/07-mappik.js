@@ -1,6 +1,7 @@
-// Mappik. Explanations and examples are original; example
+// Mappik. Rules checked against Gesenius' Hebrew Grammar (1910), §14.
+// Explanations and examples are original; example
 // words were checked against the Masoretic text and the siddur on Sefaria
-// (Bereshit 2:23, 3:6; Bamidbar 19:2; Kaddish).
+// (Bereshit 2:23, 3:6; Bamidbar 19:2; Tehillim 131:1; Kaddish).
 
 export default {
   id: 'mappik',
@@ -38,7 +39,7 @@ export default {
       id: 'her',
       heading: 'Usually it means "her"',
       body: [
-        'Most of the time a mappik marks the ending that means "her" or "its" (for something feminine).',
+        'Most of the time a mappik marks the ending that means "her", or "its" when the thing is feminine in Hebrew, like אֶרֶץ.',
         'Bereshit 3:6 has two in a row: לְאִישָׁהּ עִמָּהּ, "to her husband with her". Compare אִשָּׁה, "a woman", with its silent ה.',
         'The Aramaic of Kaddish uses the same mark for "his": שְׁמֵהּ, sh\'meh, "his name".',
       ],
@@ -46,7 +47,12 @@ export default {
         { he: 'לְאִישָׁהּ', note: 'to her husband', mark: 'mappik' },
         { he: 'עִמָּהּ', note: 'with her', mark: 'mappik' },
         { he: 'שְׁמֵהּ', note: 'Kaddish: his name', mark: 'mappik' },
+        { he: 'לֹא־גָבַהּ לִבִּי', note: 'Tehillim 131:1: "my heart is not proud". See the note.', mark: 'mappik' },
       ],
+      callout: {
+        kind: 'note',
+        text: 'A mappik also comes where a sounded ה is part of the word itself, not an ending: in גָבַהּ, "proud", the ה belongs to the root.',
+      },
       check: [
         {
           id: 'chk-imah',
@@ -97,7 +103,7 @@ export default {
       he: 'אֵין־בָּהּ',
       feature: 'mappik',
       answer: [4],
-      explain: 'The final ה of בָּהּ.',
+      explain: 'The final ה of בָּהּ: a dot in a final ה is a mappik. The dot in the ב is a dagesh.',
     },
     {
       id: 'which-sounded',
@@ -140,7 +146,7 @@ export default {
         { left: 'עִמָּהּ', right: 'with her' },
         { left: 'שְׁמֵהּ', right: 'his name (Aramaic)' },
       ],
-      explain: 'The three words with a mappik end in a possessive: her, her, and in Aramaic his.',
+      explain: 'The three words with a mappik end in "her" or, in Aramaic, "his".',
     },
   ],
 
@@ -163,7 +169,7 @@ export default {
         { text: 'A dagesh never comes at the end of a word' },
         { text: 'Only begad kefat letters take a dot' },
       ],
-      explain: 'The gutturals א ה ח ע and ר never take dagesh forte, so a dot in a ה can only be a mappik.',
+      explain: 'The gutturals א ה ח ע cannot be doubled, so a dot in a ה can only be a mappik.',
     },
     {
       id: 'chal-kaddish',
