@@ -1,13 +1,12 @@
-// Mappik. Follows Weingreen §9. Explanations and examples are original; example
+// Mappik. Explanations and examples are original; example
 // words were checked against the Masoretic text and the siddur on Sefaria
 // (Bereshit 2:23, 3:6; Bamidbar 19:2; Kaddish).
 
 export default {
   id: 'mappik',
-  order: 9,
+  order: 7,
   title: 'Mappik',
   hebrewTitle: 'מַפִּיק',
-  weingreen: '§9',
   summary: 'The dot in a final ה that makes it sounded.',
 
   teach: [

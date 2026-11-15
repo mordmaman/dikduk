@@ -95,6 +95,12 @@ for (const path of textFiles) {
   }
 }
 
+section('No reliance on any one textbook');
+for (const path of [...textFiles, join(ROOT, 'README.md'), join(ROOT, 'index.html')]) {
+  const rel = path.slice(ROOT.length + 1);
+  ok(!/weingreen/i.test(readFileSync(path, 'utf8')), `${rel}: does not name or reference Weingreen`);
+}
+
 // --- the detectors themselves ---------------------------------------------------
 section('Divine-name detector');
 const YHWH = cp(0x5d9, 0x5d4, 0x5d5, 0x5d4);

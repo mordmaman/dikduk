@@ -1,4 +1,4 @@
-// Sheva. Rules follow Weingreen §5 (with the meteg note from §3). Explanations
+// Sheva. Explanations
 // and examples are original; example words were checked against the Masoretic
 // text and the siddur on Sefaria (Bereshit 1:5, 12:2; Shemot 12:2, 12:28, 19:3,
 // 34:6; Devarim 6:4, 16:18, 27:15; Shoftim 9:15; Tehillim 96:11; Kaddish;
@@ -6,10 +6,9 @@
 
 export default {
   id: 'sheva',
-  order: 5,
+  order: 3,
   title: 'Sheva',
   hebrewTitle: 'שְׁוָא',
-  weingreen: '§5',
   summary: 'The two dots under a letter: when they are sounded and when they are silent.',
 
   teach: [

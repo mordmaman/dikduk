@@ -1,13 +1,12 @@
-// Makaf. Follows Weingreen §6. Explanations and examples are original; example
+// Makaf. Explanations and examples are original; example
 // words were checked against the Masoretic text on Sefaria (Bereshit 1:2, 1:5,
 // 2:1, 2:10; Devarim 6:5, 16:18; Zecharyah 2:14; Tehillim 117:1).
 
 export default {
   id: 'makaf',
-  order: 6,
+  order: 8,
   title: 'Makaf',
   hebrewTitle: 'מַקָּף',
-  weingreen: '§6',
   summary: 'The short line that joins words, and what it does to their vowels.',
 
   teach: [

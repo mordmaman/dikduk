@@ -46,15 +46,15 @@ export function renderHome(app, ctx) {
   const done = lessons.filter((l) => save.lessons[l.id]?.completed).length;
   const stars = lessons.filter((l) => save.lessons[l.id]?.star).length;
 
-  const list = h('ol', { class: 'lesson-list' }, lessons.map((l) => h('li', {},
+  const list = h('ol', { class: 'lesson-list' }, lessons.map((l, i) => h('li', {},
     h('a', { class: 'lesson-card', href: `#/lesson/${l.id}` },
-      h('span', { class: 'lesson-num', 'aria-hidden': 'true' }, String(l.order)),
+      h('span', { class: 'lesson-num', 'aria-hidden': 'true' }, String(i + 1)),
       h('span', { class: 'lesson-main' },
         h('span', { class: 'lesson-title' },
           h('span', {}, l.title), ' ', heTitle(l),
           l.placeholder ? h('span', { class: 'badge-placeholder' }, 'placeholder') : null),
         textEl('span', l.summary, { class: 'lesson-summary' }),
-        h('span', { class: 'lesson-meta' }, l.weingreen ? h('span', { class: 'ref' }, `Weingreen ${l.weingreen}`) : null,
+        h('span', { class: 'lesson-meta' },
           statusLine(save.lessons[l.id], l)))))));
 
   clear(app).append(
@@ -117,7 +117,7 @@ export function renderSettings(app, ctx) {
       h('section', {}, h('h2', {}, 'Progress'), resetBtn, confirmRow, done),
       h('section', { class: 'about' }, h('h2', {}, 'About'),
         h('p', {}, 'Progress is kept in this browser on this device only. There are no accounts, no analytics and no cookies, and nothing is sent anywhere.'),
-        h('p', {}, 'Lessons follow the order of J. Weingreen, ', h('em', {}, 'A Practical Grammar for Classical Hebrew'), ' (2nd edition, 1959). The explanations and exercises are written fresh.'),
+        h('p', {}, 'The explanations, examples and exercises are all original. Examples are taken from Tanakh and the siddur.'),
         h('p', {}, 'Divine names are not printed in full.'),
         h('p', {}, 'Hebrew is set in Frank Ruhl Libre, under the SIL Open Font License.'))),
     footer());

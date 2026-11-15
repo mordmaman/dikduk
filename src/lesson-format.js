@@ -9,7 +9,6 @@
 //   order: 3,                // position in the course
 //   title: 'Dagesh',
 //   hebrewTitle: 'דָּגֵשׁ',   // optional
-//   weingreen: '§8',         // optional reference to Weingreen's section
 //   summary: 'One line shown in the lesson list.',
 //   placeholder: false,      // optional; true shows a "placeholder" badge
 //

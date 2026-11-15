@@ -1,13 +1,12 @@
-// Rafeh. Follows Weingreen §10. Explanations and examples are original; example
+// Rafeh. Explanations and examples are original; example
 // words were checked against the Masoretic text on Sefaria (Bereshit 2:1;
 // Tehillim 117:1).
 
 export default {
   id: 'rafeh',
-  order: 10,
+  order: 6,
   title: 'Rafeh',
   hebrewTitle: 'רָפֶה',
-  weingreen: '§10',
   summary: 'When a letter that should be doubled is not.',
 
   teach: [
