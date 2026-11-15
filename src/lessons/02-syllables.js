@@ -1,5 +1,4 @@
-// Syllables and stress. Rules follow Weingreen §2 (open and closed syllables)
-// and §4 (milra and mil'el). Explanations and examples are original; example
+// Syllables and stress. Explanations and examples are original; example
 // words were checked against the Masoretic text and the siddur on Sefaria
 // (Bereshit 1:5, 29:6, 29:9 with Rashi; Shemot 34:6; Devarim 27:15, 33:4).
 
@@ -8,7 +7,6 @@ export default {
   order: 2,
   title: 'Syllables and stress',
   hebrewTitle: 'הֲבָרוֹת',
-  weingreen: '§2, §4',
   summary: 'Open and closed syllables, long and short vowels, and which syllable carries the stress.',
 
   teach: [
@@ -44,7 +42,7 @@ export default {
       id: 'long-short',
       heading: 'Long and short vowels',
       body: [
-        'Weingreen sorts the vowels into pairs, one long and one short, for each sound.',
+        'The vowels come in pairs: one long and one short for each sound.',
         'As a rule an open syllable has a long vowel and a closed syllable a short one. The stress can bend that rule, but one part of it never bends: **a closed syllable without the stress must have a short vowel**.',
       ],
       table: {

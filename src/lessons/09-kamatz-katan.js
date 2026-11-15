@@ -1,4 +1,4 @@
-// Kamatz katan. Follows Weingreen §7. Explanations and examples are original;
+// Kamatz katan. Explanations and examples are original;
 // example words were checked against the Masoretic text on Sefaria (Bereshit
 // 1:5, 2:1; Devarim 27:15; Yeshayahu 11:9; Zecharyah 2:14; Tehillim 117:1).
 // Words are shown with the ordinary kamatz sign, as most siddurim print them,
@@ -6,10 +6,9 @@
 
 export default {
   id: 'kamatz-katan',
-  order: 7,
+  order: 9,
   title: 'Kamatz katan',
   hebrewTitle: 'קָמָץ קָטָן',
-  weingreen: '§7',
   summary: 'One sign, two sounds: when a kamatz is read a and when it is read o.',
 
   teach: [

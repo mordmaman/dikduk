@@ -1,14 +1,13 @@
-// Dagesh. Rules follow Weingreen §8 (with §5 on sheva). Explanations and
+// Dagesh. Explanations and
 // examples are original; example words were checked against the Masoretic
 // text and the siddur on Sefaria (Bereshit 1:2, 2:10, 5:1, 6:11; Shemot 20:2,
 // 20:10; Devarim 6:5, 16:18; Yeshayahu 2:3; Kaddish; Lecha Dodi; birchot hamitzvot).
 
 export default {
   id: 'dagesh',
-  order: 8,
+  order: 5,
   title: 'Dagesh',
   hebrewTitle: 'דָּגֵשׁ',
-  weingreen: '§8',
   summary: 'The dot inside a letter: when it makes the sound hard, and when it doubles the letter.',
 
   teach: [
@@ -164,7 +163,7 @@ export default {
       id: 'why-double',
       heading: 'Why a letter doubles',
       body: [
-        'Weingreen gives three reasons for a dagesh forte.',
+        'A letter is doubled for one of three reasons.',
         '**Compensative.** A letter has dropped out, and the next letter doubles to make up for it. The most common case is the נ of מִן, "from", which merges into the word after it: מִן + שָׁם gives מִשָּׁם, "from there".',
         '**Characteristic.** Some verb patterns double the middle letter of the root. In the piel pattern the root ק־ד־שׁ gives קִדְּשָׁנוּ, which you say in every berakha over a mitzvah.',
         '**Euphonic.** Now and then a letter is doubled simply because it sounds smoother.',
@@ -196,7 +195,7 @@ export default {
             { text: 'A נ has dropped out before it (compensative)' },
             { text: 'It begins the word' },
           ],
-          explain: 'קִדְּשָׁנוּ is from the root ק־ד־שׁ in the piel pattern, which doubles the middle letter. Weingreen calls this a characteristic dagesh forte.',
+          explain: 'קִדְּשָׁנוּ is from the root ק־ד־שׁ in the piel pattern, which doubles the middle letter. This is called a characteristic dagesh forte.',
         },
       ],
     },

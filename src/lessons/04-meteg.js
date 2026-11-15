@@ -1,13 +1,12 @@
-// Meteg. Follows Weingreen §3. Explanations and examples are original; example
+// Meteg. Explanations and examples are original; example
 // words were checked against the Masoretic text on Sefaria (Bereshit 1:5, 3:6;
 // Devarim 6:4; Tehillim 96:11).
 
 export default {
   id: 'meteg',
-  order: 3,
+  order: 4,
   title: 'Meteg',
   hebrewTitle: 'מֶתֶג',
-  weingreen: '§3',
   summary: 'The small upright line beside a vowel: pause here.',
 
   teach: [
@@ -47,7 +46,7 @@ export default {
       ],
       callout: {
         kind: 'note',
-        text: 'The same goes for a kamatz with a meteg: the syllable is open, so the kamatz is read a. That matters for kamatz katan, two lessons on.',
+        text: 'The same goes for a kamatz with a meteg: the syllable is open, so the kamatz is read a. That matters for kamatz katan, in a later lesson.',
       },
       check: [
         {

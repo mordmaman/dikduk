@@ -1,6 +1,6 @@
 # Dikduk
 
-Biblical Hebrew grammar for adults who already read Hebrew. Lessons follow the order of Weingreen's *A Practical Grammar for Classical Hebrew*; all explanations and exercises are written fresh.
+Biblical Hebrew grammar for adults who already read Hebrew. All explanations, examples and exercises are original; examples come from Tanakh and the siddur.
 
 A static site for GitHub Pages. No accounts, no analytics, no cookies: progress is kept in the browser on each device.
 

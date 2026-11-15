@@ -1,4 +1,4 @@
-// Vowel letters. Follows Weingreen §1. Explanations and examples are original;
+// Vowel letters. Explanations and examples are original;
 // example words were checked against the Masoretic text and the siddur on
 // Sefaria (Bereshit 1:1, 1:5, 5:1, 12:2; Shemot 20:2; Devarim 27:15, 33:4).
 
@@ -7,7 +7,6 @@ export default {
   order: 1,
   title: 'Vowel letters',
   hebrewTitle: 'אִמּוֹת הַקְּרִיאָה',
-  weingreen: '§1',
   summary: 'How ה, ו and י show vowels, and how to tell when they are consonants.',
 
   teach: [
