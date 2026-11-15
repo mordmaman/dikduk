@@ -142,6 +142,16 @@ const PRESENTATION = cp(0xfb31); // bet with dagesh as one presentation-form cha
 ok(featuresOf(lettersOf(PRESENTATION)[0]).has('dagesh'), 'presentation forms are decomposed');
 const MAKAF = cp(0x5db, 0x5b4, 0x5d9, 0x5be, 0x5d8, 0x5d5, 0x5d1); // synthetic: two words joined by makaf
 ok(lettersOf(MAKAF)[1].lastInWord && lettersOf(MAKAF)[1].word !== lettersOf(MAKAF)[2].word, 'makaf separates words');
+const TORAH = cp(0x5ea, 0x5bc, 0x5d5, 0x5b9, 0x5e8, 0x5b8, 0x5d4);
+eq(positionsWith(TORAH, 'vowel-letter'), [1, 3], 'vowel letters: cholam vav and final he');
+eq(positionsWith(BARUCH, 'vowel-letter'), [2], 'vowel letters: shuruk');
+const BEIT = cp(0x5d1, 0x5bc, 0x5b5, 0x5d9, 0x5ea);
+eq(positionsWith(BEIT, 'vowel-letter'), [1], 'vowel letters: yod after tzere');
+const MITZVOT = cp(0x5de, 0x5b4, 0x5e6, 0x5b0, 0x5d5, 0x5b9, 0x5ea);
+eq(positionsWith(MITZVOT, 'vowel-letter'), [], 'a vav with cholam after a sheva is a consonant');
+const VE_AMRU = cp(0x5d5, 0x5b0, 0x5d0, 0x5b8, 0x5de, 0x5b0, 0x5e8, 0x5d5, 0x5bc);
+eq(positionsWith(VE_AMRU, 'vowel-letter'), [4], 'a vav with its own sheva is a consonant');
+eq(positionsWith(FINAL_HE_DOT, 'vowel-letter'), [], 'a mappik he is not a vowel letter');
 eq(gapsForParts([cp(0x5d4, 0x5b7), cp(0x5de, 0x5b6, 0x5bc, 0x5dc)]), [0], 'gap after first part');
 eq(gapsForParts([cp(0x5d5), cp(0x5d4), cp(0x5de, 0x5dc)]), [0, 1], 'gaps for three parts');
 

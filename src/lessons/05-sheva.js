@@ -6,7 +6,7 @@
 
 export default {
   id: 'sheva',
-  order: 2,
+  order: 5,
   title: 'Sheva',
   hebrewTitle: 'שְׁוָא',
   weingreen: '§5',

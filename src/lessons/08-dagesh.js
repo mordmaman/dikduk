@@ -5,7 +5,7 @@
 
 export default {
   id: 'dagesh',
-  order: 3,
+  order: 8,
   title: 'Dagesh',
   hebrewTitle: 'דָּגֵשׁ',
   weingreen: '§8',

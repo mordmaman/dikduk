@@ -127,18 +127,22 @@ function tap(q, step, onChange) {
   const tokens = splitHebrew(q.he);
   const total = tokens.filter((t) => t.kind === 'letter').length;
   const row = h('div', { class: 'tap-row he', dir: 'rtl', lang: 'he', role: 'group', 'aria-label': 'Letters' });
+  // Letters of one word stay together; lines only break between words.
+  let wordEl = null;
   for (const t of tokens) {
     if (t.kind !== 'letter') {
-      row.append(h('span', { class: 'tap-gap', 'aria-hidden': 'true' }, t.text));
+      wordEl = null;
+      if (t.text.trim()) row.append(h('span', { class: 'tap-sep', 'aria-hidden': 'true' }, t.text));
       continue;
     }
+    if (!wordEl) { wordEl = h('span', { class: 'tap-word' }); row.append(wordEl); }
     const b = h('button', {
       type: 'button', class: 'letter', 'aria-pressed': 'false',
       'aria-label': `${t.text}, letter ${t.index + 1} of ${total}`,
     }, t.text);
     b.addEventListener('click', () => toggle(t.index));
     buttons[t.index] = b;
-    row.append(b);
+    wordEl.append(b);
   }
   function toggle(i, silent) {
     if (picked.has(i)) picked.delete(i); else picked.add(i);

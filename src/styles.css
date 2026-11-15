@@ -283,10 +283,12 @@ tr:last-child td { border-bottom: 0; }
   direction: rtl; gap: 0.3rem; margin: 1.25rem 0 0.75rem;
   font-size: calc(2.4rem * var(--he-scale) / 1.35);
 }
-.tap-gap { width: 0.8em; }
+.tap-row { column-gap: 0.6em; row-gap: 0.4rem; overflow-x: auto; }
+.tap-word { display: flex; flex-wrap: nowrap; direction: rtl; gap: 0.2rem; }
+.tap-sep { color: var(--muted); }
 .letter {
   font: inherit; color: var(--hebrew); line-height: 1.5;
-  min-width: 1.6em; min-height: 2.1em; padding: 0 0.15em;
+  min-width: 1.3em; min-height: 2em; padding: 0 0.08em;
   background: var(--surface); border: 2px solid var(--line); border-radius: var(--radius);
   cursor: pointer;
 }

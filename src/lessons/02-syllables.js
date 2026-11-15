@@ -5,7 +5,7 @@
 
 export default {
   id: 'syllables',
-  order: 1,
+  order: 2,
   title: 'Syllables and stress',
   hebrewTitle: 'הֲבָרוֹת',
   weingreen: '§2, §4',

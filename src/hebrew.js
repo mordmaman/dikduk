@@ -65,7 +65,10 @@ export function splitHebrew(text) {
   const letters = tokens.filter((t) => t.kind === 'letter');
   letters.forEach((l, i) => {
     const next = letters[i + 1];
+    const prev = letters[i - 1];
     l.lastInWord = !next || next.word !== l.word;
+    // Previous letter in the same word, used to recognise vowel letters.
+    Object.defineProperty(l, 'prev', { value: prev && prev.word === l.word ? prev : null, enumerable: false });
   });
   return tokens;
 }
@@ -93,7 +96,31 @@ export function featuresOf(letter) {
     else if (letter.base === 'ה' && letter.lastInWord) f.add('mappik');
     else f.add('dagesh');
   }
+  if (isVowelLetter(letter, f)) f.add('vowel-letter');
   return f;
+}
+
+// A ה, ו or י that only shows a vowel and is not sounded as a consonant:
+//   ו  with shuruk, or with cholam when the letter before has no vowel (תּוֹרָה)
+//   י  with no marks of its own, after a chirik, tzere or segol (שִׁי, בֵּית)
+//   ה  with no marks, ending a word, after a vowel (תּוֹרָה)
+function isVowelLetter(letter, f) {
+  const prevVowel = (l) => Boolean(l) && l.marks.some((m) => VOWEL_NAMES[m]);
+  if (letter.base === 'ו') {
+    if (f.has('shuruk')) return true;
+    const ownVowels = letter.marks.filter((m) => VOWEL_NAMES[m]);
+    return ownVowels.length === 1 && VOWEL_NAMES[ownVowels[0]] === 'cholam' && ownVowels[0] !== 'ֺ' && !prevVowel(letter.prev);
+  }
+  if (letter.base === 'י') {
+    const before = letter.prev ? featuresOfMarks(letter.prev) : new Set();
+    return letter.marks.length === 0 && ['chirik', 'tzere', 'segol'].some((v) => before.has(v));
+  }
+  if (letter.base === 'ה') return letter.marks.length === 0 && letter.lastInWord && prevVowel(letter.prev);
+  return false;
+}
+
+function featuresOfMarks(letter) {
+  return new Set(letter.marks.map((m) => VOWEL_NAMES[m]).filter(Boolean));
 }
 
 export function hasFeature(letter, feature) {
@@ -127,6 +154,6 @@ export function gapsForParts(parts) {
 }
 
 export const FEATURE_NAMES = [
-  'dagesh', 'shuruk', 'mappik', 'sheva', 'shin-dot', 'sin-dot', 'meteg', 'rafeh',
+  'dagesh', 'shuruk', 'mappik', 'vowel-letter', 'sheva', 'shin-dot', 'sin-dot', 'meteg', 'rafeh',
   ...new Set(Object.values(VOWEL_NAMES)),
 ];
