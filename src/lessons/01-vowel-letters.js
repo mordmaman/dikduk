@@ -1,4 +1,5 @@
-// Vowel letters. Explanations and examples are original;
+// Vowel letters. Rules checked against Gesenius' Hebrew Grammar (1910), §7–8.
+// Explanations and examples are original;
 // example words were checked against the Masoretic text and the siddur on
 // Sefaria (Bereshit 1:1, 1:5, 5:1, 12:2; Shemot 20:2; Devarim 27:15, 33:4).
 
@@ -15,7 +16,7 @@ export default {
       heading: 'An alphabet of consonants',
       body: [
         'Every letter of the Hebrew alphabet is a consonant. The vowel points you read were added many centuries after the text was written, and a Sefer Torah is still written without them.',
-        'Long before the points, three letters were pressed into service to show the main vowels: **ה**, **ו** and **י**. These are the **vowel letters**, in Hebrew אִמּוֹת הַקְּרִיאָה, "mothers of reading".',
+        'Long before the points, three letters were pressed into service to show the main vowels: **ה**, **ו** and **י**. These are the **vowel letters**, in Hebrew אִמּוֹת הַקְּרִיאָה, "mothers of reading". (א sometimes does the same job, as in לֹא; a later lesson covers it.)',
         'In a pointed text the vowel letter sits alongside the vowel sign. The letter itself is not sounded as a consonant.',
       ],
       examples: [
@@ -35,7 +36,7 @@ export default {
           he: 'תּוֹרָה',
           feature: 'vowel-letter',
           answer: [1, 3],
-          explain: 'The ו, which carries the cholam (o), and the final ה, which is silent after the kamatz (a).',
+          explain: 'The ו, with the cholam written on it (o), and the final ה, which is silent after the kamatz (a).',
         },
       ],
     },
@@ -71,10 +72,12 @@ export default {
         'ה, ו and י are also ordinary consonants: h, v and y. The points tell you which job a letter is doing.',
         'A ו or י with a vowel of its own is a consonant. In יוֹם the י is a consonant, y, with the ו after it showing o. In וְאָמְרוּ the first ו is a consonant, v, with its own sheva, and the last ו is a vowel letter, u.',
         'A ה at the start or in the middle of a word is a consonant.',
+        'One case to watch: a ו with the cholam dot over it can also be a consonant, v, followed by o. In בְּמִצְוֹתָיו, said in every berakha over a mitzvah, the first ו is v: b\'mitz-vo-tav. The ending ־ָיו is said -av: the י is silent and the last ו is v.',
       ],
       examples: [
         { he: 'יוֹם', note: 'yom: the י is a consonant, the ו a vowel letter (Bereshit 1:5).', mark: 'vowel-letter' },
         { he: 'וְאָמְרוּ', note: 've-a-m\'ru: only the last ו is a vowel letter (Devarim 27:15).', mark: 'vowel-letter' },
+        { he: 'בְּמִצְוֹתָיו', note: 'b\'mitz-vo-tav: neither ו is a vowel letter here.', letters: [3, 6] },
       ],
       check: [
         {
@@ -137,7 +140,7 @@ export default {
     {
       id: 'which-three',
       type: 'choice',
-      prompt: 'Which three letters serve as vowel letters?',
+      prompt: 'Which three letters are the main vowel letters?',
       options: [
         { text: 'ה ו י', correct: true },
         { text: 'א ה ע' },

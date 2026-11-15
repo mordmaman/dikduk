@@ -1,4 +1,5 @@
-// Makaf. Explanations and examples are original; example
+// Makaf. Rules checked against Gesenius' Hebrew Grammar (1910), §9, §16.
+// Explanations and examples are original; example
 // words were checked against the Masoretic text on Sefaria (Bereshit 1:2, 1:5,
 // 2:1, 2:10; Devarim 6:5, 16:18; Zecharyah 2:14; Tehillim 117:1).
 
@@ -35,14 +36,12 @@ export default {
       id: 'vowel-shortens',
       heading: 'Losing the stress can shorten the vowel',
       body: [
-        'Remember the firm rule from the Syllables lesson: a closed syllable without the stress must have a short vowel.',
-        'A short closed word that loses its stress before a makaf has to follow that rule. On its own, אֵת has a tzere, as in the Shema. Joined by makaf in אֶת־הַגָּן, it is unstressed, so the tzere becomes a segol.',
-        'The same happens to the last syllable of a longer word: מִשְׁפָּט becomes מִשְׁפַּט־צֶדֶק, with patach in place of kamatz (Devarim 16:18).',
+        'Remember the firm rule from the Syllables lesson: a closed syllable without the stress almost always has a short vowel.',
+        'A short closed word that loses its stress before a makaf normally follows that rule. On its own, אֵת has a tzere, as in the Shema. Joined by makaf in אֶת־הַגָּן, it is unstressed, so the tzere becomes a segol.',
       ],
       examples: [
         { he: 'אֵת', note: 'On its own: tzere (Devarim 6:5).', letters: [0] },
         { he: 'אֶת־הַגָּן', note: 'Joined: segol (Bereshit 2:10).', letters: [0] },
-        { he: 'מִשְׁפַּט־צֶדֶק', note: 'Joined: patach in place of kamatz.', letters: [2] },
       ],
       check: [
         {
@@ -63,7 +62,7 @@ export default {
       id: 'kol',
       heading: 'The most common case: כָּל',
       body: [
-        'The word you meet most often before a makaf is כָּל, "all". Written with an ordinary kamatz, it is read **kol**, not kal.',
+        'One of the commonest words before a makaf is כָּל, "all". Written with an ordinary kamatz, it is read **kol**, not kal.',
         'The reason is the same rule. Before the makaf it is closed and unstressed, so its vowel must be short, and the short o sound is written with the kamatz sign. This is kamatz katan, the subject of the next lesson.',
         'In Kiddush on Friday night: וְכָל־צְבָאָם, v\'chol-tz\'va-am.',
       ],
@@ -118,28 +117,27 @@ export default {
       explain: 'False. It gives up its stress; the group is stressed on its last word.',
     },
     {
-      id: 'bank-mishpat',
+      id: 'bank-et',
       type: 'wordbank',
-      before: 'In מִשְׁפַּט־צֶדֶק, the kamatz of מִשְׁפָּט has become a ',
+      before: 'Joined by makaf, אֵת becomes אֶת־: its tzere becomes a ',
       after: '.',
       options: [
-        { text: 'patach', correct: true },
-        { text: 'segol' },
-        { text: 'tzere' },
+        { text: 'segol', correct: true },
+        { text: 'patach' },
+        { text: 'chirik' },
       ],
-      explain: 'Patach, the short a. The syllable lost its stress, so the long kamatz shortened.',
+      explain: 'Segol, the short partner of tzere. The word lost its stress, so its vowel shortened.',
     },
     {
-      id: 'predict-mishpat',
-      type: 'predict',
-      prompt: 'Joined by makaf, what do these become?',
-      parts: ['מִשְׁפָּט', 'צֶדֶק'],
+      id: 'stress-of-group',
+      type: 'choice',
+      prompt: 'In וְכָל־צְבָאָם, which word carries the main stress?',
       options: [
-        { text: 'מִשְׁפַּט־צֶדֶק', correct: true },
-        { text: 'מִשְׁפָּט־צֶדֶק' },
-        { text: 'מִשְׁפֶּט־צֶדֶק' },
+        { text: 'צְבָאָם', correct: true },
+        { text: 'וְכָל' },
       ],
-      explain: 'The last syllable of מִשְׁפָּט loses its stress, so its kamatz shortens to patach.',
+      keepOrder: true,
+      explain: 'צְבָאָם, the last word of the group. וְכָל gives up its stress, which is why its kamatz is short: v\'chol.',
     },
     {
       id: 'kol-in-kiddush',

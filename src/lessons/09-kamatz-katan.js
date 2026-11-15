@@ -1,4 +1,5 @@
-// Kamatz katan. Explanations and examples are original;
+// Kamatz katan. Rules checked against Gesenius' Hebrew Grammar (1910), §8–9, §16.
+// Explanations and examples are original;
 // example words were checked against the Masoretic text on Sefaria (Bereshit
 // 1:5, 2:1; Devarim 27:15; Yeshayahu 11:9; Zecharyah 2:14; Tehillim 117:1).
 // Words are shown with the ordinary kamatz sign, as most siddurim print them,
@@ -17,7 +18,7 @@ export default {
       heading: 'One sign, two sounds',
       body: [
         'The kamatz sign stands for two different vowels. Usually it is the long a, **kamatz** (in full, kamatz gadol). Sometimes it is a short o, **kamatz katan**.',
-        'The Syllables lesson gives the test. A closed syllable without the stress must have a short vowel, so a kamatz there is short: o. In an open syllable, or a closed one that carries the stress, it is long: a.',
+        'The Syllables lesson gives the test. A closed syllable without the stress must have a short vowel, so a kamatz there is short: o. In an open syllable, or a closed one that carries the stress, it is almost always long: a.',
       ],
       examples: [
         { he: 'שָׁלוֹם', note: 'sha-lom: open syllable, read a.', letters: [0] },
@@ -47,7 +48,7 @@ export default {
       body: [
         'Three things after a kamatz show that its syllable is closed:',
         'A **silent sheva**: קָדְשִׁי is kod-shi (Yeshayahu 11:9).',
-        'A **dagesh forte** in the next letter, which closes this syllable and opens the next: רָנִּי is ron-ni (Zecharyah 2:14).',
+        'A **dagesh forte** in the next letter, which closes this syllable and opens the next: רָנִּי is ron-ni (Zecharyah 2:14). This only works if the syllable is unstressed: לָמָּה, "why", is stressed on its first syllable (LA-mah), so its kamatz is a.',
         'A **makaf**, as in כָּל־ (kol), because the word has lost its stress.',
       ],
       examples: [
@@ -57,7 +58,7 @@ export default {
       ],
       callout: {
         kind: 'note',
-        text: 'Careful: a sheva after a kamatz is not always silent. In וְאָמְרוּ the kamatz is a and the sheva vocal (ve-a-m\'ru). Many newer siddurim and Tanakh editions print kamatz katan with a larger sign, as in קׇדְשִׁי, which settles the question for you.',
+        text: 'Careful: a sheva after a kamatz does not settle it by itself, because the sheva may be vocal. Where your edition prints a meteg beside the kamatz, read a. Otherwise the shape of the word decides: in verbs like וְאָמְרוּ the kamatz is a (ve-a-m\'ru). Many newer siddurim and Tanakh editions print kamatz katan with a larger sign, as in קׇדְשִׁי, which settles it for you.',
       },
       check: [
         {
@@ -75,7 +76,7 @@ export default {
       id: 'when-a',
       heading: 'When the kamatz is a',
       body: [
-        'In an **open** syllable a kamatz is always a: the ba of צְבָאָם, tz\'va-am.',
+        'In an **open** syllable a kamatz is almost always a: the ba of צְבָאָם, tz\'va-am. The main exception is a kamatz just before a chataf kamatz, as in בַּצָּהֳרָיִם, "at noon" (ba-tzo-ho-ra-yim, Bereshit 43:16).',
         'In a **closed syllable that carries the stress** it is a as well: the am at the end of צְבָאָם, and the first syllable of לָיְלָה, LAI-lah, which is closed by its silent sheva but stressed.',
       ],
       examples: [
@@ -174,6 +175,17 @@ export default {
 
   challenge: [
     {
+      id: 'chal-lamah',
+      type: 'choice',
+      prompt: 'In לָמָּה (Bereshit 4:6) a dagesh forte follows the kamatz. How is the kamatz read?',
+      options: [
+        { text: 'a', correct: true },
+        { text: 'o' },
+      ],
+      keepOrder: true,
+      explain: 'a: LA-mah. The dagesh closes the syllable, but the syllable carries the stress, so the kamatz stays long.',
+    },
+    {
       id: 'chal-tap-bechol-har',
       type: 'tap',
       prompt: 'Tap every letter whose kamatz is read o.',
@@ -191,7 +203,7 @@ export default {
         { text: 'A kamatz before ר is always a' },
         { text: 'It is a printing error' },
       ],
-      explain: 've-a-m\'ru: the sheva after the long kamatz is vocal, so the syllable a- is open. A sheva after a kamatz only closes the syllable when it is silent.',
+      explain: 've-a-m\'ru. In this verb form the kamatz is long and the sheva after it is vocal, so the syllable a- is open. A sheva only closes the syllable when it is silent, which is why a meteg or a kamatz katan sign helps where an edition prints one.',
     },
     {
       id: 'chal-laylah-o',

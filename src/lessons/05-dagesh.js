@@ -1,5 +1,5 @@
-// Dagesh. Explanations and
-// examples are original; example words were checked against the Masoretic
+// Dagesh. Rules checked against Gesenius' Hebrew Grammar (1910), §12–13, §20–22.
+// Explanations and examples are original; example words were checked against the Masoretic
 // text and the siddur on Sefaria (Bereshit 1:2, 2:10, 5:1, 6:11; Shemot 20:2,
 // 20:10; Devarim 6:5, 16:18; Yeshayahu 2:3; Kaddish; Lecha Dodi; birchot hamitzvot).
 
@@ -25,7 +25,7 @@ export default {
       ],
       callout: {
         kind: 'note',
-        text: 'Not every dot is a dagesh. The dot in וּ is the vowel shuruk, and the dot above שׁ or שׂ only tells shin from sin.',
+        text: 'Not every dot is a dagesh. The dot in וּ is usually the vowel shuruk; but if the ו also has a vowel of its own, the dot is a dagesh and the ו is a doubled v, as in וְצִוָּנוּ. The dot above שׁ or שׂ only tells shin from sin.',
       },
       check: [
         {
@@ -105,6 +105,7 @@ export default {
         'If a vowel comes just before a begad kefat letter, it has no dagesh lene and keeps its soft sound.',
         'Compare פְּנֵי with לִפְנֵי. In the first the פ starts the word, so it is hard: p\'nei. In the second the chirik under the ל comes just before it, so it is soft: lifnei.',
         'A **vocal sheva** counts as a vowel here. In בְּתוֹךְ the ת follows the vocal sheva under the ב, so it is soft.',
+        'It can happen across two words too. When a word ends in a vowel and is read closely with the next, a begad kefat letter starting the next word stays soft, as in כִּי מִצִּיּוֹן תֵּצֵא תוֹרָה.',
       ],
       examples: [
         { he: 'פְּנֵי', note: 'p\'nei: the פ starts the word.', mark: 'dagesh' },
@@ -138,8 +139,8 @@ export default {
       heading: 'Dagesh forte: a doubled letter',
       body: [
         'A dagesh forte shows that the letter is doubled. שַׁבָּת is said shab-bat, and אַתָּה is at-tah.',
-        'It can appear in any letter except the four gutturals א ה ח ע and the letter ר.',
-        'A dagesh forte always comes **straight after a vowel**. That gives a quick test: a dagesh right after a vowel is forte; a dagesh with no vowel before it is lene.',
+        'It can appear in any letter except the four gutturals א ה ח ע and (with very rare exceptions) the letter ר.',
+        'Inside a word, a dagesh forte always comes **straight after a vowel**. That gives a quick test: inside a word, a dagesh right after a vowel is forte; a dagesh with no vowel before it is lene.',
         'When one of the six begad kefat letters is doubled, it is hard as well: the ב of שַׁבָּת is b, not v.',
       ],
       examples: [
@@ -164,7 +165,7 @@ export default {
       heading: 'Why a letter doubles',
       body: [
         'A letter is doubled for one of three reasons.',
-        '**Compensative.** A letter has dropped out, and the next letter doubles to make up for it. The most common case is the נ of מִן, "from", which merges into the word after it: מִן + שָׁם gives מִשָּׁם, "from there".',
+        '**Compensative.** A letter has dropped out, and the next letter doubles to make up for it. A very common case is the נ of מִן, "from", which merges into the word after it: מִן + שָׁם gives מִשָּׁם, "from there".',
         '**Characteristic.** Some verb patterns double the middle letter of the root. In the piel pattern the root ק־ד־שׁ gives קִדְּשָׁנוּ, which you say in every berakha over a mitzvah.',
         '**Euphonic.** Now and then a letter is doubled simply because it sounds smoother.',
       ],
@@ -203,9 +204,10 @@ export default {
       id: 'cannot-double',
       heading: 'When a letter cannot double',
       body: [
-        'The gutturals א ה ח ע and the letter ר never take a dagesh forte.',
-        'When a word calls for one of them to be doubled, the vowel before it becomes longer instead. With מִן, the chirik becomes a tzere: מִן + אֶרֶץ gives מֵאֶרֶץ, as in מֵאֶרֶץ מִצְרַיִם.',
+        'The gutturals א ה ח ע and the letter ר do not take a dagesh forte.',
+        'When a word calls for one of them to be doubled, the vowel before it usually becomes longer instead. With מִן, the chirik becomes a tzere: מִן + אֶרֶץ gives מֵאֶרֶץ, as in מֵאֶרֶץ מִצְרַיִם.',
         'Lecha Dodi has both outcomes side by side in מֵרֹאשׁ מִקֶּדֶם. The ר cannot double, so the vowel lengthens. The ק can, so it doubles.',
+        'Before ח and ה the vowel often stays short, as if the letter were still doubled: in הַחֹשֶׁךְ, "the darkness" (Bereshit 1:4), the patach stays.',
       ],
       examples: [
         { he: 'מֵאֶרֶץ', note: 'Tzere under the מ: the א cannot double.', letters: [0] },
@@ -283,20 +285,20 @@ export default {
     {
       id: 'tf-resh',
       type: 'truefalse',
-      statement: 'The letter ר never takes a dagesh forte.',
+      statement: 'The letter ר normally does not take a dagesh forte.',
       answer: true,
-      explain: 'True. Like the gutturals א ה ח ע, ר cannot be doubled.',
+      explain: 'True. Like the gutturals א ה ח ע, ר is not doubled (a handful of rare exceptions aside).',
     },
     {
       id: 'bank-after-vowel',
       type: 'wordbank',
-      before: 'A dagesh that comes straight after a vowel is a dagesh ',
+      before: 'Inside a word, a dagesh that comes straight after a vowel is a dagesh ',
       after: '.',
       options: [
         { text: 'forte', correct: true },
         { text: 'lene' },
       ],
-      explain: 'Dagesh forte always follows a vowel. Dagesh lene never does.',
+      explain: 'Inside a word, dagesh forte always follows a vowel and dagesh lene never does.',
     },
     {
       id: 'match-four',

@@ -1,4 +1,5 @@
-// Meteg. Explanations and examples are original; example
+// Meteg. Rules checked against Gesenius' Hebrew Grammar (1910), §15–16.
+// Explanations and examples are original; example
 // words were checked against the Masoretic text on Sefaria (Bereshit 1:5, 3:6;
 // Devarim 6:4; Tehillim 96:11).
 
@@ -7,15 +8,15 @@ export default {
   order: 4,
   title: 'Meteg',
   hebrewTitle: 'מֶתֶג',
-  summary: 'The small upright line beside a vowel: pause here.',
+  summary: 'The small upright line beside a vowel: linger here.',
 
   teach: [
     {
       id: 'what-meteg',
-      heading: 'A line that says "pause"',
+      heading: 'A line that says "linger"',
       body: [
         'Some vowels have a short upright line beside them, under the letter. This is a **meteg** (מֶתֶג, "bridle"): it reins the reader in.',
-        'A meteg tells you to pause on that vowel and give it a little weight, a lighter stress than the main one. It often sits a syllable or two before the main stress of the word.',
+        'A meteg tells you not to rush that vowel: give it a little weight, a lighter stress than the main one. It often sits a syllable or two before the main stress of the word.',
       ],
       examples: [
         { he: 'הָֽאִשָּׁה', note: 'Bereshit 3:6: a meteg under the ה. Linger on ha-.', mark: 'meteg' },
@@ -35,18 +36,20 @@ export default {
     },
     {
       id: 'meteg-sheva',
-      heading: 'A meteg keeps the syllable open',
+      heading: 'A meteg before a sheva',
       body: [
-        'Because you pause on the vowel, the syllable stays open. So a sheva straight after it begins the next syllable, and is **vocal**, even after a short vowel.',
+        'A sheva straight after a vowel with a meteg is usually **vocal**, even after a short vowel. The meteg is the editors\' way of telling you so.',
         'Tehillim 96:11, which we say in Kabbalat Shabbat, has the two cases next to each other. יִשְׂמְחוּ has no meteg: yis-m\'chu, with a silent sheva. יִֽרְעַם has a meteg under the י: yi-r\'am, with a vocal sheva.',
+        'It is a strong hint, not a law. The common word יִֽהְיֶה, "will be", has a meteg and a silent sheva: yih-yeh (Bereshit 1:29).',
       ],
       examples: [
         { he: 'יִשְׂמְחוּ', note: 'No meteg: yis-m\'chu. The first sheva is silent.', mark: 'sheva' },
         { he: 'יִֽרְעַם', note: 'Meteg: yi-r\'am. The sheva is vocal.', mark: 'meteg' },
+        { he: 'יִֽהְיֶה', note: 'The exception: a meteg, yet yih-yeh, with a silent sheva.', mark: 'meteg' },
       ],
       callout: {
         kind: 'note',
-        text: 'The same goes for a kamatz with a meteg: the syllable is open, so the kamatz is read a. That matters for kamatz katan, in a later lesson.',
+        text: 'A meteg beside a kamatz is likewise a hint that it is read a, not o. That matters for kamatz katan, in a later lesson.',
       },
       check: [
         {
@@ -58,7 +61,7 @@ export default {
             { text: 'silent' },
           ],
           keepOrder: true,
-          explain: 'Vocal. The meteg makes you pause on the chirik, so the first syllable is open and the sheva starts the next one: yi-r\'am.',
+          explain: 'Vocal: yi-r\'am. The meteg on the chirik marks it.',
         },
       ],
     },
@@ -99,18 +102,18 @@ export default {
       type: 'choice',
       prompt: 'What does a meteg tell the reader?',
       options: [
-        { text: 'Pause on this vowel', correct: true },
+        { text: 'Do not rush this vowel: a light secondary stress', correct: true },
         { text: 'This letter is doubled' },
         { text: 'This letter is silent' },
       ],
-      explain: 'A meteg marks a pause, a light secondary stress, on the vowel beside it.',
+      explain: 'A meteg marks a light secondary stress on the vowel beside it.',
     },
     {
       id: 'tf-sheva-after-meteg',
       type: 'truefalse',
-      statement: 'A sheva straight after a vowel with a meteg is vocal.',
+      statement: 'A sheva straight after a vowel with a meteg is usually vocal.',
       answer: true,
-      explain: 'True. The pause keeps the syllable open, so the sheva begins the next one.',
+      explain: 'True. It is a strong hint, though not a law: יִֽהְיֶה has a meteg and a silent sheva.',
     },
     {
       id: 'yismechu-silent',
@@ -133,7 +136,7 @@ export default {
         { left: 'יִשְׂמְחוּ', right: 'yis-m\'chu' },
         { left: 'הָֽאִשָּׁה', right: 'ha-ish-shah' },
       ],
-      explain: 'Where there is a meteg before a sheva, the sheva is vocal: va-y\'hi, yi-r\'am. Without one, after a short vowel, it is silent: yis-m\'chu.',
+      explain: 'Where there is a meteg before a sheva, the sheva is usually vocal: va-y\'hi, yi-r\'am. Without one, after a short vowel, it is usually silent: yis-m\'chu.',
     },
     {
       id: 'bank-silluq',
@@ -155,11 +158,11 @@ export default {
       type: 'choice',
       prompt: 'Tehillim 96:11 has יִשְׂמְחוּ and יִֽרְעַם side by side. Why is the first sheva silent and the second vocal?',
       options: [
-        { text: 'The meteg in יִֽרְעַם keeps its first syllable open', correct: true },
+        { text: 'The meteg in יִֽרְעַם marks its sheva as vocal', correct: true },
         { text: 'A sheva under ר is always vocal' },
         { text: 'They are not: both are silent' },
       ],
-      explain: 'Both follow a short chirik. In יִֽרְעַם the meteg makes you pause on the chirik, which leaves the syllable open, so the sheva is vocal.',
+      explain: 'Both follow a short chirik. In יִֽרְעַם the meteg tells you the sheva is read: yi-r\'am. Without one, יִשְׂמְחוּ is yis-m\'chu.',
     },
     {
       id: 'chal-tap-vayehi-erev',
@@ -168,7 +171,7 @@ export default {
       he: 'וַֽיְהִי־עֶרֶב',
       feature: 'sheva',
       answer: [1],
-      explain: 'The י. It follows the patach with a meteg, so its sheva is vocal: va-y\'hi.',
+      explain: 'The י: va-y\'hi. The meteg beside the patach marks its sheva as vocal.',
     },
     {
       id: 'chal-looks-different',

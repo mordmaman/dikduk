@@ -1,4 +1,5 @@
-// Mappik. Explanations and examples are original; example
+// Mappik. Rules checked against Gesenius' Hebrew Grammar (1910), §14.
+// Explanations and examples are original; example
 // words were checked against the Masoretic text and the siddur on Sefaria
 // (Bereshit 2:23, 3:6; Bamidbar 19:2; Kaddish).
 
@@ -41,6 +42,7 @@ export default {
         'Most of the time a mappik marks the ending that means "her" or "its" (for something feminine).',
         'Bereshit 3:6 has two in a row: לְאִישָׁהּ עִמָּהּ, "to her husband with her". Compare אִשָּׁה, "a woman", with its silent ה.',
         'The Aramaic of Kaddish uses the same mark for "his": שְׁמֵהּ, sh\'meh, "his name".',
+        'It also comes where a sounded ה is part of the word itself, as in לֹא־גָבַהּ לִבִּי, "my heart is not proud" (Tehillim 131:1).',
       ],
       examples: [
         { he: 'לְאִישָׁהּ', note: 'to her husband', mark: 'mappik' },

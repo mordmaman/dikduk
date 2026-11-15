@@ -1,4 +1,5 @@
-// Rafeh. Explanations and examples are original; example
+// Rafeh. Rules checked against Gesenius' Hebrew Grammar (1910), §14, §20.
+// Explanations and examples are original; example
 // words were checked against the Masoretic text on Sefaria (Bereshit 2:1;
 // Tehillim 117:1).
 
@@ -7,16 +8,16 @@ export default {
   order: 6,
   title: 'Rafeh',
   hebrewTitle: 'רָפֶה',
-  summary: 'When a letter that should be doubled is not.',
+  summary: 'The line for a missing dot, and letters that lose their doubling.',
 
   teach: [
     {
       id: 'what-rafeh',
-      heading: 'A line for a missing dagesh',
+      heading: 'A line for a missing dot',
       body: [
-        'In the Dagesh lesson, a letter was sometimes doubled just to sound smoother. The reverse also happens: a letter that the pattern of the word says should be doubled is left single, again for smoother speech.',
-        'The sign for this is **rafeh** (רָפֶה, "soft"): a short horizontal line over the letter. In older manuscripts the same line also marks a begad kefat letter without its dagesh, or a final ה without its mappik.',
-        'Most siddurim and printed Tanakhs leave the line out. You simply see no dagesh where you might expect one.',
+        'The **rafeh** (רָפֶה, "soft") is a short horizontal line over a letter. It is the opposite of a dot: it shows that the letter has no dagesh, or, for a final ה, no mappik.',
+        'In careful manuscripts it sits over every begad kefat letter that has no dagesh. Most siddurim and printed Tanakhs leave it out.',
+        'This lesson is about the case that matters most for reading: a letter that the pattern of the word would double, but which is left single.',
       ],
       examples: [
         { he: 'בֿ', note: 'The rafeh sign: the short line above the ב.' },
@@ -25,9 +26,9 @@ export default {
         {
           id: 'chk-what-it-shows',
           type: 'truefalse',
-          statement: 'Rafeh shows that a letter you would expect to be doubled is not.',
+          statement: 'Rafeh shows that a letter has no dot: no dagesh, or for a final ה, no mappik.',
           answer: true,
-          explain: 'True. It is the opposite of a dagesh forte.',
+          explain: 'True. It is the opposite of a dagesh, and of a mappik.',
         },
       ],
     },
@@ -36,8 +37,9 @@ export default {
       heading: 'Where you meet it',
       body: [
         'The doubling is dropped most often in a letter that has a sheva, especially י, ל, מ and נ. The sheva stays vocal, as it would under a doubled letter.',
-        'In Hallel, הַֽלְלוּ: the verb pattern doubles the middle letter, like the ד of קִדְּשָׁנוּ, so you might expect a dagesh in the first ל. It has none. The meteg keeps its sheva vocal: ha-l\'lu.',
+        'In Hallel, הַֽלְלוּ: the verb pattern doubles the middle letter, like the ד of קִדְּשָׁנוּ, so you might expect a dagesh in the first ל. It has none, but its sheva stays vocal, and the meteg marks it: ha-l\'lu.',
         'In Kiddush, וַיְכֻלּוּ: this verb form normally doubles the י after וַ. Here the doubling is dropped, but the sheva under the י stays vocal. That is why the כ after it is soft: va-y\'chulu, with kh.',
+        'The same explains וַֽיְהִי, va-y\'hi, from the Meteg lesson: its י has lost its doubling too, so its sheva stays vocal.',
       ],
       examples: [
         { he: 'הַֽלְלוּ', note: 'Tehillim 117:1: no dagesh in the first ל.', letters: [1] },
@@ -65,11 +67,11 @@ export default {
       type: 'choice',
       prompt: 'What does a rafeh mark?',
       options: [
-        { text: 'A letter whose expected doubling has been dropped', correct: true },
+        { text: 'A letter with no dot: no dagesh or mappik', correct: true },
         { text: 'A doubled letter' },
         { text: 'A pause on a vowel' },
       ],
-      explain: 'Rafeh, "soft", marks a letter left single where the pattern would double it.',
+      explain: 'Rafeh, "soft", is the opposite of a dot: it marks a letter without a dagesh, or a final ה without a mappik.',
     },
     {
       id: 'tf-printed',
@@ -90,15 +92,15 @@ export default {
       explain: 'Vocal: ha-l\'lu. The meteg shows it, and a sheva under a letter that has lost its doubling stays vocal.',
     },
     {
-      id: 'bank-opposite',
+      id: 'bank-sheva-stays',
       type: 'wordbank',
-      before: 'Rafeh is the opposite of a dagesh ',
-      after: ' added for smoother sound.',
+      before: 'When a letter loses its doubling, its sheva stays ',
+      after: '.',
       options: [
-        { text: 'forte', correct: true },
-        { text: 'lene' },
+        { text: 'vocal', correct: true },
+        { text: 'silent' },
       ],
-      explain: 'A euphonic dagesh forte doubles a letter for smoother sound; rafeh marks a doubling dropped for the same reason.',
+      explain: 'Vocal, as it would be under a doubled letter: ha-l\'lu, va-y\'chulu.',
     },
     {
       id: 'tap-vaychulu',

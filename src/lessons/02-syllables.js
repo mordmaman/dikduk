@@ -1,4 +1,5 @@
-// Syllables and stress. Explanations and examples are original; example
+// Syllables and stress. Rules checked against Gesenius' Hebrew Grammar (1910), §26, §29.
+// Explanations and examples are original; example
 // words were checked against the Masoretic text and the siddur on Sefaria
 // (Bereshit 1:5, 29:6, 29:9 with Rashi; Shemot 34:6; Devarim 27:15, 33:4).
 
@@ -14,7 +15,7 @@ export default {
       id: 'open-closed',
       heading: 'Open and closed syllables',
       body: [
-        'Every Hebrew syllable begins with a consonant. What matters is how it ends.',
+        'Almost every Hebrew syllable begins with a consonant. (The everyday exception is וּ, "and", which can be a syllable on its own, as in וּבְכָל in the Shema.) What matters is how a syllable ends.',
         'A syllable that ends in a vowel is **open**. A syllable that ends in a consonant is **closed**.',
         'In שָׁלוֹם the first syllable, sha, ends in a vowel, so it is open. The second, lom, ends in the ם, so it is closed.',
         'A ו, י or ה that only carries a vowel, like the ו in לוֹם or the final ה of תּוֹרָה, does not close a syllable. What you hear is the vowel.',
@@ -43,7 +44,8 @@ export default {
       heading: 'Long and short vowels',
       body: [
         'The vowels come in pairs: one long and one short for each sound. (In Ashkenazi pronunciation the long kamatz is said o or aw, but it is still the long partner of patach.)',
-        'As a rule an open syllable has a long vowel and a closed syllable a short one. The stress can bend that rule, but one part of it never bends: **a closed syllable without the stress must have a short vowel**.',
+        'As a rule an open syllable has a long vowel and a closed syllable a short one. The stress can bend that rule, but one part of it almost never bends: **a closed syllable without the stress has a short vowel**.',
+        'The sign alone does not always show the length: a chirik without a י, or a kubutz, is sometimes a long vowel written without its vowel letter.',
       ],
       table: {
         headers: ['Sound', 'Long', 'Short'],
@@ -67,9 +69,9 @@ export default {
         {
           id: 'chk-closed-unstressed',
           type: 'truefalse',
-          statement: 'A closed syllable without the stress must have a short vowel.',
+          statement: 'A closed syllable without the stress almost always has a short vowel.',
           answer: true,
-          explain: 'True. This is the one part of the rule that never bends.',
+          explain: 'True. This is the firm part of the rule; the few exceptions come up in the kamatz katan lesson.',
         },
         {
           id: 'chk-which-long',
