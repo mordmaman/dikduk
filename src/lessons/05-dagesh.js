@@ -16,7 +16,7 @@ export default {
       heading: 'A dot inside the letter',
       body: [
         'You have read thousands of them: a dot sitting inside a letter. That dot is a **dagesh** (דָּגֵשׁ), and it does one of two jobs.',
-        'In six particular letters it can make the sound **hard**. This is **dagesh lene** (דָּגֵשׁ קַל, the light dagesh).',
+        'In six particular letters it can make the sound **hard**: b rather than v, k rather than kh. This is **dagesh lene** (דָּגֵשׁ קַל, the light dagesh).',
         'In almost any letter it can show that the letter is **doubled**, said twice over. This is **dagesh forte** (דָּגֵשׁ חָזָק, the strong dagesh).',
       ],
       examples: [
@@ -50,7 +50,7 @@ export default {
         headers: ['Letter', 'Without dagesh (soft)', 'With dagesh (hard)'],
         rows: [
           ['ב', 'v, as in *vine*', 'b, as in *boy*'],
-          ['ג', 'a soft g, made further back', 'g, as in *go*'],
+          ['ג', 'gh, a g said further back in the throat (most people today say g)', 'g, as in *go*'],
           ['ד', 'th, as in *this*', 'd, as in *day*'],
           ['כ', 'kh, as in *Bach*', 'k, as in *king*'],
           ['פ', 'f, as in *fall*', 'p, as in *pen*'],
@@ -105,7 +105,6 @@ export default {
         'If a vowel comes just before a begad kefat letter, it has no dagesh lene and keeps its soft sound.',
         'Compare פְּנֵי with לִפְנֵי. In the first the פ starts the word, so it is hard: p\'nei. In the second the chirik under the ל comes just before it, so it is soft: lifnei.',
         'A **vocal sheva** counts as a vowel here. In בְּתוֹךְ the ת follows the vocal sheva under the ב, so it is soft.',
-        'It can happen across two words too. When a word ends in a vowel and is read closely with the next, a begad kefat letter starting the next word stays soft, as in כִּי מִצִּיּוֹן תֵּצֵא תוֹרָה.',
       ],
       examples: [
         { he: 'פְּנֵי', note: 'p\'nei: the פ starts the word.', mark: 'dagesh' },
@@ -113,6 +112,10 @@ export default {
         { he: 'סֵפֶר', note: 'sefer: a tzere just before the פ.', letters: [1] },
         { he: 'בְּתוֹךְ', note: 'b\'tokh: a vocal sheva just before the ת.', letters: [1] },
       ],
+      callout: {
+        kind: 'note',
+        text: 'This can happen across two words too. When a word ends in a vowel and is joined to the next in reading, with no pause between them, a begad kefat letter starting the next word stays soft, as in כִּי מִצִּיּוֹן תֵּצֵא תוֹרָה.',
+      },
       check: [
         {
           id: 'chk-lifnei-why',
@@ -138,15 +141,19 @@ export default {
       id: 'forte',
       heading: 'Dagesh forte: a doubled letter',
       body: [
-        'A dagesh forte shows that the letter is doubled. שַׁבָּת is said shab-bat, and אַתָּה is at-tah.',
+        'A dagesh forte shows that the letter is doubled. שַׁבָּת is said shab-bat, and אַתָּה is at-ta.',
         'It can appear in any letter except the four gutturals א ה ח ע and (with very rare exceptions) the letter ר.',
         'Inside a word, a dagesh forte always comes **straight after a vowel**. That gives a quick test: inside a word, a dagesh right after a vowel is forte; a dagesh with no vowel before it is lene.',
         'When one of the six begad kefat letters is doubled, it is hard as well: the ב of שַׁבָּת is b, not v.',
       ],
       examples: [
-        { he: 'אַתָּה', note: 'at-tah: the ת is doubled, straight after the patach.', mark: 'dagesh' },
+        { he: 'אַתָּה', note: 'at-ta: the ת is doubled, straight after the patach.', mark: 'dagesh' },
         { he: 'יִתְגַּדַּל', note: 'The opening of Kaddish has both kinds. The ג is lene, after the silent sheva under the ת. The ד is forte, after the patach.', mark: 'dagesh' },
       ],
+      callout: {
+        kind: 'tip',
+        text: 'Find both jobs in one dot: מִבֵּית, "from the house of", as in מִבֵּית עֲבָדִים. The ב doubles for the lost נ of מִן, and as one of the six it is hard as well.',
+      },
       check: [
         {
           id: 'chk-yitgadal-forte',
@@ -164,16 +171,20 @@ export default {
       id: 'why-double',
       heading: 'Why a letter doubles',
       body: [
-        'A letter is doubled for one of three reasons.',
+        'A letter is usually doubled for one of two reasons.',
         '**Compensative.** A letter has dropped out, and the next letter doubles to make up for it. A very common case is the נ of מִן, "from", which merges into the word after it: מִן + שָׁם gives מִשָּׁם, "from there".',
-        '**Characteristic.** Some verb patterns double the middle letter of the root. In the piel pattern the root ק־ד־שׁ gives קִדְּשָׁנוּ, which you say in every berakha over a mitzvah.',
-        '**Euphonic.** Now and then a letter is doubled simply because it sounds smoother.',
+        'Most Hebrew words are built on a **root** (שֹׁרֶשׁ), usually three letters, like ק־ד־שׁ. Verbs come in set **patterns** (בִּנְיָנִים).',
+        '**Characteristic.** Some verb patterns double the middle letter of the root. In the **piel** (פִּעֵל), ק־ד־שׁ gives קִדְּשָׁנוּ, which you say in every berakha over a mitzvah.',
       ],
       examples: [
         { he: 'מִשָּׁם', note: 'מִן + שָׁם, "from there" (Bereshit 2:10).', mark: 'dagesh' },
         { he: 'מִצִּיּוֹן', note: 'מִן + צִיּוֹן, "from Zion", from the Torah service. The צ doubles for the lost נ.', letters: [1] },
         { he: 'קִדְּשָׁנוּ', note: 'Characteristic: the ד, the middle letter of the root, doubles.', mark: 'dagesh' },
       ],
+      callout: {
+        kind: 'note',
+        text: 'Now and then a letter is doubled simply because it sounds smoother. Grammars call this a euphonic dagesh.',
+      },
       check: [
         {
           id: 'chk-predict-misham',
@@ -205,17 +216,16 @@ export default {
       heading: 'When a letter cannot double',
       body: [
         'The gutturals א ה ח ע and the letter ר do not take a dagesh forte.',
-        'When a word calls for one of them to be doubled, the vowel before it usually becomes longer instead. With מִן, the chirik becomes a tzere: מִן + אֶרֶץ gives מֵאֶרֶץ, as in מֵאֶרֶץ מִצְרַיִם.',
-        'Lecha Dodi has both outcomes side by side in מֵרֹאשׁ מִקֶּדֶם. The ר cannot double, so the vowel lengthens. The ק can, so it doubles.',
-        'Before ח and ה the vowel often stays short, as if the letter were still doubled: in הַחֹשֶׁךְ, "the darkness" (Bereshit 1:4), the patach stays.',
+        'When a word calls for one of them to be doubled, the vowel before it usually becomes longer instead. With מִן, the short chirik becomes a long tzere: מִן + אֶרֶץ gives מֵאֶרֶץ, as in מֵאֶרֶץ מִצְרַיִם.',
+        'Lecha Dodi has both outcomes side by side in מֵרֹאשׁ מִקֶּדֶם. In מֵרֹאשׁ (מִן + רֹאשׁ) the ר cannot double, so the vowel lengthens. In מִקֶּדֶם (מִן + קֶדֶם) the ק can double, so it does.',
       ],
       examples: [
         { he: 'מֵאֶרֶץ', note: 'Tzere under the מ: the א cannot double.', letters: [0] },
         { he: 'מֵרֹאשׁ מִקֶּדֶם', note: 'From Lecha Dodi: a lengthened vowel before the ר, a doubled ק.', mark: 'dagesh' },
       ],
       callout: {
-        kind: 'tip',
-        text: 'Find both jobs in one dot: מִבֵּית, "from the house of", as in מִבֵּית עֲבָדִים. The ב doubles for the lost נ, and as one of the six it is hard as well.',
+        kind: 'note',
+        text: 'Before ח and ה the vowel often stays short, as if the letter were still doubled: in הַחֹשֶׁךְ, "the darkness" (Bereshit 1:4), the patach stays.',
       },
       check: [
         {
@@ -242,7 +252,7 @@ export default {
       he: 'אַתָּה',
       feature: 'dagesh',
       answer: [1],
-      explain: 'Only the ת. It comes straight after the patach, so it is a dagesh forte: at-tah.',
+      explain: 'Only the ת. It comes straight after the patach, so it is a dagesh forte: at-ta.',
     },
     {
       id: 'tap-kidshanu',
@@ -374,11 +384,11 @@ export default {
       type: 'choice',
       prompt: 'In כִּי מִצִּיּוֹן תֵּצֵא תוֹרָה, the ת of תוֹרָה has no dagesh. Why?',
       options: [
-        { text: 'The word before ends in a vowel and is read closely together with it', correct: true },
+        { text: 'The word before ends in a vowel and is joined to it in reading, with no pause', correct: true },
         { text: 'A ת never has a dagesh at the start of a word' },
         { text: 'The ת has been doubled' },
       ],
-      explain: 'A begad kefat letter at the start of a word usually has dagesh lene. But when the word before it ends in a vowel and the two are read as a close pair, that vowel counts as coming just before, and the letter stays soft. On its own the word is תּוֹרָה.',
+      explain: 'A begad kefat letter at the start of a word usually has dagesh lene. But when the word before it ends in a vowel and the two are joined in reading with no pause, that vowel counts as coming just before, and the letter stays soft. On its own the word is תּוֹרָה.',
     },
     {
       id: 'chal-predict-merosh',

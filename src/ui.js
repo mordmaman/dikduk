@@ -246,8 +246,13 @@ function teachView(screen) {
     screen.table ? h('div', { class: 'table-wrap' }, h('table', {},
       h('thead', {}, h('tr', {}, screen.table.headers.map((c) => textEl('th', c, { scope: 'col' })))),
       h('tbody', {}, screen.table.rows.map((r) => h('tr', {}, r.map((c) => textEl('td', c))))))) : null,
-    screen.callout ? h('aside', { class: `callout callout-${screen.callout.kind}` },
-      h('strong', {}, screen.callout.kind === 'tip' ? 'Try this' : 'Note'), ' ', h('span', { html: formatText(screen.callout.text) })) : null);
+    calloutsOf(screen).map((c) => h('aside', { class: `callout callout-${c.kind}` },
+      h('strong', {}, c.kind === 'tip' ? 'Try this' : 'Note'), ' ', h('span', { html: formatText(c.text) }))));
+}
+
+function calloutsOf(screen) {
+  if (!screen.callout) return [];
+  return Array.isArray(screen.callout) ? screen.callout : [screen.callout];
 }
 
 function introView(lesson, step) {

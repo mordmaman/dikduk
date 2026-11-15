@@ -13,18 +13,22 @@ export default {
   teach: [
     {
       id: 'open-closed',
-      heading: 'Open and closed syllables',
+      heading: 'Syllables: open and closed',
       body: [
-        'Almost every Hebrew syllable begins with a consonant. (The everyday exception is וּ, "and", which can be a syllable on its own, as in וּבְכָל in the Shema.) What matters is how a syllable ends.',
-        'A syllable that ends in a vowel is **open**. A syllable that ends in a consonant is **closed**.',
-        'In שָׁלוֹם the first syllable, sha, ends in a vowel, so it is open. The second, lom, ends in the ם, so it is closed.',
+        'A **syllable** (הֲבָרָה) is one beat of a word. שָׁלוֹם has two beats, sha and lom. Each beat has one vowel.',
+        'A syllable that ends in a vowel is **open** (הֲבָרָה פְּתוּחָה). A syllable that ends in a consonant is **closed** (הֲבָרָה סְגוּרָה).',
+        'In שָׁלוֹם, sha ends in a vowel, so it is open; lom ends in the ם, so it is closed.',
         'A ו, י or ה that only carries a vowel, like the ו in לוֹם or the final ה of תּוֹרָה, does not close a syllable. What you hear is the vowel.',
       ],
       examples: [
         { he: 'שָׁלוֹם', note: 'sha-lom: open, then closed.' },
         { he: 'אָמֵן', note: 'a-men: open, then closed.' },
-        { he: 'תּוֹרָה', note: 'to-rah: both open. The final ה is silent.' },
+        { he: 'תּוֹרָה', note: 'to-ra: both open. The final ה is silent.' },
       ],
+      callout: {
+        kind: 'note',
+        text: 'A syllable starts with a consonant, so in אָמֵן the מ begins the second beat: a-men. The one everyday exception is וּ, "and", which can be a syllable on its own, as in וּבְכָל in the Shema.',
+      },
       check: [
         {
           id: 'chk-split-amen',
@@ -40,65 +44,17 @@ export default {
       ],
     },
     {
-      id: 'long-short',
-      heading: 'Long and short vowels',
-      body: [
-        'The vowels come in pairs: one long and one short for each sound. (In Ashkenazi pronunciation the long kamatz is said o or aw, but it is still the long partner of patach.)',
-        'As a rule an open syllable has a long vowel and a closed syllable a short one. The stress can bend that rule, but one part of it almost never bends: **a closed syllable without the stress has a short vowel**.',
-        'The sign alone does not always show the length: a chirik without a י, or a kubutz, is sometimes a long vowel written without its vowel letter.',
-      ],
-      table: {
-        headers: ['Sound', 'Long', 'Short'],
-        rows: [
-          ['a', 'kamatz אָ', 'patach אַ'],
-          ['e', 'tzere אֵ', 'segol אֶ'],
-          ['i', 'chirik with yod אִי', 'chirik אִ'],
-          ['o', 'cholam אֹ or אוֹ', 'kamatz katan (looks like kamatz)'],
-          ['u', 'shuruk אוּ', 'kubutz אֻ'],
-        ],
-      },
-      examples: [
-        { he: 'מֶלֶךְ', note: 'ME-lech: the second syllable is closed and unstressed, so its vowel is short.', letters: [1] },
-        { he: 'שָׁלוֹם', note: 'sha-LOM: the last syllable is closed but stressed, so it can keep a long vowel.', letters: [1] },
-      ],
-      callout: {
-        kind: 'note',
-        text: 'This rule is how you tell kamatz katan, an o sound, from kamatz. That comes in a later lesson.',
-      },
-      check: [
-        {
-          id: 'chk-closed-unstressed',
-          type: 'truefalse',
-          statement: 'A closed syllable without the stress almost always has a short vowel.',
-          answer: true,
-          explain: 'True. This is the firm part of the rule; the few exceptions come up in the kamatz katan lesson.',
-        },
-        {
-          id: 'chk-which-long',
-          type: 'choice',
-          prompt: 'Which of these is a long vowel?',
-          options: [
-            { text: 'tzere', correct: true },
-            { text: 'patach' },
-            { text: 'segol' },
-            { text: 'kubutz' },
-          ],
-          explain: 'Tzere is the long e. Patach, segol and kubutz are short.',
-        },
-      ],
-    },
-    {
       id: 'stress',
-      heading: 'Milra and mil\'el',
+      heading: 'Stress: milra and mil\'el',
       body: [
+        'In every word one syllable is said a little more strongly than the rest: sha-LOM, not SHA-lom. That syllable carries the **stress**. In these lessons, capitals show it.',
         'Most Hebrew words are stressed on the last syllable. This is called **milra** (מִלְּרַע, "from below").',
-        'Some are stressed on the second-to-last syllable. This is **mil\'el** (מִלְּעֵיל, "from above").',
-        'The stress never falls further back than the second-to-last syllable.',
-        'A large family of mil\'el words has two short vowels in a row, often two segols: מֶלֶךְ, עֶרֶב, חֶסֶד, אֶרֶץ.',
+        'Some are stressed on the second-to-last syllable. This is **mil\'el** (מִלְּעֵיל, "from above"). The names are Aramaic: "below" means towards the end of the word, "above" towards the start.',
+        'The stress never falls further back than the second-to-last syllable. Many mil\'el words have two segols in a row: מֶלֶךְ, עֶרֶב, חֶסֶד, אֶרֶץ.',
       ],
       examples: [
         { he: 'אָמֵן', note: 'a-MEN: milra.' },
-        { he: 'לָיְלָה', note: 'LAI-lah: mil\'el (Bereshit 1:5).' },
+        { he: 'לָיְלָה', note: 'LAI-la: mil\'el (Bereshit 1:5).' },
         { he: 'עֶרֶב', note: 'E-rev: mil\'el.' },
       ],
       check: [
@@ -113,6 +69,13 @@ export default {
           keepOrder: true,
           explain: 'E-rev. Like מֶלֶךְ and חֶסֶד, it is stressed on the second-to-last syllable.',
         },
+        {
+          id: 'chk-three-back',
+          type: 'truefalse',
+          statement: 'The stress in a Hebrew word can fall three syllables from the end.',
+          answer: false,
+          explain: 'False. It falls on the last syllable (milra) or the one before it (mil\'el), never further back.',
+        },
       ],
     },
     {
@@ -120,20 +83,89 @@ export default {
       heading: 'Stress can change the meaning',
       body: [
         'Two words can share every letter and vowel and differ only in the stress.',
-        'In Bereshit 29 Rachel is described twice with the same word, בָּאָה. In verse 6 the cantillation puts the stress on the last syllable, ba-AH: she *is coming*. In verse 9 it falls on the first, BA-ah: she *came*.',
+        'In Bereshit 29 Rachel is described twice with the same word, בָּאָה. In verse 6 the trop (טְעָמִים, the reading marks) puts the stress on the last syllable, ba-A: she *is coming*. In verse 9 it falls on the first, BA-a: she *came*.',
         'Rashi points out exactly this difference.',
       ],
       examples: [
-        { he: 'בָּאָה', note: 'Bereshit 29:6, ba-AH: she is coming.' },
-        { he: 'בָּאָה', note: 'Bereshit 29:9, BA-ah: she came.' },
+        { he: 'בָּאָה', note: 'Bereshit 29:6, ba-A: she is coming.' },
+        { he: 'בָּאָה', note: 'Bereshit 29:9, BA-a: she came.' },
       ],
       check: [
         {
-          id: 'chk-three-back',
+          id: 'chk-baah-what',
+          type: 'choice',
+          prompt: 'The two בָּאָה in Bereshit 29 have the same letters and vowels. What tells them apart?',
+          options: [
+            { text: 'Which syllable carries the stress', correct: true },
+            { text: 'Whether the final ה is sounded' },
+            { text: 'Nothing: they mean the same' },
+          ],
+          explain: 'Only the stress. BA-a, stressed on the first syllable, is "she came"; ba-A, stressed on the last, is "she is coming".',
+        },
+      ],
+    },
+    {
+      id: 'long-short',
+      heading: 'Long and short vowels',
+      body: [
+        'Grammar sorts the vowels into pairs, one **long** and one **short** for each sound. In most pronunciations today the two in a pair sound the same, so think of long and short as labels. The rules in the next lessons depend on them.',
+      ],
+      table: {
+        headers: ['Sound', 'Long', 'Short'],
+        rows: [
+          ['a', 'kamatz אָ', 'patach אַ'],
+          ['e', 'tzere אֵ', 'segol אֶ'],
+          ['i', 'chirik with yod אִי', 'chirik אִ'],
+          ['o', 'cholam אֹ or אוֹ', 'kamatz katan (looks like kamatz)'],
+          ['u', 'shuruk אוּ', 'kubutz אֻ'],
+        ],
+      },
+      callout: [
+        {
+          kind: 'note',
+          text: 'The sign alone does not always show the length: a chirik without a י, or a kubutz, is sometimes a long vowel written without its vowel letter.',
+        },
+        {
+          kind: 'note',
+          text: 'In Ashkenazi pronunciation the long kamatz is said o or aw, but it is still the long partner of patach.',
+        },
+      ],
+      check: [
+        {
+          id: 'chk-which-long',
+          type: 'choice',
+          prompt: 'Which of these is a long vowel?',
+          options: [
+            { text: 'tzere', correct: true },
+            { text: 'patach' },
+            { text: 'segol' },
+          ],
+          explain: 'Tzere is the long e. Patach and segol are short.',
+        },
+      ],
+    },
+    {
+      id: 'which-syllables',
+      heading: 'Which syllables have which',
+      body: [
+        'As a rule, an open syllable has a long vowel and a closed syllable a short one.',
+        'The stress can bend that rule. But one part of it almost never bends: **a closed syllable without the stress has a short vowel**.',
+      ],
+      examples: [
+        { he: 'מֶלֶךְ', note: 'ME-lech: the second syllable is closed and unstressed, so its vowel is short.', letters: [1] },
+        { he: 'שָׁלוֹם', note: 'sha-LOM: the last syllable is closed but stressed, so it can keep a long vowel.', letters: [1] },
+      ],
+      callout: {
+        kind: 'note',
+        text: 'This rule is how you tell kamatz katan, a short o, from kamatz. Lesson 9 shows how.',
+      },
+      check: [
+        {
+          id: 'chk-closed-unstressed',
           type: 'truefalse',
-          statement: 'The stress in a Hebrew word can fall three syllables from the end.',
-          answer: false,
-          explain: 'False. It falls on the last syllable (milra) or the one before it (mil\'el), never further back.',
+          statement: 'A closed syllable without the stress almost always has a short vowel.',
+          answer: true,
+          explain: 'True. This is the firm part of the rule. The few exceptions are rare; you can leave them for now.',
         },
       ],
     },
@@ -199,7 +231,7 @@ export default {
       pairs: [
         { left: 'שָׁלוֹם', right: 'sha-LOM' },
         { left: 'מֶלֶךְ', right: 'ME-lech' },
-        { left: 'לָיְלָה', right: 'LAI-lah' },
+        { left: 'לָיְלָה', right: 'LAI-la' },
         { left: 'אָמֵן', right: 'a-MEN' },
       ],
       explain: 'שָׁלוֹם and אָמֵן are milra; מֶלֶךְ and לָיְלָה are mil\'el.',
@@ -246,7 +278,7 @@ export default {
         { text: 'It means "she is coming"' },
         { text: 'Nothing: stress never changes the meaning' },
       ],
-      explain: 'BA-ah is the past, "she came". In verse 6 the stress is on the last syllable, ba-AH, "she is coming". Rashi notes the difference.',
+      explain: 'BA-a is the past, "she came". In verse 6 the stress is on the last syllable, ba-A, "she is coming". Rashi notes the difference.',
     },
     {
       id: 'chal-shalom-long',
@@ -268,7 +300,7 @@ export default {
         { he: 'לָיְ', label: 'closed, stressed' },
         { he: 'לָה', label: 'open' },
       ],
-      explain: 'lai | lah. The sheva under the י is silent and closes the first syllable. The next lesson explains how to tell.',
+      explain: 'lai | la. The sheva under the י is silent and closes the first syllable. The next lesson explains how to tell.',
     },
     {
       id: 'chal-open-short',

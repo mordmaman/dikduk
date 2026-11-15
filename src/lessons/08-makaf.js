@@ -15,7 +15,7 @@ export default {
       id: 'what-makaf',
       heading: 'Words joined into one',
       body: [
-        'A **makaf** (מַקָּף) is a short line at the top of the letters, joining two or more short words that belong closely together.',
+        'A **makaf** (מַקָּף) is a short line level with the top of the letters, like a hyphen, joining two or more short words that belong closely together.',
         'The joined words are read as a single unit with **one main stress**, on the last word. The words before the makaf give up their own stress.',
       ],
       examples: [
@@ -37,7 +37,7 @@ export default {
       heading: 'Losing the stress can shorten the vowel',
       body: [
         'Remember the firm rule from the Syllables lesson: a closed syllable without the stress almost always has a short vowel.',
-        'A short closed word that loses its stress before a makaf normally follows that rule. On its own, אֵת has a tzere, as in the Shema. Joined by makaf in אֶת־הַגָּן, it is unstressed, so the tzere becomes a segol.',
+        'A short word of one closed syllable, like אֵת, that loses its stress before a makaf normally follows that rule. On its own, אֵת has a tzere, as in the Shema. Joined by makaf in אֶת־הַגָּן, it is unstressed, so the tzere becomes a segol.',
       ],
       examples: [
         { he: 'אֵת', note: 'On its own: tzere (Devarim 6:5).', letters: [0] },

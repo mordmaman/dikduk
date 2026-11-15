@@ -24,7 +24,8 @@
 //                             // or letters: [0, 2] to underline by position
 //       ],
 //       table: { headers: ['Word', 'Why'], rows: [['שַׁבָּת', 'Doubled']] }, // optional
-//       callout: { kind: 'note', text: '...' },  // optional; kind is 'note' or 'tip'
+//       callout: { kind: 'note', text: '...' },  // optional; kind is 'note' or 'tip';
+//                                                // may also be a list of these
 //       check: [ /* one or two questions, asked straight after this screen */ ],
 //     },
 //   ],
@@ -185,7 +186,10 @@ export function validateLesson(lesson, file = '') {
       const w = s.table.headers?.length;
       if (!w || !Array.isArray(s.table.rows) || s.table.rows.some((r) => r.length !== w)) err(`${where}: table rows must match headers`);
     }
-    if (s.callout && !['note', 'tip'].includes(s.callout.kind)) err(`${where}: callout kind must be note or tip`);
+    for (const c of s.callout ? [].concat(s.callout) : []) {
+      if (!['note', 'tip'].includes(c.kind)) err(`${where}: callout kind must be note or tip`);
+      if (!isText(c.text)) err(`${where}: callout has no text`);
+    }
     if ((s.check || []).length > 2) err(`${where}: at most two check questions per screen`);
   });
 
