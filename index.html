@@ -905,6 +905,191 @@ return {
   ],
 };
 })(),
+// ---- lessons/03-meteg.js ----
+(function () {
+// Meteg. Follows Weingreen §3. Explanations and examples are original; example
+// words were checked against the Masoretic text on Sefaria (Bereshit 1:5, 3:6;
+// Devarim 6:4; Tehillim 96:11).
+
+return {
+  id: 'meteg',
+  order: 3,
+  title: 'Meteg',
+  hebrewTitle: 'מֶתֶג',
+  weingreen: '§3',
+  summary: 'The small upright line beside a vowel: pause here.',
+
+  teach: [
+    {
+      id: 'what-meteg',
+      heading: 'A line that says "pause"',
+      body: [
+        'Some vowels have a short upright line beside them, under the letter. This is a **meteg** (מֶתֶג, "bridle"): it reins the reader in.',
+        'A meteg tells you to pause on that vowel and give it a little weight, a lighter stress than the main one. It often sits a syllable or two before the main stress of the word.',
+      ],
+      examples: [
+        { he: 'הָֽאִשָּׁה', note: 'Bereshit 3:6: a meteg under the ה. Linger on ha-.', mark: 'meteg' },
+        { he: 'וַֽיְהִי', note: 'Bereshit 1:5: a meteg under the ו.', mark: 'meteg' },
+      ],
+      check: [
+        {
+          id: 'chk-tap-haishah',
+          type: 'tap',
+          prompt: 'Tap the letter with a meteg.',
+          he: 'הָֽאִשָּׁה',
+          feature: 'meteg',
+          answer: [0],
+          explain: 'The ה. The meteg is the small upright line beside its kamatz.',
+        },
+      ],
+    },
+    {
+      id: 'meteg-sheva',
+      heading: 'A meteg keeps the syllable open',
+      body: [
+        'Because you pause on the vowel, the syllable stays open. So a sheva straight after it begins the next syllable, and is **vocal**, even after a short vowel.',
+        'Tehillim 96:11, which we say in Kabbalat Shabbat, has the two cases next to each other. יִשְׂמְחוּ has no meteg: yis-m\'chu, with a silent sheva. יִֽרְעַם has a meteg under the י: yi-r\'am, with a vocal sheva.',
+      ],
+      examples: [
+        { he: 'יִשְׂמְחוּ', note: 'No meteg: yis-m\'chu. The first sheva is silent.', mark: 'sheva' },
+        { he: 'יִֽרְעַם', note: 'Meteg: yi-r\'am. The sheva is vocal.', mark: 'meteg' },
+      ],
+      callout: {
+        kind: 'note',
+        text: 'The same goes for a kamatz with a meteg: the syllable is open, so the kamatz is read a. That matters for kamatz katan, two lessons on.',
+      },
+      check: [
+        {
+          id: 'chk-yiram-sheva',
+          type: 'choice',
+          prompt: 'In יִֽרְעַם, the sheva under the ר is…',
+          options: [
+            { text: 'vocal', correct: true },
+            { text: 'silent' },
+          ],
+          keepOrder: true,
+          explain: 'Vocal. The meteg makes you pause on the chirik, so the first syllable is open and the sheva starts the next one: yi-r\'am.',
+        },
+      ],
+    },
+    {
+      id: 'silluq',
+      heading: 'The same line at the end of a verse',
+      body: [
+        'The same upright line also appears under the stressed syllable of the last word in every verse of Tanakh, just before the two dots of sof pasuk. There it is a cantillation mark called **silluq**, marking the end of the verse.',
+        'The Shema ends this way: in אֶחָֽד the line under the ח is a silluq.',
+      ],
+      examples: [
+        { he: 'אֶחָֽד', note: 'Devarim 6:4: silluq on the stressed syllable.', mark: 'meteg' },
+      ],
+      check: [
+        {
+          id: 'chk-silluq',
+          type: 'truefalse',
+          statement: 'Meteg and silluq look the same; silluq is the one under the last stressed syllable of a verse.',
+          answer: true,
+          explain: 'True. It is the same small upright line. At the end of a verse it is read as silluq.',
+        },
+      ],
+    },
+  ],
+
+  test: [
+    {
+      id: 'tap-yiram',
+      type: 'tap',
+      prompt: 'Tap the letter with a meteg.',
+      he: 'יִֽרְעַם',
+      feature: 'meteg',
+      answer: [0],
+      explain: 'The י. The meteg sits beside its chirik.',
+    },
+    {
+      id: 'what-it-says',
+      type: 'choice',
+      prompt: 'What does a meteg tell the reader?',
+      options: [
+        { text: 'Pause on this vowel', correct: true },
+        { text: 'This letter is doubled' },
+        { text: 'This letter is silent' },
+      ],
+      explain: 'A meteg marks a pause, a light secondary stress, on the vowel beside it.',
+    },
+    {
+      id: 'tf-sheva-after-meteg',
+      type: 'truefalse',
+      statement: 'A sheva straight after a vowel with a meteg is vocal.',
+      answer: true,
+      explain: 'True. The pause keeps the syllable open, so the sheva begins the next one.',
+    },
+    {
+      id: 'yismechu-silent',
+      type: 'choice',
+      prompt: 'יִשְׂמְחוּ has no meteg. The sheva under the שׂ is…',
+      options: [
+        { text: 'silent', correct: true },
+        { text: 'vocal' },
+      ],
+      keepOrder: true,
+      explain: 'Silent. After the short chirik, with no meteg, it closes the syllable: yis-m\'chu.',
+    },
+    {
+      id: 'match-read',
+      type: 'match',
+      prompt: 'Match each word with how it is read.',
+      pairs: [
+        { left: 'וַֽיְהִי', right: 'va-y\'hi' },
+        { left: 'יִֽרְעַם', right: 'yi-r\'am' },
+        { left: 'יִשְׂמְחוּ', right: 'yis-m\'chu' },
+        { left: 'הָֽאִשָּׁה', right: 'ha-ish-shah' },
+      ],
+      explain: 'Where there is a meteg before a sheva, the sheva is vocal: va-y\'hi, yi-r\'am. Without one, after a short vowel, it is silent: yis-m\'chu.',
+    },
+    {
+      id: 'bank-silluq',
+      type: 'wordbank',
+      before: 'At the end of a verse, the same upright line is called ',
+      after: '.',
+      options: [
+        { text: 'silluq', correct: true },
+        { text: 'makaf' },
+        { text: 'dagesh' },
+      ],
+      explain: 'Silluq: it marks the stressed syllable of the verse\'s last word.',
+    },
+  ],
+
+  challenge: [
+    {
+      id: 'chal-pair',
+      type: 'choice',
+      prompt: 'Tehillim 96:11 has יִשְׂמְחוּ and יִֽרְעַם side by side. Why is the first sheva silent and the second vocal?',
+      options: [
+        { text: 'The meteg in יִֽרְעַם keeps its first syllable open', correct: true },
+        { text: 'A sheva under ר is always vocal' },
+        { text: 'They are not: both are silent' },
+      ],
+      explain: 'Both follow a short chirik. In יִֽרְעַם the meteg makes you pause on the chirik, which leaves the syllable open, so the sheva is vocal.',
+    },
+    {
+      id: 'chal-tap-vayehi-erev',
+      type: 'tap',
+      prompt: 'Tap the letter with a vocal sheva.',
+      he: 'וַֽיְהִי־עֶרֶב',
+      feature: 'sheva',
+      answer: [1],
+      explain: 'The י. It follows the patach with a meteg, so its sheva is vocal: va-y\'hi.',
+    },
+    {
+      id: 'chal-looks-different',
+      type: 'truefalse',
+      statement: 'Meteg and silluq are written with different-looking marks.',
+      answer: false,
+      explain: 'False. They are the same small upright line; its position at the end of a verse makes it a silluq.',
+    },
+  ],
+};
+})(),
 // ---- lessons/05-sheva.js ----
 (function () {
 // Sheva. Rules follow Weingreen §5 (with the meteg note from §3). Explanations
@@ -1237,6 +1422,401 @@ return {
       statement: 'The sheva in יִשְׂרָאֵל is vocal because it is in the middle of the word.',
       answer: false,
       explain: 'False. Being in the middle is not enough: it follows the short chirik and closes the syllable yis, so it is silent.',
+    },
+  ],
+};
+})(),
+// ---- lessons/06-makaf.js ----
+(function () {
+// Makaf. Follows Weingreen §6. Explanations and examples are original; example
+// words were checked against the Masoretic text on Sefaria (Bereshit 1:2, 1:5,
+// 2:1, 2:10; Devarim 6:5, 16:18; Zecharyah 2:14; Tehillim 117:1).
+
+return {
+  id: 'makaf',
+  order: 6,
+  title: 'Makaf',
+  hebrewTitle: 'מַקָּף',
+  weingreen: '§6',
+  summary: 'The short line that joins words, and what it does to their vowels.',
+
+  teach: [
+    {
+      id: 'what-makaf',
+      heading: 'Words joined into one',
+      body: [
+        'A **makaf** (מַקָּף) is a short line at the top of the letters, joining two or more short words that belong closely together.',
+        'The joined words are read as a single unit with **one main stress**, on the last word. The words before the makaf give up their own stress.',
+      ],
+      examples: [
+        { he: 'עַל־פְּנֵי', note: 'Bereshit 1:2: "over the face of".' },
+        { he: 'בַּת־צִיּוֹן', note: 'Zecharyah 2:14, the haftarah of Shabbat Chanukah: "daughter of Zion".' },
+      ],
+      check: [
+        {
+          id: 'chk-one-stress',
+          type: 'truefalse',
+          statement: 'In a group joined by makaf, only the last word keeps its stress.',
+          answer: true,
+          explain: 'True. The group is read as one word, stressed on its last part.',
+        },
+      ],
+    },
+    {
+      id: 'vowel-shortens',
+      heading: 'Losing the stress can shorten the vowel',
+      body: [
+        'Remember the firm rule from the Syllables lesson: a closed syllable without the stress must have a short vowel.',
+        'A short closed word that loses its stress before a makaf has to follow that rule. On its own, אֵת has a tzere, as in the Shema. Joined by makaf in אֶת־הַגָּן, it is unstressed, so the tzere becomes a segol.',
+        'The same happens to the last syllable of a longer word: מִשְׁפָּט becomes מִשְׁפַּט־צֶדֶק, with patach in place of kamatz (Devarim 16:18).',
+      ],
+      examples: [
+        { he: 'אֵת', note: 'On its own: tzere (Devarim 6:5).', letters: [0] },
+        { he: 'אֶת־הַגָּן', note: 'Joined: segol (Bereshit 2:10).', letters: [0] },
+        { he: 'מִשְׁפַּט־צֶדֶק', note: 'Joined: patach in place of kamatz.', letters: [2] },
+      ],
+      check: [
+        {
+          id: 'chk-predict-et',
+          type: 'predict',
+          prompt: 'Joined by makaf, what do these become?',
+          parts: ['אֵת', 'הַגָּן'],
+          options: [
+            { text: 'אֶת־הַגָּן', correct: true },
+            { text: 'אֵת־הַגָּן' },
+            { text: 'אַת־הַגָּן' },
+          ],
+          explain: 'אֵת loses its stress and is a closed syllable, so its vowel must be short: the tzere becomes a segol.',
+        },
+      ],
+    },
+    {
+      id: 'kol',
+      heading: 'The most common case: כָּל',
+      body: [
+        'The word you meet most often before a makaf is כָּל, "all". Written with an ordinary kamatz, it is read **kol**, not kal.',
+        'The reason is the same rule. Before the makaf it is closed and unstressed, so its vowel must be short, and the short o sound is written with the kamatz sign. This is kamatz katan, the subject of the next lesson.',
+        'In Kiddush on Friday night: וְכָל־צְבָאָם, v\'chol-tz\'va-am.',
+      ],
+      examples: [
+        { he: 'וְכָל־צְבָאָם', note: 'Bereshit 2:1, in Kiddush: v\'chol.', letters: [1] },
+        { he: 'וְכׇל־צְבָאָם', note: 'The same words with the kamatz katan sign some editions use.', letters: [1] },
+      ],
+      check: [
+        {
+          id: 'chk-kol',
+          type: 'choice',
+          prompt: 'How is כָּל read in כָּל־גּוֹיִם (Tehillim 117:1)?',
+          options: [
+            { text: 'kol', correct: true },
+            { text: 'kal' },
+          ],
+          keepOrder: true,
+          explain: 'kol. Before the makaf it is closed and unstressed, so its kamatz is the short o, kamatz katan.',
+        },
+      ],
+    },
+  ],
+
+  test: [
+    {
+      id: 'what-is-makaf',
+      type: 'choice',
+      prompt: 'What is a makaf?',
+      options: [
+        { text: 'A short line that joins words to be read as one', correct: true },
+        { text: 'A line under a vowel that marks a pause' },
+        { text: 'A dot that doubles a letter' },
+      ],
+      explain: 'A makaf joins words into a single unit with one main stress.',
+    },
+    {
+      id: 'et-segol-why',
+      type: 'choice',
+      prompt: 'In אֶת־הַגָּן, why does אֶת have a segol and not a tzere?',
+      options: [
+        { text: 'Joined by makaf it loses its stress, and a closed unstressed syllable needs a short vowel', correct: true },
+        { text: 'The ה after it changes the vowel' },
+        { text: 'This word is always written with a segol' },
+      ],
+      explain: 'On its own it is אֵת, with a tzere. Before the makaf it is unstressed, so the vowel shortens to segol.',
+    },
+    {
+      id: 'tf-keeps-stress',
+      type: 'truefalse',
+      statement: 'A word before a makaf keeps its own stress.',
+      answer: false,
+      explain: 'False. It gives up its stress; the group is stressed on its last word.',
+    },
+    {
+      id: 'bank-mishpat',
+      type: 'wordbank',
+      before: 'In מִשְׁפַּט־צֶדֶק, the kamatz of מִשְׁפָּט has become a ',
+      after: '.',
+      options: [
+        { text: 'patach', correct: true },
+        { text: 'segol' },
+        { text: 'tzere' },
+      ],
+      explain: 'Patach, the short a. The syllable lost its stress, so the long kamatz shortened.',
+    },
+    {
+      id: 'predict-mishpat',
+      type: 'predict',
+      prompt: 'Joined by makaf, what do these become?',
+      parts: ['מִשְׁפָּט', 'צֶדֶק'],
+      options: [
+        { text: 'מִשְׁפַּט־צֶדֶק', correct: true },
+        { text: 'מִשְׁפָּט־צֶדֶק' },
+        { text: 'מִשְׁפֶּט־צֶדֶק' },
+      ],
+      explain: 'The last syllable of מִשְׁפָּט loses its stress, so its kamatz shortens to patach.',
+    },
+    {
+      id: 'kol-in-kiddush',
+      type: 'choice',
+      prompt: 'How is the first word of וְכָל־צְבָאָם read in Kiddush?',
+      options: [
+        { text: 'v\'chol', correct: true },
+        { text: 'v\'chal' },
+        { text: 'v\'kol' },
+      ],
+      explain: 'v\'chol: the kamatz is the short o before the makaf, and the כ is soft after the vocal sheva of the ו.',
+    },
+  ],
+
+  challenge: [
+    {
+      id: 'chal-tap-kol',
+      type: 'tap',
+      prompt: 'Tap the letter whose kamatz is read o.',
+      he: 'וְכָל־צְבָאָם',
+      feature: 'kamatz',
+      all: false,
+      answer: [1],
+      explain: 'The כ. Its syllable is closed and unstressed before the makaf. The other two kamatzes are in an open syllable (va) and a stressed one (am), so they are read a.',
+    },
+    {
+      id: 'chal-why-different',
+      type: 'choice',
+      prompt: 'Why is the kamatz in כָּל־ read o, while the last kamatz of צְבָאָם is read a?',
+      options: [
+        { text: 'כָּל־ is closed and unstressed; the last syllable of צְבָאָם is closed but stressed', correct: true },
+        { text: 'A kamatz under כ is always o' },
+        { text: 'The makaf changes every vowel after it' },
+      ],
+      explain: 'Only a closed syllable without the stress must be short. The last syllable of צְבָאָם carries the stress of the whole group, so its kamatz stays long.',
+    },
+    {
+      id: 'chal-al-penei',
+      type: 'truefalse',
+      statement: 'עַל־פְּנֵי is read with one main stress, on פְּנֵי.',
+      answer: true,
+      explain: 'True. עַל gives up its stress to the last word of the group.',
+    },
+  ],
+};
+})(),
+// ---- lessons/07-kamatz-katan.js ----
+(function () {
+// Kamatz katan. Follows Weingreen §7. Explanations and examples are original;
+// example words were checked against the Masoretic text on Sefaria (Bereshit
+// 1:5, 2:1; Devarim 27:15; Yeshayahu 11:9; Zecharyah 2:14; Tehillim 117:1).
+// Words are shown with the ordinary kamatz sign, as most siddurim print them,
+// except where the kamatz katan sign itself is being shown.
+
+return {
+  id: 'kamatz-katan',
+  order: 7,
+  title: 'Kamatz katan',
+  hebrewTitle: 'קָמָץ קָטָן',
+  weingreen: '§7',
+  summary: 'One sign, two sounds: when a kamatz is read a and when it is read o.',
+
+  teach: [
+    {
+      id: 'one-sign',
+      heading: 'One sign, two sounds',
+      body: [
+        'The kamatz sign stands for two different vowels. Usually it is the long a, **kamatz** (in full, kamatz gadol). Sometimes it is a short o, **kamatz katan**.',
+        'The Syllables lesson gives the test. A closed syllable without the stress must have a short vowel, so a kamatz there is short: o. In an open syllable, or a closed one that carries the stress, it is long: a.',
+      ],
+      examples: [
+        { he: 'שָׁלוֹם', note: 'sha-lom: open syllable, read a.', letters: [0] },
+        { he: 'כָּל־גּוֹיִם', note: 'Tehillim 117:1, kol-go-yim: closed and unstressed, read o.', letters: [0] },
+      ],
+      check: [
+        {
+          id: 'chk-closed-unstressed',
+          type: 'choice',
+          prompt: 'A kamatz in a closed syllable without the stress is read…',
+          options: [
+            { text: 'o', correct: true },
+            { text: 'a' },
+          ],
+          keepOrder: true,
+          explain: 'o. A closed unstressed syllable must have a short vowel, and the short vowel written with this sign is kamatz katan.',
+        },
+      ],
+    },
+    {
+      id: 'spotting-closed',
+      heading: 'How to see that the syllable is closed',
+      body: [
+        'Three things after a kamatz show that its syllable is closed:',
+        'A **silent sheva**: קָדְשִׁי is kod-shi (Yeshayahu 11:9).',
+        'A **dagesh forte** in the next letter, which closes this syllable and opens the next: רָנִּי is ron-ni (Zecharyah 2:14).',
+        'A **makaf**, as in כָּל־ (kol), because the word has lost its stress.',
+      ],
+      examples: [
+        { he: 'קָדְשִׁי', note: 'Silent sheva after it: kod-shi.', letters: [0] },
+        { he: 'רָנִּי', note: 'Dagesh forte after it: ron-ni.', letters: [0] },
+        { he: 'בְּכָל־הַר', note: 'Makaf after it: b\'chol-har.', letters: [1] },
+      ],
+      callout: {
+        kind: 'note',
+        text: 'Careful: a sheva after a kamatz is not always silent. In וְאָמְרוּ the kamatz is a and the sheva vocal (ve-a-m\'ru). Many newer siddurim and Tanakh editions print kamatz katan with a larger sign, as in קׇדְשִׁי, which settles the question for you.',
+      },
+      check: [
+        {
+          id: 'chk-tap-kodshi',
+          type: 'tap',
+          prompt: 'Tap the letter whose kamatz is read o.',
+          he: 'קָדְשִׁי',
+          feature: 'kamatz',
+          answer: [0],
+          explain: 'The ק. The silent sheva under the ד closes its syllable, which is unstressed: kod-shi.',
+        },
+      ],
+    },
+    {
+      id: 'when-a',
+      heading: 'When the kamatz is a',
+      body: [
+        'In an **open** syllable a kamatz is always a: the ba of צְבָאָם, tz\'va-am.',
+        'In a **closed syllable that carries the stress** it is a as well: the am at the end of צְבָאָם, and the first syllable of לָיְלָה, LAI-lah, which is closed by its silent sheva but stressed.',
+      ],
+      examples: [
+        { he: 'צְבָאָם', note: 'Bereshit 2:1: both kamatzes read a, one open, one stressed.', letters: [1, 2] },
+        { he: 'לָיְלָה', note: 'Bereshit 1:5: closed but stressed, so a.', letters: [0] },
+      ],
+      check: [
+        {
+          id: 'chk-laylah-why',
+          type: 'choice',
+          prompt: 'The first syllable of לָיְלָה is closed. Why is its kamatz still read a?',
+          options: [
+            { text: 'It carries the stress', correct: true },
+            { text: 'A kamatz under ל is always a' },
+            { text: 'The sheva under the י is vocal' },
+          ],
+          explain: 'LAI-lah is mil\'el: the stress is on the first syllable, so its kamatz stays long.',
+        },
+      ],
+    },
+  ],
+
+  test: [
+    {
+      id: 'tap-ranni',
+      type: 'tap',
+      prompt: 'Tap the letter whose kamatz is read o.',
+      he: 'רָנִּי',
+      feature: 'kamatz',
+      answer: [0],
+      explain: 'The ר. The dagesh forte in the נ closes its syllable: ron-ni.',
+    },
+    {
+      id: 'tap-vechol',
+      type: 'tap',
+      prompt: 'Tap the letter whose kamatz is read o.',
+      he: 'וְכָל־צְבָאָם',
+      feature: 'kamatz',
+      all: false,
+      answer: [1],
+      explain: 'The כ, before the makaf. The other two kamatzes are in an open syllable and a stressed one.',
+    },
+    {
+      id: 'shalom-a',
+      type: 'choice',
+      prompt: 'How is the kamatz in שָׁלוֹם read?',
+      options: [
+        { text: 'a', correct: true },
+        { text: 'o' },
+      ],
+      keepOrder: true,
+      explain: 'a. sha- is an open syllable.',
+    },
+    {
+      id: 'ranni-closed-why',
+      type: 'choice',
+      prompt: 'In רָנִּי, what shows that the first syllable is closed?',
+      options: [
+        { text: 'The dagesh forte in the נ', correct: true },
+        { text: 'The chirik under the נ' },
+        { text: 'Nothing: it is open' },
+      ],
+      explain: 'A doubled letter closes the syllable before it and opens the next: ron-ni.',
+    },
+    {
+      id: 'tf-every-before-sheva',
+      type: 'truefalse',
+      statement: 'Every kamatz followed by a sheva is a kamatz katan.',
+      answer: false,
+      explain: 'False. If the sheva is vocal, the syllable is open and the kamatz is a, as in וְאָמְרוּ (ve-a-m\'ru).',
+    },
+    {
+      id: 'bank-katan',
+      type: 'wordbank',
+      before: 'A kamatz read o is called kamatz ',
+      after: '.',
+      options: [
+        { text: 'katan', correct: true },
+        { text: 'gadol' },
+      ],
+      explain: 'Kamatz katan, "small kamatz". The long a is kamatz gadol.',
+    },
+    {
+      id: 'match-reading',
+      type: 'match',
+      prompt: 'Match each word with how it is read.',
+      pairs: [
+        { left: 'קָדְשִׁי', right: 'kod-shi' },
+        { left: 'רָנִּי', right: 'ron-ni' },
+        { left: 'צְבָאָם', right: 'tz\'va-am' },
+        { left: 'שָׁלוֹם', right: 'sha-lom' },
+      ],
+      explain: 'Closed and unstressed: o (kod-shi, ron-ni). Open or stressed: a (tz\'va-am, sha-lom).',
+    },
+  ],
+
+  challenge: [
+    {
+      id: 'chal-tap-bechol-har',
+      type: 'tap',
+      prompt: 'Tap every letter whose kamatz is read o.',
+      he: 'בְּכָל־הַר קָדְשִׁי',
+      feature: 'kamatz',
+      answer: [1, 5],
+      explain: 'The כ, closed and unstressed before the makaf, and the ק, closed by the silent sheva under the ד: b\'chol-har kod-shi (Yeshayahu 11:9).',
+    },
+    {
+      id: 'chal-veamru',
+      type: 'choice',
+      prompt: 'In וְאָמְרוּ the kamatz comes before a sheva, yet it is read a. Why?',
+      options: [
+        { text: 'The sheva is vocal, so the kamatz is in an open syllable', correct: true },
+        { text: 'A kamatz before ר is always a' },
+        { text: 'It is a printing error' },
+      ],
+      explain: 've-a-m\'ru: the sheva after the long kamatz is vocal, so the syllable a- is open. A sheva after a kamatz only closes the syllable when it is silent.',
+    },
+    {
+      id: 'chal-laylah-o',
+      type: 'truefalse',
+      statement: 'The first kamatz of לָיְלָה is read o because its syllable is closed.',
+      answer: false,
+      explain: 'False. The syllable is closed, but it carries the stress (LAI-lah), so the kamatz is long: a.',
     },
   ],
 };
@@ -1654,6 +2234,329 @@ return {
         { text: 'סֵפֶר' },
       ],
       explain: 'מִקֶּדֶם: the dagesh in the ק follows the chirik, so it is forte. פְּנֵי and תּוֹרָה have a dagesh lene at the start of the word, and סֵפֶר has no dagesh.',
+    },
+  ],
+};
+})(),
+// ---- lessons/09-mappik.js ----
+(function () {
+// Mappik. Follows Weingreen §9. Explanations and examples are original; example
+// words were checked against the Masoretic text and the siddur on Sefaria
+// (Bereshit 2:23, 3:6; Bamidbar 19:2; Kaddish).
+
+return {
+  id: 'mappik',
+  order: 9,
+  title: 'Mappik',
+  hebrewTitle: 'מַפִּיק',
+  weingreen: '§9',
+  summary: 'The dot in a final ה that makes it sounded.',
+
+  teach: [
+    {
+      id: 'silent-or-sounded',
+      heading: 'A ה you can hear',
+      body: [
+        'A ה at the end of a word is usually a silent vowel letter, as in תּוֹרָה or אִשָּׁה.',
+        'When a final ה has a dot in it, it is a real consonant and is sounded: h. That dot is a **mappik** (מַפִּיק, "bringing out"): it brings the ה out to be heard.',
+        'In Bamidbar 19:2 the red heifer is one with no blemish, אֵין־בָּהּ מוּם: bah, with the h sounded.',
+      ],
+      examples: [
+        { he: 'אִשָּׁה', note: 'Bereshit 2:23: the ה is silent.' },
+        { he: 'בָּהּ', note: 'Bamidbar 19:2: mappik, the ה is sounded.', mark: 'mappik' },
+      ],
+      check: [
+        {
+          id: 'chk-tap-bah',
+          type: 'tap',
+          prompt: 'Tap the letter with a mappik.',
+          he: 'בָּהּ',
+          feature: 'mappik',
+          answer: [1],
+          explain: 'The ה. The dot in the ב is a dagesh; the dot in the final ה is a mappik.',
+        },
+      ],
+    },
+    {
+      id: 'her',
+      heading: 'Usually it means "her"',
+      body: [
+        'Most of the time a mappik marks the ending that means "her" or "its" (for something feminine).',
+        'Bereshit 3:6 has two in a row: לְאִישָׁהּ עִמָּהּ, "to her husband with her". Compare אִשָּׁה, "a woman", with its silent ה.',
+        'The Aramaic of Kaddish uses the same mark for "his": שְׁמֵהּ, sh\'meh, "his name".',
+      ],
+      examples: [
+        { he: 'לְאִישָׁהּ', note: 'to her husband', mark: 'mappik' },
+        { he: 'עִמָּהּ', note: 'with her', mark: 'mappik' },
+        { he: 'שְׁמֵהּ', note: 'Kaddish: his name', mark: 'mappik' },
+      ],
+      check: [
+        {
+          id: 'chk-imah',
+          type: 'choice',
+          prompt: 'What does the mappik in עִמָּהּ show?',
+          options: [
+            { text: 'The ה is sounded: im-mah, "with her"', correct: true },
+            { text: 'The ה is doubled' },
+            { text: 'The ה is silent' },
+          ],
+          explain: 'A mappik makes the final ה a sounded consonant. Here it is the ending "her".',
+        },
+      ],
+    },
+    {
+      id: 'not-dagesh',
+      heading: 'A mappik is not a dagesh',
+      body: [
+        'A mappik looks exactly like a dagesh, but it does a different job. It does not harden or double the letter; it only says the ה is sounded.',
+        'Since ה is a guttural and cannot be doubled, a dot in a final ה is always a mappik.',
+      ],
+      check: [
+        {
+          id: 'chk-not-doubled',
+          type: 'truefalse',
+          statement: 'A mappik doubles the ה.',
+          answer: false,
+          explain: 'False. ה cannot be doubled. The mappik only shows that the ה is sounded.',
+        },
+      ],
+    },
+  ],
+
+  test: [
+    {
+      id: 'tap-imah',
+      type: 'tap',
+      prompt: 'Tap the letter with a mappik.',
+      he: 'עִמָּהּ',
+      feature: 'mappik',
+      answer: [2],
+      explain: 'The final ה. The dot in the מ is a dagesh forte.',
+    },
+    {
+      id: 'tap-ein-bah',
+      type: 'tap',
+      prompt: 'Tap the letter with a mappik.',
+      he: 'אֵין־בָּהּ',
+      feature: 'mappik',
+      answer: [4],
+      explain: 'The final ה of בָּהּ.',
+    },
+    {
+      id: 'which-sounded',
+      type: 'choice',
+      prompt: 'Which word ends in a sounded ה?',
+      options: [
+        { text: 'לְאִישָׁהּ', correct: true },
+        { text: 'אִשָּׁה' },
+        { text: 'תּוֹרָה' },
+        { text: 'בְּרָכָה' },
+      ],
+      explain: 'לְאִישָׁהּ has a mappik in its final ה. In the others the final ה is a silent vowel letter.',
+    },
+    {
+      id: 'tf-ishah',
+      type: 'truefalse',
+      statement: 'The final ה of אִשָּׁה is sounded.',
+      answer: false,
+      explain: 'False. It has no mappik, so it is a silent vowel letter.',
+    },
+    {
+      id: 'bank-mappik',
+      type: 'wordbank',
+      before: 'A dot in a ה at the end of a word is called a ',
+      after: '.',
+      options: [
+        { text: 'mappik', correct: true },
+        { text: 'dagesh' },
+        { text: 'meteg' },
+      ],
+      explain: 'Mappik: it brings out the sound of the ה.',
+    },
+    {
+      id: 'match-meaning',
+      type: 'match',
+      prompt: 'Match each word with its meaning.',
+      pairs: [
+        { left: 'אִשָּׁה', right: 'a woman' },
+        { left: 'לְאִישָׁהּ', right: 'to her husband' },
+        { left: 'עִמָּהּ', right: 'with her' },
+        { left: 'שְׁמֵהּ', right: 'his name (Aramaic)' },
+      ],
+      explain: 'The three words with a mappik end in a possessive: her, her, and in Aramaic his.',
+    },
+  ],
+
+  challenge: [
+    {
+      id: 'chal-tap-two',
+      type: 'tap',
+      prompt: 'Tap every letter with a mappik.',
+      he: 'גַּם־לְאִישָׁהּ עִמָּהּ',
+      feature: 'mappik',
+      answer: [6, 9],
+      explain: 'The final ה of לְאִישָׁהּ and the final ה of עִמָּהּ (Bereshit 3:6).',
+    },
+    {
+      id: 'chal-why-never-dagesh',
+      type: 'choice',
+      prompt: 'Why can a dot in a final ה never be a dagesh forte?',
+      options: [
+        { text: 'ה is a guttural and cannot be doubled', correct: true },
+        { text: 'A dagesh never comes at the end of a word' },
+        { text: 'Only begad kefat letters take a dot' },
+      ],
+      explain: 'The gutturals א ה ח ע and ר never take dagesh forte, so a dot in a ה can only be a mappik.',
+    },
+    {
+      id: 'chal-kaddish',
+      type: 'choice',
+      prompt: 'In Kaddish, שְׁמֵהּ ends with a mappik. How is it said?',
+      options: [
+        { text: 'sh\'meh, with the h sounded', correct: true },
+        { text: 'sh\'me, with a silent ה' },
+      ],
+      keepOrder: true,
+      explain: 'The mappik makes the ה sounded: sh\'meh, "his name".',
+    },
+  ],
+};
+})(),
+// ---- lessons/10-rafeh.js ----
+(function () {
+// Rafeh. Follows Weingreen §10. Explanations and examples are original; example
+// words were checked against the Masoretic text on Sefaria (Bereshit 2:1;
+// Tehillim 117:1).
+
+return {
+  id: 'rafeh',
+  order: 10,
+  title: 'Rafeh',
+  hebrewTitle: 'רָפֶה',
+  weingreen: '§10',
+  summary: 'When a letter that should be doubled is not.',
+
+  teach: [
+    {
+      id: 'what-rafeh',
+      heading: 'A line for a missing dagesh',
+      body: [
+        'In the Dagesh lesson, a letter was sometimes doubled just to sound smoother. The reverse also happens: a letter that the pattern of the word says should be doubled is left single, again for smoother speech.',
+        'The sign for this is **rafeh** (רָפֶה, "soft"): a short horizontal line over the letter. In older manuscripts the same line also marks a begad kefat letter without its dagesh, or a final ה without its mappik.',
+        'Most siddurim and printed Tanakhs leave the line out. You simply see no dagesh where you might expect one.',
+      ],
+      examples: [
+        { he: 'בֿ', note: 'The rafeh sign: the short line above the ב.' },
+      ],
+      check: [
+        {
+          id: 'chk-what-it-shows',
+          type: 'truefalse',
+          statement: 'Rafeh shows that a letter you would expect to be doubled is not.',
+          answer: true,
+          explain: 'True. It is the opposite of a dagesh forte.',
+        },
+      ],
+    },
+    {
+      id: 'dropped-doubling',
+      heading: 'Where you meet it',
+      body: [
+        'The doubling is dropped most often in a letter that has a sheva, especially י, ל, מ and נ. The sheva stays vocal, as it would under a doubled letter.',
+        'In Hallel, הַֽלְלוּ: the verb pattern doubles the middle letter, like the ד of קִדְּשָׁנוּ, so you might expect a dagesh in the first ל. It has none. The meteg keeps its sheva vocal: ha-l\'lu.',
+        'In Kiddush, וַיְכֻלּוּ: this verb form normally doubles the י after וַ. Here the doubling is dropped, but the sheva under the י stays vocal. That is why the כ after it is soft: va-y\'chulu, with kh.',
+      ],
+      examples: [
+        { he: 'הַֽלְלוּ', note: 'Tehillim 117:1: no dagesh in the first ל.', letters: [1] },
+        { he: 'וַיְכֻלּוּ', note: 'Bereshit 2:1, in Kiddush: no dagesh in the י.', letters: [1] },
+      ],
+      check: [
+        {
+          id: 'chk-vaychulu',
+          type: 'choice',
+          prompt: 'Why is it va-y\'chulu, with a soft כ, and not vay-kulu?',
+          options: [
+            { text: 'The י lost its doubling but kept a vocal sheva, so a vowel sound comes just before the כ', correct: true },
+            { text: 'כ is never hard after a י' },
+            { text: 'It is a printing error' },
+          ],
+          explain: 'A begad kefat letter after a vocal sheva has no dagesh lene. The sheva under the י is vocal because the י was originally doubled.',
+        },
+      ],
+    },
+  ],
+
+  test: [
+    {
+      id: 'what-marks',
+      type: 'choice',
+      prompt: 'What does a rafeh mark?',
+      options: [
+        { text: 'A letter whose expected doubling has been dropped', correct: true },
+        { text: 'A doubled letter' },
+        { text: 'A pause on a vowel' },
+      ],
+      explain: 'Rafeh, "soft", marks a letter left single where the pattern would double it.',
+    },
+    {
+      id: 'tf-printed',
+      type: 'truefalse',
+      statement: 'Most siddurim print the rafeh line.',
+      answer: false,
+      explain: 'False. Most leave it out, and you see only the missing dagesh.',
+    },
+    {
+      id: 'halelu-sheva',
+      type: 'choice',
+      prompt: 'In הַֽלְלוּ, the sheva under the first ל is…',
+      options: [
+        { text: 'vocal', correct: true },
+        { text: 'silent' },
+      ],
+      keepOrder: true,
+      explain: 'Vocal: ha-l\'lu. The meteg shows it, and a sheva under a letter that has lost its doubling stays vocal.',
+    },
+    {
+      id: 'bank-opposite',
+      type: 'wordbank',
+      before: 'Rafeh is the opposite of a dagesh ',
+      after: ' added for smoother sound.',
+      options: [
+        { text: 'forte', correct: true },
+        { text: 'lene' },
+      ],
+      explain: 'A euphonic dagesh forte doubles a letter for smoother sound; rafeh marks a doubling dropped for the same reason.',
+    },
+    {
+      id: 'tap-vaychulu',
+      type: 'tap',
+      prompt: 'Tap the letter whose doubling has been dropped.',
+      he: 'וַיְכֻלּוּ',
+      feature: 'sheva',
+      all: false,
+      answer: [1],
+      explain: 'The י. This verb form usually doubles it (וַיְּ), but here it is single, with a vocal sheva.',
+    },
+  ],
+
+  challenge: [
+    {
+      id: 'chal-halelu-letter',
+      type: 'choice',
+      prompt: 'Which letter of הַֽלְלוּ would have a dagesh forte if its doubling were kept?',
+      options: [
+        { text: 'The first ל', correct: true },
+        { text: 'The ה' },
+        { text: 'The second ל' },
+      ],
+      explain: 'The first ל, the middle letter of the root, which this verb pattern doubles.',
+    },
+    {
+      id: 'chal-kaf-soft',
+      type: 'truefalse',
+      statement: 'In וַיְכֻלּוּ the כ has no dagesh lene because a vocal sheva comes just before it.',
+      answer: true,
+      explain: 'True. A vocal sheva counts as a vowel sound, so the begad kefat letter after it stays soft.',
     },
   ],
 };
