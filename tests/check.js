@@ -2,14 +2,14 @@
 // Fails (exit 1) on any problem in lesson data, Hebrew marks, divine names,
 // spelling, grading, save logic, or a stale index.html.
 
-import { readdirSync, readFileSync } from 'node:fs';
+import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 
 import { splitHebrew, lettersOf, positionsWith, featuresOf, gapsForParts } from '../src/hebrew.js';
 import { validateLesson, validateQuestion, allQuestions, findDivineNames, findBannedSpellings, QUESTION_TYPES } from '../src/lesson-format.js';
-import { buildRun, grade, correctResponse, scoreRun, answer, STAR_THRESHOLD } from '../src/engine.js';
+import { buildRun, buildReviewRun, grade, correctResponse, scoreRun, answer, canAdvance, stepKey, STAR_THRESHOLD, REVIEW_SIZE } from '../src/engine.js';
 import { migrate, defaultSave, loadSave, writeSave, recordResult, resetProgress, SAVE_KEY, SAVE_VERSION } from '../src/save.js';
 import { noteAnswer, reviewPool } from '../src/review.js';
 import { RENDERER_TYPES } from '../src/questions.js';
@@ -252,6 +252,64 @@ if (lessons.length) {
   noteAnswer(rv, l.id, someQ.id, false);
   noteAnswer(rv, l.id, 'no-such-question', false);
   eq(reviewPool(rv, lessons.map((x) => x.lesson)), [`${l.id}/${someQ.id}`], 'pool ignores questions that no longer exist');
+}
+
+section('Review sessions');
+{
+  const all = lessons.map((x) => x.lesson);
+  const pool = [];
+  for (const l of all) for (const { q } of allQuestions(l)) pool.push(`${l.id}/${q.id}`);
+  const seq = (() => { let x = 0.37; return () => (x = (x * 9301 + 0.49297) % 1); })();
+  const run = buildReviewRun(all, [...pool, 'gone/nothing'], REVIEW_SIZE, seq);
+  const qsteps = run.steps.filter((st) => st.kind === 'question');
+  eq(run.steps[0].kind, 'intro', 'a review opens with an intro');
+  eq(run.steps.at(-1).kind, 'results', 'a review ends with results');
+  eq(qsteps.length, Math.min(REVIEW_SIZE, pool.length), `a review asks at most ${REVIEW_SIZE} questions`);
+  ok(qsteps.every((st) => pool.includes(st.key)), 'review questions come from the pool, and unknown keys are dropped');
+  ok(new Set(qsteps.map(stepKey)).size === qsteps.length, 'review steps have unique keys across lessons');
+  ok(qsteps.every((st) => st.key === `${st.lessonId}/${st.q.id}`), 'each review step knows its lesson');
+  const small = buildReviewRun(all, pool.slice(0, 3), REVIEW_SIZE, seq);
+  eq(small.steps.filter((st) => st.kind === 'question').length, Math.min(3, pool.length), 'a small pool gives a short review');
+  // Same question id in two lessons must not share an answer.
+  const twin = all.length > 1 ? (() => {
+    const a = new Set(allQuestions(all[0]).map(({ q }) => q.id));
+    const hit = allQuestions(all[1]).find(({ q }) => a.has(q.id));
+    return hit ? [`${all[0].id}/${hit.q.id}`, `${all[1].id}/${hit.q.id}`] : null;
+  })() : null;
+  if (twin) {
+    const r = buildReviewRun(all, twin, REVIEW_SIZE, seq);
+    const [s1, s2] = r.steps.filter((st) => st.kind === 'question');
+    answer(r, s1, correctResponse(s1.q));
+    r.index = r.steps.indexOf(s2);
+    ok(!canAdvance(r), `answering ${twin[0]} does not answer ${twin[1]}`);
+  }
+  for (const st of qsteps) answer(run, st, correctResponse(st.q));
+  const sc = scoreRun(run);
+  eq([sc.phase, sc.right, sc.total, sc.pct], ['review', qsteps.length, qsteps.length, 100], 'a review is scored on its own questions');
+  eq(buildReviewRun(all, [], REVIEW_SIZE, seq).steps.length, 2, 'an empty pool gives an empty review');
+}
+
+// --- installable app ----------------------------------------------------------------
+section('Installable app');
+{
+  let manifest = null;
+  try { manifest = JSON.parse(readFileSync(join(ROOT, 'manifest.json'), 'utf8')); } catch (e) { ok(false, `manifest.json parses: ${e.message}`); }
+  if (manifest) {
+    ok(manifest.start_url === './' && manifest.scope === './', 'manifest uses relative start_url and scope');
+    ok(manifest.display === 'standalone', 'manifest display is standalone');
+    for (const icon of manifest.icons || []) ok(existsSync(join(ROOT, icon.src)), `manifest icon exists: ${icon.src}`);
+    for (const size of ['192x192', '512x512']) ok((manifest.icons || []).some((i) => i.sizes === size && !i.purpose), `manifest has a ${size} icon`);
+    ok((manifest.icons || []).some((i) => i.purpose === 'maskable'), 'manifest has a maskable icon');
+  }
+  const sw = readFileSync(join(ROOT, 'sw.js'), 'utf8');
+  const listed = [...sw.matchAll(/'\.\/([^']*)'/g)].map((m) => m[1]).filter(Boolean);
+  ok(listed.length > 3, 'sw.js lists files to cache');
+  for (const f of listed) ok(existsSync(join(ROOT, f)), `sw.js caches a file that exists: ${f}`);
+  const fonts = readdirSync(join(ROOT, 'fonts')).filter((f) => f.endsWith('.woff2'));
+  for (const f of fonts) ok(listed.includes(`fonts/${f}`), `sw.js caches the font ${f}`);
+  const template = readFileSync(join(ROOT, 'src', 'template.html'), 'utf8');
+  ok(/<link rel="manifest" href="manifest\.json">/.test(template), 'the page links the manifest');
+  ok(!/href="\//.test(template) && !/src="\//.test(template), 'the page uses relative paths only');
 }
 
 // --- build ----------------------------------------------------------------------------
