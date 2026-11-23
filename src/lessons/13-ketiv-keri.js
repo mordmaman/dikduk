@@ -1,8 +1,10 @@
 // Ketiv and keri. Rules checked against Gesenius' Hebrew Grammar (1910), §17.
 // Explanations and examples are original; example words were checked against
-// the Masoretic text on Sefaria (Bereshit 3:20, 8:17, 24:14, 30:18;
-// Tehillim 122:3; Ruth 3:5). Jerusalem's extra chirik is described, not
-// shown: neither Hebrew font can place it between the ל and the ם.
+// the Masoretic text on Sefaria (Bereshit 3:20, 8:17, 24:16, 30:18;
+// Tehillim 122:3; Ruth 3:5). The mixed form הַוְצֵא (Bereshit 8:17) shows how
+// printed editions combine the written letters with the vowels of the reading
+// (§17a); Sefaria prints the two separately. Jerusalem's extra chirik is
+// described, not shown: neither Hebrew font can place it between the ל and ם.
 
 export default {
   id: 'ketiv-keri',
@@ -22,7 +24,7 @@ export default {
       ],
       examples: [
         { he: 'הוצא', note: 'Bereshit 8:17, as written: the ketiv.' },
-        { he: 'הַיְצֵא', note: 'As read: the keri, hay-tze, "bring out".' },
+        { he: 'הַיְצֵא', note: 'As read: the keri, hai-TZE, "bring out".' },
       ],
       check: [
         {
@@ -40,7 +42,11 @@ export default {
       body: [
         'A printed Chumash keeps the written letters in the text, so you can see the ketiv. Usually it gives them the vowels of the keri, marks the word with a small circle, and prints the keri\'s letters in the margin or a footnote.',
         'So if a word in the text looks wrongly pointed, look in the margin. In Bereshit 8:17 the text has the letters הוצא with the vowels of הַיְצֵא.',
-        'Some editions, like the text on Sefaria, print both instead: the ketiv in round brackets and the keri in square brackets.',
+        'Some editions, like the text on Sefaria, print the two side by side instead: the ketiv in round brackets and the keri in square brackets.',
+        'A Sefer Torah has none of this help: no vowels, no circle, no note. The reader must know the keri.',
+      ],
+      examples: [
+        { he: 'הַוְצֵא', note: 'Bereshit 8:17 as many Chumashim print it: the letters הוצא with the vowels of הַיְצֵא. Read hai-TZE.' },
       ],
       check: [
         {
@@ -61,18 +67,16 @@ export default {
       heading: 'Words that are always read differently',
       body: [
         'A few common words are read differently every time, so editions do not add a note. They simply give the written letters the vowels of the reading.',
-        'In the Torah the word for "she" is usually written הִוא, with a ו, but read hi, as if it had a י: כִּי הִוא הָיְתָה אֵם כָּל־חָי (Bereshit 3:20).',
-        'Jerusalem is written ירושלם, with no י before the ם, but read Ye-ru-sha-la-yim. Many editions show this with a small extra chirik between the ל and the ם.',
-        'And יִשָּׂשכָר is read Yis-sa-char: the second ש has no point and is not said.',
+        'In the Torah, the word for "she" is usually written with the letters הוא, but read hi, as if it had a י. Your Chumash points it הִוא: כִּי הִוא הָיְתָה אֵם כָּל־חָי (Bereshit 3:20).',
+        'And יִשָּׂשכָר is read yis-sa-CHAR: the second ש has no point and is not said.',
       ],
       examples: [
         { he: 'הִוא', note: 'Bereshit 3:20: read hi.', letters: [1] },
-        { he: 'ירושלם', note: 'Tehillim 122:3, the written letters: read Ye-ru-sha-la-yim.' },
-        { he: 'יִשָּׂשכָר', note: 'Bereshit 30:18: read Yis-sa-char.', letters: [2] },
+        { he: 'יִשָּׂשכָר', note: 'Bereshit 30:18: read yis-sa-CHAR.', letters: [2] },
       ],
       callout: {
         kind: 'note',
-        text: 'The best-known case of all is the Name, ה׳, which is never read as it is written.',
+        text: 'Two more you know. Jerusalem is written ירושלם, with no י before the ם, but read ye-ru-sha-LA-yim; many editions add a small extra chirik before the ם to show it. And the Name, ה׳, is never read as it is written.',
       },
       check: [
         {
@@ -81,7 +85,7 @@ export default {
           prompt: 'Tap the letter that is written but not said.',
           he: 'יִשָּׂשכָר',
           answer: [2],
-          explain: 'The second ש. It has no point of its own, and the name is read Yis-sa-char.',
+          explain: 'The second ש. It has no point of its own, and the name is read yis-sa-CHAR.',
         },
       ],
     },
@@ -94,7 +98,16 @@ export default {
         'The opposite also happens, more rarely still: a word is written but not read, and is left without vowels.',
       ],
       examples: [
-        { he: 'כֹּל אֲשֶׁר־תֹּאמְרִי אֶעֱשֶׂה', note: 'Ruth 3:5 as written. The reader says אֵלַי after תֹּאמְרִי.' },
+        { he: 'כֹּל אֲשֶׁר־תֹּאמְרִי אֶעֱשֶׂה', note: 'Ruth 3:5, the written words. In your Chumash there is a small gap after תֹּאמְרִי with only the vowels of אֵלַי.' },
+      ],
+      check: [
+        {
+          id: 'chk-ruth-letters',
+          type: 'truefalse',
+          statement: 'In Ruth 3:5 the letters of אֵלַי are written in the text.',
+          answer: false,
+          explain: 'False. Only its vowels are printed. The reader says the word from the note.',
+        },
       ],
     },
   ],
@@ -119,16 +132,16 @@ export default {
         { left: 'ketiv', right: 'what is written' },
         { left: 'keri', right: 'what is read' },
         { left: 'הִוא in the Torah', right: 'read hi' },
-        { left: 'יִשָּׂשכָר', right: 'read Yis-sa-char' },
+        { left: 'יִשָּׂשכָר', right: 'read yis-sa-CHAR' },
       ],
       explain: 'Ketiv is written, keri is read. הִוא and יִשָּׂשכָר are read differently every time they appear.',
     },
     {
       id: 'tf-hu',
       type: 'truefalse',
-      statement: 'In the Torah, the word written הִוא is read hu.',
+      statement: 'In the Torah, the word for "she", written with the letters הוא, is read hu.',
       answer: false,
-      explain: 'False. It means "she" and is read hi. The chirik under the ה is the vowel of the reading.',
+      explain: 'False. It means "she" and is read hi. The chirik under the ה in הִוא is the vowel of the reading.',
     },
     {
       id: 'choice-chirik',
@@ -153,11 +166,11 @@ export default {
       type: 'choice',
       prompt: 'Jerusalem is written ירושלם, with no י before the ם. How is it read?',
       options: [
-        { text: 'Ye-ru-sha-la-yim', correct: true },
-        { text: 'Ye-ru-sha-lem' },
-        { text: 'Ye-ru-sha-lim' },
+        { text: 'ye-ru-sha-LA-yim', correct: true },
+        { text: 'ye-ru-sha-LEM' },
+        { text: 'ye-ru-sha-LIM' },
       ],
-      explain: 'Ye-ru-sha-la-yim. The written letters have no י before the ם; many editions add a small chirik to show the reading.',
+      explain: 'ye-ru-sha-LA-yim. The written letters have no י before the ם; many editions add a small chirik to show the reading.',
     },
     {
       id: 'tf-wrong-pointing',
@@ -189,29 +202,29 @@ export default {
         { text: 'The ה is read as an א' },
         { text: 'Nothing changes' },
       ],
-      explain: 'The written ו is read as a י: hay-tze. The other letters are the same.',
+      explain: 'The written ו is read as a י: hai-TZE. The other letters are the same.',
     },
     {
       id: 'chal-naarah',
       type: 'choice',
-      prompt: 'In Bereshit 24:14 Rivka is called הַנַּעֲרָ, written with no final ה. How is it read?',
+      prompt: 'In Bereshit 24:16 Rivka is called וְהַנַּעֲרָ, written with no final ה. How is it read?',
       options: [
-        { text: 'ha-na-a-ra, "the girl"', correct: true },
-        { text: 'ha-na-ar, "the boy"' },
-        { text: 'ha-na-a-rach' },
+        { text: 'v\'han-na-a-RA, "and the girl"', correct: true },
+        { text: 'v\'han-NA-ar, "and the boy"' },
+        { text: 'v\'han-na-a-RACH' },
       ],
-      explain: 'ha-na-a-ra. In the Torah, נער meaning "girl" is written without its ה but read נַעֲרָה. The vowels of the reading show it: a kamatz under the ר.',
+      explain: 'v\'han-na-a-RA. In the Torah, the word for "girl" is usually written נער, without its ה, but read נַעֲרָה. The vowels of the reading show it: a kamatz under the ר.',
     },
     {
       id: 'chal-issachar',
       type: 'choice',
       prompt: 'Why is the second ש of יִשָּׂשכָר left without a point?',
       options: [
-        { text: 'It is written but not read', correct: true },
+        { text: 'That ש is written but never said: the name is always read yis-sa-CHAR', correct: true },
         { text: 'It has lost its dagesh' },
         { text: 'It is a vowel letter' },
       ],
-      explain: 'It is written but not read. The name is said Yis-sa-char, with only one ש sounded.',
+      explain: 'It is one of the words that are always read differently. One ש is written but not said, so it gets no point.',
     },
   ],
 };

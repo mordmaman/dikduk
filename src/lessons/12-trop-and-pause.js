@@ -2,7 +2,7 @@
 // (the accents) and §29 (the tone and the pause). Explanations and examples
 // are original; example words, with their trop, were checked against the
 // Masoretic text on Sefaria (Bereshit 1:6, 1:22, 29:6, 29:9; Shemot 24:7;
-// Devarim 6:4, 6:7; Yehoshua 1:17).
+// Devarim 6:4, 6:5, 6:7; Yehoshua 1:17).
 
 export default {
   id: 'trop-and-pause',
@@ -39,7 +39,7 @@ export default {
     },
     {
       id: 'kings-servants',
-      heading: 'Pausing marks and joining marks',
+      heading: 'Breaking marks and joining marks',
       body: [
         'Some trop marks make a break after their word, like a comma. They are called **kings** (מְלָכִים). Others join their word to the next one. They are called **servants** (מְשָׁרְתִים).',
         'In Bereshit 1:6, בֵּ֥ין מַ֖יִם לָמָֽיִם, "between water and water": the mark under בֵּין is a servant, so it runs on into מַיִם. The mark under מַיִם is a king, so there is a slight break before לָמָיִם.',
@@ -65,9 +65,9 @@ export default {
       id: 'two-big-pauses',
       heading: 'The two biggest breaks',
       body: [
-        'Every verse ends with **silluq**, the small upright line from the Meteg lesson, under the stressed syllable of the last word. After the word come the two dots of **sof pasuk** (סוֹף פָּסוּק, "end of verse").',
+        'Every verse ends with silluq, the small upright line from the Meteg lesson, under the stressed syllable of the last word. After the word come the two dots of **sof pasuk** (סוֹף פָּסוּק, "end of verse").',
         'Most verses also have one main break in the middle, marked by **etnachta** (אֶתְנַחְתָּא, "resting"): a small wedge, like ^, under the stressed syllable.',
-        'In the Shema the etnachta is under יִשְׂרָאֵל: the verse divides after "Hear, Israel".',
+        'Etnachta and silluq are the two strongest kings. In the Shema the etnachta is under יִשְׂרָאֵל: the verse divides after "Hear, Israel".',
       ],
       examples: [
         { he: 'שְׁמַ֖ע יִשְׂרָאֵ֑ל', note: 'Devarim 6:4: etnachta under the stressed syllable of יִשְׂרָאֵל.' },
@@ -90,14 +90,14 @@ export default {
     },
     {
       id: 'pausal-forms',
-      heading: 'Words change at a break',
+      heading: 'Words change at a big break',
       body: [
-        'At etnachta and silluq the reader pauses, and the word there is said with extra weight. Often one of its vowels changes. These are called **pausal forms** (from הֶפְסֵק, "pause").',
-        'The commonest change: a short vowel becomes long. Bereshit 1:6 has the same word both ways: מַ֖יִם, with a patach, in the middle of a phrase, and הַמָּ֑יִם and לָמָֽיִם, with a kamatz, at the two big breaks.',
-        'So if a familiar word has an unexpected kamatz at the end of a verse, look for a pause before anything else.',
+        'At etnachta and silluq the reader pauses longest, and the word there is said with extra weight. Often one of its vowels changes. These are called **pausal forms** (צוּרוֹת הֶפְסֵק, "pause forms"). They come mostly at these two breaks, and only sometimes at a smaller king.',
+        'The commonest change: the stressed vowel, if it is short, becomes long. Bereshit 1:6 has מַיִם three times. At a small break it keeps its patach: מַ֖יִם, MA-yim. At the two biggest breaks it has a kamatz: הַמָּ֑יִם at etnachta and לָמָֽיִם at silluq.',
+        'So if a familiar word has an unexpected kamatz at etnachta or at the end of a verse, a pause is the likely reason.',
       ],
       examples: [
-        { he: 'מַ֖יִם', note: 'Bereshit 1:6, mid-phrase: patach.', letters: [0] },
+        { he: 'מַ֖יִם', note: 'Bereshit 1:6, at a small break: patach.', letters: [0] },
         { he: 'לָמָֽיִם׃', note: 'Bereshit 1:6, at silluq: kamatz.', letters: [1] },
       ],
       check: [
@@ -106,31 +106,36 @@ export default {
           type: 'choice',
           prompt: 'Why does לָמָֽיִם have a kamatz under the מ, where מַ֖יִם has a patach?',
           options: [
-            { text: 'It is at silluq, a pause, so the short vowel becomes long', correct: true },
+            { text: 'It is at silluq, a big break, so the short stressed vowel becomes long', correct: true },
             { text: 'The מ is doubled' },
             { text: 'It is a different word' },
           ],
-          explain: 'It is a pausal form. At silluq the stressed vowel of the word is lengthened: the patach becomes a kamatz.',
+          explain: 'It is a pausal form. מַיִם is stressed on its first syllable, MA-yim. At silluq that stressed patach is lengthened to a kamatz.',
         },
       ],
     },
     {
-      id: 'vowel-returns',
-      heading: 'A vowel comes back',
+      id: 'full-vowel',
+      heading: 'A full vowel for a sheva',
       body: [
-        'Another change: where a word normally has a vocal sheva, a pause can bring a full vowel back.',
-        'The Shema shows it in one phrase: וּבְשׇׁכְבְּךָ וּבְקוּמֶךָ, "when you lie down and when you get up" (Devarim 6:7). The ending "you" is usually -\'cha, with a sheva before it, as in וּבְשׇׁכְבְּךָ, u-v\'shoch-b\'cha. At the end of the verse it becomes -e-cha: וּבְקוּמֶךָ, u-v\'ku-me-cha.',
+        'Another change: where a word normally has a vocal sheva, a big break can give it a full vowel instead.',
+        'The Shema shows it: בְּכָל־לְבָבְךָ וּבְכָל־נַפְשְׁךָ וּבְכָל־מְאֹדֶךָ, "with all your heart, and with all your soul, and with all your might" (Devarim 6:5). All three words end in ךָ, "your".',
+        'In the first two, mid-verse, the letter before ךָ has a vocal sheva: l\'va-v\'CHA, naf-sh\'CHA. The third ends the verse, at silluq. There the letter before ךָ has a full vowel, a segol: m\'o-DE-cha.',
       ],
       examples: [
-        { he: 'וּֽבְשׇׁכְבְּךָ֖ וּבְקוּמֶֽךָ׃', note: 'Devarim 6:7: -b\'cha mid-verse, then -me-cha at silluq.' },
+        { he: 'בְּכׇל־לְבָבְךָ֥ וּבְכׇל־נַפְשְׁךָ֖ וּבְכׇל־מְאֹדֶֽךָ׃', note: 'Devarim 6:5: a sheva before ךָ twice, then a segol at silluq.' },
       ],
+      callout: {
+        kind: 'note',
+        text: 'Two things to know. Words with a י before the ending, like לְבָנֶיךָ, "your children", always say -e-cha, pause or not. And now and then a word takes the full vowel at a smaller king, as בְּבֵיתֶךָ, "in your house", does in Devarim 6:7.',
+      },
       check: [
         {
-          id: 'chk-shema-segol',
+          id: 'chk-meodecha',
           type: 'truefalse',
-          statement: 'In וּבְקוּמֶךָ, the segol before the ending is there because of the pause at the end of the verse.',
+          statement: 'In מְאֹדֶךָ, the segol before ךָ is there because of the pause at the end of the verse.',
           answer: true,
-          explain: 'True. Mid-verse the ending is -\'cha with a sheva before it, as in וּבְשׇׁכְבְּךָ. At silluq a full vowel comes back: -e-cha.',
+          explain: 'True. Mid-verse the letter before ךָ has a vocal sheva, as in לְבָבְךָ and נַפְשְׁךָ. At silluq it has a full vowel: m\'o-DE-cha.',
         },
       ],
     },
@@ -158,13 +163,13 @@ export default {
     {
       id: 'choice-where-pausal',
       type: 'choice',
-      prompt: 'Where do pausal forms usually appear?',
+      prompt: 'Where do pausal forms mostly appear?',
       options: [
         { text: 'At etnachta and silluq', correct: true },
         { text: 'Under any servant mark' },
         { text: 'Before a makaf' },
       ],
-      explain: 'At the two biggest breaks, etnachta in the middle of the verse and silluq at the end.',
+      explain: 'Mostly at the two biggest breaks, etnachta in the middle of the verse and silluq at the end.',
     },
     {
       id: 'choice-usual-form',
@@ -175,7 +180,7 @@ export default {
         { text: 'הַמֵּיִם' },
         { text: 'הַמְּיִם' },
       ],
-      explain: 'הַמַּיִם, with a patach, as in Bereshit 1:22. At the pause the patach lengthens to a kamatz.',
+      explain: 'הַמַּיִם, with a patach, as in Bereshit 1:22. At the pause the stressed patach lengthens to a kamatz.',
     },
     {
       id: 'tf-only-tune',
@@ -190,7 +195,7 @@ export default {
       prompt: 'Match each mark to what it does.',
       pairs: [
         { left: 'etnachta', right: 'the main break mid-verse' },
-        { left: 'silluq', right: 'the stressed syllable of the last word' },
+        { left: 'silluq', right: 'ends the verse, under the last word' },
         { left: 'sof pasuk', right: 'the two dots after the last word' },
         { left: 'a servant', right: 'joins its word to the next' },
       ],
@@ -211,20 +216,20 @@ export default {
     {
       id: 'tf-lengthen',
       type: 'truefalse',
-      statement: 'At a pause, a short vowel often becomes long.',
+      statement: 'At a big break, a short stressed vowel often becomes long.',
       answer: true,
       explain: 'True. מַיִם becomes מָיִם at etnachta and silluq.',
     },
     {
       id: 'choice-which-pausal',
       type: 'choice',
-      prompt: 'Which of these two words from Devarim 6:7 is the pausal form?',
+      prompt: 'Which of these words from Devarim 6:5 is the pausal form?',
       options: [
-        { text: 'וּבְקוּמֶךָ', correct: true },
-        { text: 'וּבְשׇׁכְבְּךָ' },
+        { text: 'וּבְכָל־מְאֹדֶךָ', correct: true },
+        { text: 'וּבְכָל־נַפְשְׁךָ' },
+        { text: 'בְּכָל־לְבָבְךָ' },
       ],
-      keepOrder: true,
-      explain: 'וּבְקוּמֶךָ, at the end of the verse. Its ending has a full vowel, -e-cha, where mid-verse there is a sheva, -\'cha.',
+      explain: 'וּבְכָל־מְאֹדֶךָ, at the end of the verse. The letter before ךָ has a full vowel, a segol, where mid-verse there is a vocal sheva.',
     },
   ],
 
@@ -238,7 +243,7 @@ export default {
         { text: 'The ו in front of it changes the vowel' },
         { text: 'They are two different verbs' },
       ],
-      explain: 'It is a pausal form. נַעֲשֶׂה וְנִשְׁמָע ends its verse, so the patach becomes a kamatz. In Yehoshua the word is mid-verse and keeps its patach.',
+      explain: 'It is a pausal form. נַעֲשֶׂה וְנִשְׁמָע ends its verse, so the stressed patach becomes a kamatz. In Yehoshua the word is mid-verse and keeps its patach.',
     },
     {
       id: 'chal-first-mayim',
@@ -249,7 +254,7 @@ export default {
         { text: 'King marks always shorten a vowel' },
         { text: 'It is not a real word' },
       ],
-      explain: 'Pausal forms belong mainly to the two biggest breaks. The mark under the first מַיִם makes only a small break, so the word keeps its usual form.',
+      explain: 'Pausal forms belong mainly to the two biggest breaks. The mark under the first מַיִם makes only a small break, so here the word keeps its usual form.',
     },
     {
       id: 'chal-rashi',

@@ -1,7 +1,7 @@
 // Silent letters. Rules checked against Gesenius' Hebrew Grammar (1910), §23,
 // with §7–8 for the vowel letters. Explanations and examples are original;
 // example words were checked against the Masoretic text on Sefaria
-// (Bereshit 1:1, 1:3, 1:22, 2:2, 4:2; Shemot 12:2, 16:8).
+// (Bereshit 1:1, 1:3, 1:22, 2:2, 4:2; Shemot 12:2, 16:8, 20:10).
 
 export default {
   id: 'silent-letters',
@@ -16,8 +16,8 @@ export default {
       heading: 'Letters you do not say',
       body: [
         'Some letters are written but not said. You have met two already: the final ה of תּוֹרָה, and the י in the ending ־ָיו, said -av.',
-        'Grammar calls such a letter **resting** (נָח): it is there on the page, but it makes no sound of its own.',
-        'The letter that rests most often is א. You read past it every day: בְּרֵאשִׁית בָּרָא has two, and neither is said.',
+        'Grammar calls such a letter **resting** (נָח): it is there on the page, but it makes no sound of its own. It is the same word as the resting, or silent, sheva (שְׁוָא נָח) of the Sheva lesson. These lessons mostly just say silent.',
+        'Apart from the vowel letters, the letter that rests most often is א. You read past a silent א every day: בְּרֵאשִׁית בָּרָא has two, and neither is said.',
       ],
       examples: [
         { he: 'בְּרֵאשִׁית בָּרָא', note: 'Bereshit 1:1: b\'re-shit ba-ra. Neither א is said.', letters: [2, 8] },
@@ -39,11 +39,13 @@ export default {
       heading: 'When is an א silent?',
       body: [
         'Look under and over the א. **An א with no vowel and no sheva of its own is silent.** The vowel you say belongs to the letter before it.',
-        'An א with a vowel or a chataf of its own is a real consonant. It starts its syllable, even if you hardly hear it: אָמֵן is a-men, and אֱמֶת is e-met.',
+        'Watch the cholam. In words like צֹאן and רֹאשׁ its dot is often printed over the א, but it belongs to the letter before. The א still has nothing of its own.',
+        'An א with a vowel or a chataf of its own (or, rarely, a sheva) is a real consonant. It starts its syllable, even if you hardly hear it: אָמֵן is a-men, and אֱמֶת is e-met.',
       ],
       examples: [
         { he: 'צֹאן', note: 'Bereshit 4:2: tzon. The cholam belongs to the צ; the א has nothing of its own.', letters: [1] },
         { he: 'אָמֵן', note: 'a-men: the א has a kamatz, so it starts the word.', letters: [0] },
+        { he: 'וַיֹּאמֶר', note: 'Bereshit 1:3: vay-yo-mer. The cholam belongs to the י.', letters: [2] },
       ],
       check: [
         {
@@ -64,7 +66,7 @@ export default {
       heading: 'Read straight through it',
       body: [
         'A silent א does not close a syllable. Read on as if it were not there: בָּרָא is ba-ra, two open syllables, and רֹאשׁ is one syllable, rosh, closed by the ש.',
-        'The same goes for a silent א in the middle of a word. In רִאשׁוֹן, "first" (Shemot 12:2), you say ri-shon.',
+        'The same goes for a silent א in the middle of a word. In רִאשׁוֹן, "first" (Shemot 12:2), you say ri-shon. When you split it into syllables, the silent א stays with the syllable before it: רִא | שׁוֹן.',
         'A word from Kiddush shows it clearly. מְלַאכְתּוֹ, "his work", is m\'lach-to: the א is silent, and the syllable is closed by the כ.',
       ],
       examples: [
@@ -90,12 +92,11 @@ export default {
       heading: 'When an א falls silent',
       body: [
         'Sometimes an א that would be sounded falls silent when a prefix is added, and the vowel before it changes to make up for it.',
-        'You met the commonest case in the Sheva lesson. By the rule there, לְ + אֱמֹר, "to say", would give לֶאֱמֹר. Instead it is לֵאמֹר, le-mor: the א loses its chataf and falls silent, and the prefix takes a tzere.',
-        'לֵאמֹר, "saying", comes hundreds of times in Tanakh, often just before someone speaks, as in Bereshit 1:22. The same silent א, after a cholam, is in וַיֹּאמֶר, "and he said".',
+        'You met the commonest case in the Sheva lesson. By the rule there, לְ, "to", + אֱמֹר, "say", would give לֶאֱמֹר. Instead it is לֵאמֹר, le-mor: the א loses its chataf and falls silent, and the prefix takes a tzere.',
+        'לֵאמֹר, "saying", comes hundreds of times in Tanakh, often just before someone speaks, as in Bereshit 1:22.',
       ],
       examples: [
         { he: 'לֵאמֹר', note: 'Bereshit 1:22: le-mor.', letters: [1] },
-        { he: 'וַיֹּאמֶר', note: 'Bereshit 1:3: va-yo-mer.', letters: [2] },
       ],
       callout: {
         kind: 'note',
@@ -140,7 +141,7 @@ export default {
       prompt: 'Tap the silent letter.',
       he: 'וַיֹּאמֶר',
       answer: [2],
-      explain: 'The א. The cholam belongs to the י, so you read straight on to the מ: va-yo-mer.',
+      explain: 'The א. The cholam belongs to the י, so you read straight on to the מ: vay-yo-mer.',
     },
     {
       id: 'choice-rosh-syllables',
@@ -163,7 +164,7 @@ export default {
         { left: 'לֵאמֹר', right: 'le-mor' },
         { left: 'אֱמֶת', right: 'e-met' },
       ],
-      explain: 'In the first three the א is silent. In אֱמֶת it has a chataf of its own, so it starts the word.',
+      explain: 'In בָּרָא, רִאשׁוֹן and לֵאמֹר the א has no vowel of its own, so it is silent. In אֱמֶת it has a chataf segol, so it starts the word: e-met.',
     },
     {
       id: 'tf-closes',
@@ -210,15 +211,15 @@ export default {
 
   challenge: [
     {
-      id: 'chal-melachto',
+      id: 'chal-melacha',
       type: 'choice',
-      prompt: 'How is מְלַאכְתּוֹ, "his work", from Kiddush, said?',
+      prompt: 'In the Ten Commandments, לֹא־תַעֲשֶׂה כָל־מְלָאכָה (Shemot 20:10). How is מְלָאכָה, "work", said?',
       options: [
-        { text: 'm\'lach-to', correct: true },
-        { text: 'm\'la-ach-to' },
-        { text: 'm\'la-a-che-to' },
+        { text: 'm\'la-cha', correct: true },
+        { text: 'm\'la-a-cha' },
+        { text: 'm\'lach-cha' },
       ],
-      explain: 'm\'lach-to. The א has no vowel of its own, so it is silent; the כ has a silent sheva and closes the syllable lach.',
+      explain: 'm\'la-cha. The א has no vowel of its own, so it is silent: read straight from the kamatz under the ל to the כ.',
     },
     {
       id: 'chal-leechol',

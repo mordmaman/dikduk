@@ -1454,7 +1454,7 @@ return {
       id: 'silluq',
       heading: 'The same line at the end of a verse',
       body: [
-        'The same upright line also appears under the stressed syllable of the last word in every verse of Tanakh, just before the two dots of sof pasuk. There it is one of the trop marks (טְעָמִים), called **silluq** (סִלּוּק), marking the end of the verse.',
+        'The same upright line also appears under the stressed syllable of the last word in every verse of Tanakh, just before the two dots that end a verse (sof pasuk, "end of verse"). There it is one of the trop marks (טְעָמִים), called **silluq** (סִלּוּק), marking the end of the verse.',
         'The Shema ends this way: in אֶחָֽד the line under the ח is a silluq.',
       ],
       examples: [
@@ -2767,7 +2767,7 @@ return {
 // Silent letters. Rules checked against Gesenius' Hebrew Grammar (1910), §23,
 // with §7–8 for the vowel letters. Explanations and examples are original;
 // example words were checked against the Masoretic text on Sefaria
-// (Bereshit 1:1, 1:3, 1:22, 2:2, 4:2; Shemot 12:2, 16:8).
+// (Bereshit 1:1, 1:3, 1:22, 2:2, 4:2; Shemot 12:2, 16:8, 20:10).
 
 return {
   id: 'silent-letters',
@@ -2782,8 +2782,8 @@ return {
       heading: 'Letters you do not say',
       body: [
         'Some letters are written but not said. You have met two already: the final ה of תּוֹרָה, and the י in the ending ־ָיו, said -av.',
-        'Grammar calls such a letter **resting** (נָח): it is there on the page, but it makes no sound of its own.',
-        'The letter that rests most often is א. You read past it every day: בְּרֵאשִׁית בָּרָא has two, and neither is said.',
+        'Grammar calls such a letter **resting** (נָח): it is there on the page, but it makes no sound of its own. It is the same word as the resting, or silent, sheva (שְׁוָא נָח) of the Sheva lesson. These lessons mostly just say silent.',
+        'Apart from the vowel letters, the letter that rests most often is א. You read past a silent א every day: בְּרֵאשִׁית בָּרָא has two, and neither is said.',
       ],
       examples: [
         { he: 'בְּרֵאשִׁית בָּרָא', note: 'Bereshit 1:1: b\'re-shit ba-ra. Neither א is said.', letters: [2, 8] },
@@ -2805,11 +2805,13 @@ return {
       heading: 'When is an א silent?',
       body: [
         'Look under and over the א. **An א with no vowel and no sheva of its own is silent.** The vowel you say belongs to the letter before it.',
-        'An א with a vowel or a chataf of its own is a real consonant. It starts its syllable, even if you hardly hear it: אָמֵן is a-men, and אֱמֶת is e-met.',
+        'Watch the cholam. In words like צֹאן and רֹאשׁ its dot is often printed over the א, but it belongs to the letter before. The א still has nothing of its own.',
+        'An א with a vowel or a chataf of its own (or, rarely, a sheva) is a real consonant. It starts its syllable, even if you hardly hear it: אָמֵן is a-men, and אֱמֶת is e-met.',
       ],
       examples: [
         { he: 'צֹאן', note: 'Bereshit 4:2: tzon. The cholam belongs to the צ; the א has nothing of its own.', letters: [1] },
         { he: 'אָמֵן', note: 'a-men: the א has a kamatz, so it starts the word.', letters: [0] },
+        { he: 'וַיֹּאמֶר', note: 'Bereshit 1:3: vay-yo-mer. The cholam belongs to the י.', letters: [2] },
       ],
       check: [
         {
@@ -2830,7 +2832,7 @@ return {
       heading: 'Read straight through it',
       body: [
         'A silent א does not close a syllable. Read on as if it were not there: בָּרָא is ba-ra, two open syllables, and רֹאשׁ is one syllable, rosh, closed by the ש.',
-        'The same goes for a silent א in the middle of a word. In רִאשׁוֹן, "first" (Shemot 12:2), you say ri-shon.',
+        'The same goes for a silent א in the middle of a word. In רִאשׁוֹן, "first" (Shemot 12:2), you say ri-shon. When you split it into syllables, the silent א stays with the syllable before it: רִא | שׁוֹן.',
         'A word from Kiddush shows it clearly. מְלַאכְתּוֹ, "his work", is m\'lach-to: the א is silent, and the syllable is closed by the כ.',
       ],
       examples: [
@@ -2856,12 +2858,11 @@ return {
       heading: 'When an א falls silent',
       body: [
         'Sometimes an א that would be sounded falls silent when a prefix is added, and the vowel before it changes to make up for it.',
-        'You met the commonest case in the Sheva lesson. By the rule there, לְ + אֱמֹר, "to say", would give לֶאֱמֹר. Instead it is לֵאמֹר, le-mor: the א loses its chataf and falls silent, and the prefix takes a tzere.',
-        'לֵאמֹר, "saying", comes hundreds of times in Tanakh, often just before someone speaks, as in Bereshit 1:22. The same silent א, after a cholam, is in וַיֹּאמֶר, "and he said".',
+        'You met the commonest case in the Sheva lesson. By the rule there, לְ, "to", + אֱמֹר, "say", would give לֶאֱמֹר. Instead it is לֵאמֹר, le-mor: the א loses its chataf and falls silent, and the prefix takes a tzere.',
+        'לֵאמֹר, "saying", comes hundreds of times in Tanakh, often just before someone speaks, as in Bereshit 1:22.',
       ],
       examples: [
         { he: 'לֵאמֹר', note: 'Bereshit 1:22: le-mor.', letters: [1] },
-        { he: 'וַיֹּאמֶר', note: 'Bereshit 1:3: va-yo-mer.', letters: [2] },
       ],
       callout: {
         kind: 'note',
@@ -2906,7 +2907,7 @@ return {
       prompt: 'Tap the silent letter.',
       he: 'וַיֹּאמֶר',
       answer: [2],
-      explain: 'The א. The cholam belongs to the י, so you read straight on to the מ: va-yo-mer.',
+      explain: 'The א. The cholam belongs to the י, so you read straight on to the מ: vay-yo-mer.',
     },
     {
       id: 'choice-rosh-syllables',
@@ -2929,7 +2930,7 @@ return {
         { left: 'לֵאמֹר', right: 'le-mor' },
         { left: 'אֱמֶת', right: 'e-met' },
       ],
-      explain: 'In the first three the א is silent. In אֱמֶת it has a chataf of its own, so it starts the word.',
+      explain: 'In בָּרָא, רִאשׁוֹן and לֵאמֹר the א has no vowel of its own, so it is silent. In אֱמֶת it has a chataf segol, so it starts the word: e-met.',
     },
     {
       id: 'tf-closes',
@@ -2976,15 +2977,15 @@ return {
 
   challenge: [
     {
-      id: 'chal-melachto',
+      id: 'chal-melacha',
       type: 'choice',
-      prompt: 'How is מְלַאכְתּוֹ, "his work", from Kiddush, said?',
+      prompt: 'In the Ten Commandments, לֹא־תַעֲשֶׂה כָל־מְלָאכָה (Shemot 20:10). How is מְלָאכָה, "work", said?',
       options: [
-        { text: 'm\'lach-to', correct: true },
-        { text: 'm\'la-ach-to' },
-        { text: 'm\'la-a-che-to' },
+        { text: 'm\'la-cha', correct: true },
+        { text: 'm\'la-a-cha' },
+        { text: 'm\'lach-cha' },
       ],
-      explain: 'm\'lach-to. The א has no vowel of its own, so it is silent; the כ has a silent sheva and closes the syllable lach.',
+      explain: 'm\'la-cha. The א has no vowel of its own, so it is silent: read straight from the kamatz under the ל to the כ.',
     },
     {
       id: 'chal-leechol',
@@ -3013,7 +3014,7 @@ return {
 // The gutturals. Rules checked against Gesenius' Hebrew Grammar (1910), §22
 // (with §6 for the letters and §10 for the chataf vowels). Explanations and
 // examples are original; example words were checked against the Masoretic
-// text on Sefaria (Bereshit 1:2, 3:5, 6:9, 8:20, 13:6, 25:26; Shemot 2:6,
+// text on Sefaria (Bereshit 1:2, 1:11, 3:5, 6:9, 8:20, 13:6, 25:26; Shemot 2:6,
 // 12:27, 16:8, 24:7; Devarim 6:4; Tehillim 145:16).
 
 return {
@@ -3028,9 +3029,9 @@ return {
       id: 'throat-letters',
       heading: 'Four throat letters',
       body: [
-        'א ה ח ע are said in the throat. Grammar calls them the **gutturals** (אוֹתִיּוֹת הַגָּרוֹן, "throat letters").',
-        'You have met three of their habits already. They take a chataf instead of a vocal sheva (the Sheva lesson). They are not doubled with a dagesh forte (the Dagesh lesson). And א often falls silent (the Silent letters lesson).',
-        'This lesson adds two more: a patach that is said before its letter, and a liking for the a sound.',
+        'א ה ח ע are said in the throat. You met them in the Sheva lesson as the gutturals (אוֹתִיּוֹת הַגָּרוֹן, "throat letters").',
+        'You have also met three of their habits. They take a chataf instead of a vocal sheva (the Sheva lesson). They are not doubled with a dagesh forte (the Dagesh lesson). And א often falls silent (the Silent letters lesson).',
+        'This lesson adds three more: a patach said before its letter, a chataf where other letters have a silent sheva, and a liking for the a sound.',
       ],
       callout: {
         kind: 'note',
@@ -3054,26 +3055,30 @@ return {
       id: 'stolen-patach',
       heading: 'The stolen patach',
       body: [
-        'Say נֹחַ, Noah. You say No-ach: the a sound comes *before* the ח, even though the patach is written under it.',
-        'This is a **stolen patach** (פַּתַח גְּנוּבָה). It comes under a ח, a ע, or a ה with a mappik, at the very end of a word, when the vowel before it is not a. It slips in a short a, so that the throat letter can be heard clearly.',
-        'You say it in רוּחַ, ru-ach, and in מִזְבֵּחַ, miz-be-ach.',
+        'Say נֹחַ, Noah. You say NO-ach: the a sound comes *before* the ח, even though the patach is written under it.',
+        'This is a **stolen patach** (פַּתַח גְּנוּבָה). It comes only under the last letter of a word. That letter is a ח, a ע, or a ה with a mappik. And the vowel before it is not a.',
+        'It slips in a short a, so that the throat letter can be heard clearly. You say it in רוּחַ, RU-ach, and in מִזְבֵּחַ, miz-BE-ach.',
       ],
       examples: [
-        { he: 'נֹחַ', note: 'Bereshit 6:9: No-ach.', letters: [1] },
-        { he: 'רוּחַ', note: 'Bereshit 1:2: ru-ach.', letters: [2] },
-        { he: 'מִזְבֵּחַ', note: 'Bereshit 8:20: miz-be-ach.', letters: [3] },
+        { he: 'נֹחַ', note: 'Bereshit 6:9: NO-ach.', letters: [1] },
+        { he: 'רוּחַ', note: 'Bereshit 1:2: RU-ach.', letters: [2] },
+        { he: 'מִזְבֵּחַ', note: 'Bereshit 8:20: miz-BE-ach.', letters: [3] },
       ],
+      callout: {
+        kind: 'note',
+        text: 'The stolen a is a quick glide into the throat letter, not a full syllable of its own. RU-ach shows the order of the sounds, but רוּחַ is still one beat, stressed on ru.',
+      },
       check: [
         {
           id: 'chk-say-ruach',
           type: 'choice',
           prompt: 'How is רוּחַ said?',
           options: [
-            { text: 'ru-ach', correct: true },
-            { text: 'ru-cha' },
+            { text: 'RU-ach', correct: true },
+            { text: 'ru-CHA' },
             { text: 'ruch' },
           ],
-          explain: 'ru-ach. The patach under the final ח is stolen: it is said before the ח, after the u.',
+          explain: 'RU-ach. The patach under the final ח is stolen: it is said before the ח, straight after the u.',
         },
       ],
     },
@@ -3082,8 +3087,8 @@ return {
       heading: 'Stolen or ordinary?',
       body: [
         'Only a patach under the last letter of a word can be stolen, and only when the vowel before it is not a.',
-        'In Ashrei we say פּוֹתֵחַ אֶת־יָדֶךָ וּמַשְׂבִּיעַ לְכָל־חַי רָצוֹן. The patach at the end of פּוֹתֵחַ (po-te-ach) and of וּמַשְׂבִּיעַ (u-mas-bi-a) is stolen. In חַי it is an ordinary vowel, said after the ח: chai.',
-        'Compare שְׁמַע in the Shema: there the patach is under the מ, and the ע has no vowel at all: sh\'ma.',
+        'In Ashrei we say פּוֹתֵחַ אֶת־יָדֶךָ וּמַשְׂבִּיעַ לְכָל־חַי רָצוֹן. The patach at the end of פּוֹתֵחַ (po-TE-ach) and of וּמַשְׂבִּיעַ (u-mas-BI-a) is stolen. In חַי it is an ordinary vowel, said after the ח: chai.',
+        'Compare שְׁמַע in the Shema: there the patach is under the מ, and the ע has no vowel at all: sh\'MA.',
       ],
       examples: [
         { he: 'פּוֹתֵחַ אֶת־יָדֶךָ וּמַשְׂבִּיעַ לְכָל־חַי רָצוֹן', note: 'Tehillim 145:16, in Ashrei.', letters: [3, 14] },
@@ -3106,16 +3111,16 @@ return {
       heading: 'A chataf that echoes',
       body: [
         'In the Sheva lesson, a guttural took a chataf where another letter would have a vocal sheva. In the middle of a word, a guttural often takes a chataf where another letter would have a *silent* sheva, too.',
-        'Then the chataf usually matches the vowel just before it. יַעֲקֹב has a patach, then a chataf patach: ya-a-kov. נַעֲשֶׂה, "we will do", is na-a-se.',
-        'The chataf is said quickly, so the two a sounds run together.',
+        'Then the chataf usually matches the vowel just before it. יַעֲקֹב has a patach, then a chataf patach: ya-a-KOV. נַעֲשֶׂה, "we will do", is na-a-SE.',
+        'The chataf is said quickly, but it is still its own syllable: ya-a-KOV.',
       ],
       examples: [
-        { he: 'יַעֲקֹב', note: 'Bereshit 25:26: ya-a-kov.', letters: [1] },
-        { he: 'נַעֲשֶׂה וְנִשְׁמָע', note: 'Shemot 24:7: na-a-se v\'nish-ma.', letters: [1] },
+        { he: 'יַעֲקֹב', note: 'Bereshit 25:26: ya-a-KOV.', letters: [1] },
+        { he: 'נַעֲשֶׂה וְנִשְׁמָע', note: 'Shemot 24:7: na-a-SE v\'nish-MA.', letters: [1] },
       ],
       callout: {
         kind: 'note',
-        text: 'Not always: יַחְדָּו, "together" (Bereshit 13:6), keeps a plain silent sheva under the ח: yach-dav.',
+        text: 'Not always: יַחְדָּו, "together" (Bereshit 13:6), keeps a plain silent sheva under the ח: yach-DAV.',
       },
       check: [
         {
@@ -3128,7 +3133,7 @@ return {
             { text: 'segol' },
             { text: 'kamatz' },
           ],
-          explain: 'Chataf patach. A chataf in the middle of a word usually echoes the vowel before it: ya-a-kov.',
+          explain: 'Chataf patach. A chataf that stands where another letter would have a silent sheva usually echoes the vowel before it: ya-a-KOV.',
         },
       ],
     },
@@ -3136,17 +3141,17 @@ return {
       id: 'like-a',
       heading: 'Throat letters like the a sound',
       body: [
-        'Many words have two segols in a row, like מֶלֶךְ and חֶסֶד. When the last letter is a guttural, the second vowel is a patach instead: פֶּסַח is PE-sach, and זֶבַח, "offering", is ZE-vach.',
-        'A guttural in the middle often does the same: נַעַר, "a boy" (Shemot 2:6), has two patachs: NA-ar.',
-        'In general, gutturals pull the vowels next to them towards a. Later lessons on nouns and verbs will show more of this.',
+        'Many words have two segols in a row, like מֶלֶךְ (the Syllables lesson). When the last letter is a ח or a ע, the second segol becomes a patach: פֶּסַח is PE-sach, and זֶבַח, "offering", is ZE-vach.',
+        'A guttural in the middle often turns both segols into patach: נַעַר, "a boy" (Shemot 2:6), is NA-ar.',
+        'A guttural at the start does not do this: אֶרֶץ, עֶרֶב and חֶסֶד keep their segols.',
       ],
       examples: [
-        { he: 'זֶבַח־פֶּסַח', note: 'Shemot 12:27: ze-vach pe-sach.', letters: [2, 5] },
-        { he: 'נַעַר', note: 'Shemot 2:6: na-ar.', letters: [1] },
+        { he: 'זֶבַח־פֶּסַח', note: 'Shemot 12:27: ZE-vach PE-sach.', letters: [2, 5] },
+        { he: 'נַעַר', note: 'Shemot 2:6: NA-ar.', letters: [1] },
       ],
       callout: {
         kind: 'note',
-        text: 'Not every word follows it: לֶחֶם, "bread", keeps its two segols even with the ח in the middle.',
+        text: 'A final א does not count: it is silent, so דֶּשֶׁא, "grass" (Bereshit 1:11), keeps its two segols. And some words keep them anyway: לֶחֶם, "bread", has a ח in the middle but two segols.',
       },
       check: [
         {
@@ -3154,11 +3159,11 @@ return {
           type: 'choice',
           prompt: 'Why is it פֶּסַח and not פֶּסֶח?',
           options: [
-            { text: 'The last letter, ח, is a guttural, and gutturals pull the vowel towards a', correct: true },
+            { text: 'The last letter, ח, is a guttural, and pulls the vowel before it towards a', correct: true },
             { text: 'The word is stressed on the last syllable' },
             { text: 'Because of the dagesh in the פ' },
           ],
-          explain: 'The ח is a guttural. Before a final guttural, the second vowel of such a word is a patach. The stress stays on the first syllable: PE-sach.',
+          explain: 'In a two-segol word like מֶלֶךְ, a final ח or ע turns the second segol into a patach. The stress stays on the first syllable: PE-sach.',
         },
       ],
     },
@@ -3172,25 +3177,25 @@ return {
       he: 'וְרוּחַ',
       feature: 'patach',
       answer: [3],
-      explain: 'The ח. It is the last letter, after a shuruk, so its patach is said first: v\'ru-ach.',
+      explain: 'The ח. It is the last letter, after a shuruk, so its patach is said first: v\'RU-ach.',
     },
     {
       id: 'choice-noach',
       type: 'choice',
       prompt: 'How is נֹחַ said?',
       options: [
-        { text: 'No-ach', correct: true },
-        { text: 'No-cha' },
-        { text: 'Noch' },
+        { text: 'NO-ach', correct: true },
+        { text: 'no-CHA' },
+        { text: 'noch' },
       ],
-      explain: 'No-ach. The patach under the final ח is stolen: you say it before the ח.',
+      explain: 'NO-ach. The patach under the final ח is stolen: you say it before the ח.',
     },
     {
       id: 'tf-stolen-start',
       type: 'truefalse',
       statement: 'A stolen patach can come under the first letter of a word.',
       answer: false,
-      explain: 'False. A stolen patach only comes under the last letter of a word, under ח, ע or a ה with a mappik.',
+      explain: 'False. A stolen patach only comes under the last letter of a word: a ח, a ע, or a ה with a mappik.',
     },
     {
       id: 'choice-which-stolen',
@@ -3201,39 +3206,39 @@ return {
         { text: 'חַי' },
         { text: 'שְׁמַע' },
       ],
-      explain: 'יֹדֵעַ, "knows" (Bereshit 3:5): yo-de-a. In חַי the patach is under the first letter, and in שְׁמַע it is under the מ, not the ע.',
+      explain: 'יֹדֵעַ, "knows" (Bereshit 3:5): yo-DE-a. The ע is the last letter, after a tzere. In חַי the patach is under the first letter, and in שְׁמַע it is under the מ, not the ע.',
     },
     {
       id: 'match-say',
       type: 'match',
       prompt: 'Match each word to how it is said.',
       pairs: [
-        { left: 'יַעֲקֹב', right: 'ya-a-kov' },
-        { left: 'מִזְבֵּחַ', right: 'miz-be-ach' },
-        { left: 'נַעַר', right: 'na-ar' },
-        { left: 'פֶּסַח', right: 'pe-sach' },
+        { left: 'יַעֲקֹב', right: 'ya-a-KOV' },
+        { left: 'מִזְבֵּחַ', right: 'miz-BE-ach' },
+        { left: 'נַעַר', right: 'NA-ar' },
+        { left: 'פֶּסַח', right: 'PE-sach' },
       ],
-      explain: 'יַעֲקֹב has a chataf that echoes the patach before it. מִזְבֵּחַ ends in a stolen patach. נַעַר and פֶּסַח take patach because of their gutturals.',
+      explain: 'יַעֲקֹב has a chataf that echoes the patach before it. מִזְבֵּחַ ends in a stolen patach. נַעַר and פֶּסַח take a patach because of their gutturals.',
     },
     {
       id: 'bank-echo',
       type: 'wordbank',
-      before: 'A chataf in the middle of a word usually matches ',
+      before: 'A chataf that stands where another letter would have a silent sheva usually matches ',
       after: '.',
       options: [
         { text: 'the vowel before it', correct: true },
         { text: 'the vowel after it' },
         { text: 'the last vowel of the word' },
       ],
-      explain: 'The vowel before it: a patach then a chataf patach in יַעֲקֹב and נַעֲשֶׂה.',
+      explain: 'The vowel before it: a patach, then a chataf patach, in יַעֲקֹב and נַעֲשֶׂה.',
     },
     {
       id: 'tap-gutturals',
       type: 'tap',
-      prompt: 'Tap every guttural.',
+      prompt: 'Tap every one of the four guttural letters (א ה ח ע), even one that is silent here.',
       he: 'נַעֲשֶׂה וְנִשְׁמָע',
       answer: [1, 3, 8],
-      explain: 'Both ע letters and the ה. The four gutturals are א ה ח ע.',
+      explain: 'Both ע letters and the ה. The final ה of נַעֲשֶׂה is a silent vowel letter here, but it is still one of the four guttural letters.',
     },
     {
       id: 'tf-double',
@@ -3243,11 +3248,11 @@ return {
       explain: 'False. Gutturals are not doubled (the Dagesh lesson). The vowel before them often lengthens instead.',
     },
     {
-      id: 'tf-every-chataf',
+      id: 'tf-never-silent-sheva',
       type: 'truefalse',
-      statement: 'Every guttural in the middle of a word takes a chataf.',
+      statement: 'A guttural in the middle of a word never has a plain silent sheva.',
       answer: false,
-      explain: 'False. Many do, but some keep a plain silent sheva, as in יַחְדָּו, yach-dav.',
+      explain: 'False. It often takes a chataf instead, but some keep a plain silent sheva, as in יַחְדָּו, yach-DAV.',
     },
   ],
 
@@ -3257,11 +3262,11 @@ return {
       type: 'choice',
       prompt: 'Shemot 16:8 has לִשְׂבֹּעַ, "to be satisfied". How is it said?',
       options: [
-        { text: 'lis-bo-a', correct: true },
-        { text: 'lis-b\'a' },
-        { text: 'lis-bo' },
+        { text: 'lis-BO-a', correct: true },
+        { text: 'lis-BA' },
+        { text: 'lis-BO' },
       ],
-      explain: 'lis-bo-a. The ע is the last letter and comes after a cholam, so its patach is stolen and said before it.',
+      explain: 'lis-BO-a. The ע is the last letter and comes after a cholam, so its patach is stolen and said before it.',
     },
     {
       id: 'chal-chai',
@@ -3275,15 +3280,22 @@ return {
       explain: 'A stolen patach only comes under the last letter of a word. In חַי the ח is the first letter, and its patach is its ordinary vowel: chai.',
     },
     {
-      id: 'chal-lechem',
+      id: 'chal-middle-always',
+      type: 'truefalse',
+      statement: 'A guttural in the middle of a two-segol word always turns the segols into patach.',
+      answer: false,
+      explain: 'False. Often, not always: לֶחֶם keeps both segols though its ח is in the middle, while נַעַר has two patachs. The rule tells you what to expect; the vowels on the page tell you what is there.',
+    },
+    {
+      id: 'chal-deshe',
       type: 'choice',
-      prompt: 'Many words with a guttural take a patach where you would expect a segol, like פֶּסַח and נַעַר. Which of these keeps its two segols anyway?',
+      prompt: 'דֶּשֶׁא (Bereshit 1:11) ends in a guttural letter, yet keeps two segols. Why?',
       options: [
-        { text: 'לֶחֶם', correct: true },
-        { text: 'זֶבַח' },
-        { text: 'נַעַר' },
+        { text: 'Its final א is silent, so it does not pull the vowel towards a', correct: true },
+        { text: 'א is not a guttural' },
+        { text: 'It is a pausal form' },
       ],
-      explain: 'לֶחֶם, "bread". Its ח is in the middle, and here the segols stay. זֶבַח and נַעַר both have a patach.',
+      explain: 'Only a final ח or ע turns the second segol into a patach. A final א is silent (the Silent letters lesson), so דֶּשֶׁא keeps its segols.',
     },
   ],
 };
@@ -3294,7 +3306,7 @@ return {
 // (the accents) and §29 (the tone and the pause). Explanations and examples
 // are original; example words, with their trop, were checked against the
 // Masoretic text on Sefaria (Bereshit 1:6, 1:22, 29:6, 29:9; Shemot 24:7;
-// Devarim 6:4, 6:7; Yehoshua 1:17).
+// Devarim 6:4, 6:5, 6:7; Yehoshua 1:17).
 
 return {
   id: 'trop-and-pause',
@@ -3331,7 +3343,7 @@ return {
     },
     {
       id: 'kings-servants',
-      heading: 'Pausing marks and joining marks',
+      heading: 'Breaking marks and joining marks',
       body: [
         'Some trop marks make a break after their word, like a comma. They are called **kings** (מְלָכִים). Others join their word to the next one. They are called **servants** (מְשָׁרְתִים).',
         'In Bereshit 1:6, בֵּ֥ין מַ֖יִם לָמָֽיִם, "between water and water": the mark under בֵּין is a servant, so it runs on into מַיִם. The mark under מַיִם is a king, so there is a slight break before לָמָיִם.',
@@ -3357,9 +3369,9 @@ return {
       id: 'two-big-pauses',
       heading: 'The two biggest breaks',
       body: [
-        'Every verse ends with **silluq**, the small upright line from the Meteg lesson, under the stressed syllable of the last word. After the word come the two dots of **sof pasuk** (סוֹף פָּסוּק, "end of verse").',
+        'Every verse ends with silluq, the small upright line from the Meteg lesson, under the stressed syllable of the last word. After the word come the two dots of **sof pasuk** (סוֹף פָּסוּק, "end of verse").',
         'Most verses also have one main break in the middle, marked by **etnachta** (אֶתְנַחְתָּא, "resting"): a small wedge, like ^, under the stressed syllable.',
-        'In the Shema the etnachta is under יִשְׂרָאֵל: the verse divides after "Hear, Israel".',
+        'Etnachta and silluq are the two strongest kings. In the Shema the etnachta is under יִשְׂרָאֵל: the verse divides after "Hear, Israel".',
       ],
       examples: [
         { he: 'שְׁמַ֖ע יִשְׂרָאֵ֑ל', note: 'Devarim 6:4: etnachta under the stressed syllable of יִשְׂרָאֵל.' },
@@ -3382,14 +3394,14 @@ return {
     },
     {
       id: 'pausal-forms',
-      heading: 'Words change at a break',
+      heading: 'Words change at a big break',
       body: [
-        'At etnachta and silluq the reader pauses, and the word there is said with extra weight. Often one of its vowels changes. These are called **pausal forms** (from הֶפְסֵק, "pause").',
-        'The commonest change: a short vowel becomes long. Bereshit 1:6 has the same word both ways: מַ֖יִם, with a patach, in the middle of a phrase, and הַמָּ֑יִם and לָמָֽיִם, with a kamatz, at the two big breaks.',
-        'So if a familiar word has an unexpected kamatz at the end of a verse, look for a pause before anything else.',
+        'At etnachta and silluq the reader pauses longest, and the word there is said with extra weight. Often one of its vowels changes. These are called **pausal forms** (צוּרוֹת הֶפְסֵק, "pause forms"). They come mostly at these two breaks, and only sometimes at a smaller king.',
+        'The commonest change: the stressed vowel, if it is short, becomes long. Bereshit 1:6 has מַיִם three times. At a small break it keeps its patach: מַ֖יִם, MA-yim. At the two biggest breaks it has a kamatz: הַמָּ֑יִם at etnachta and לָמָֽיִם at silluq.',
+        'So if a familiar word has an unexpected kamatz at etnachta or at the end of a verse, a pause is the likely reason.',
       ],
       examples: [
-        { he: 'מַ֖יִם', note: 'Bereshit 1:6, mid-phrase: patach.', letters: [0] },
+        { he: 'מַ֖יִם', note: 'Bereshit 1:6, at a small break: patach.', letters: [0] },
         { he: 'לָמָֽיִם׃', note: 'Bereshit 1:6, at silluq: kamatz.', letters: [1] },
       ],
       check: [
@@ -3398,31 +3410,36 @@ return {
           type: 'choice',
           prompt: 'Why does לָמָֽיִם have a kamatz under the מ, where מַ֖יִם has a patach?',
           options: [
-            { text: 'It is at silluq, a pause, so the short vowel becomes long', correct: true },
+            { text: 'It is at silluq, a big break, so the short stressed vowel becomes long', correct: true },
             { text: 'The מ is doubled' },
             { text: 'It is a different word' },
           ],
-          explain: 'It is a pausal form. At silluq the stressed vowel of the word is lengthened: the patach becomes a kamatz.',
+          explain: 'It is a pausal form. מַיִם is stressed on its first syllable, MA-yim. At silluq that stressed patach is lengthened to a kamatz.',
         },
       ],
     },
     {
-      id: 'vowel-returns',
-      heading: 'A vowel comes back',
+      id: 'full-vowel',
+      heading: 'A full vowel for a sheva',
       body: [
-        'Another change: where a word normally has a vocal sheva, a pause can bring a full vowel back.',
-        'The Shema shows it in one phrase: וּבְשׇׁכְבְּךָ וּבְקוּמֶךָ, "when you lie down and when you get up" (Devarim 6:7). The ending "you" is usually -\'cha, with a sheva before it, as in וּבְשׇׁכְבְּךָ, u-v\'shoch-b\'cha. At the end of the verse it becomes -e-cha: וּבְקוּמֶךָ, u-v\'ku-me-cha.',
+        'Another change: where a word normally has a vocal sheva, a big break can give it a full vowel instead.',
+        'The Shema shows it: בְּכָל־לְבָבְךָ וּבְכָל־נַפְשְׁךָ וּבְכָל־מְאֹדֶךָ, "with all your heart, and with all your soul, and with all your might" (Devarim 6:5). All three words end in ךָ, "your".',
+        'In the first two, mid-verse, the letter before ךָ has a vocal sheva: l\'va-v\'CHA, naf-sh\'CHA. The third ends the verse, at silluq. There the letter before ךָ has a full vowel, a segol: m\'o-DE-cha.',
       ],
       examples: [
-        { he: 'וּֽבְשׇׁכְבְּךָ֖ וּבְקוּמֶֽךָ׃', note: 'Devarim 6:7: -b\'cha mid-verse, then -me-cha at silluq.' },
+        { he: 'בְּכׇל־לְבָבְךָ֥ וּבְכׇל־נַפְשְׁךָ֖ וּבְכׇל־מְאֹדֶֽךָ׃', note: 'Devarim 6:5: a sheva before ךָ twice, then a segol at silluq.' },
       ],
+      callout: {
+        kind: 'note',
+        text: 'Two things to know. Words with a י before the ending, like לְבָנֶיךָ, "your children", always say -e-cha, pause or not. And now and then a word takes the full vowel at a smaller king, as בְּבֵיתֶךָ, "in your house", does in Devarim 6:7.',
+      },
       check: [
         {
-          id: 'chk-shema-segol',
+          id: 'chk-meodecha',
           type: 'truefalse',
-          statement: 'In וּבְקוּמֶךָ, the segol before the ending is there because of the pause at the end of the verse.',
+          statement: 'In מְאֹדֶךָ, the segol before ךָ is there because of the pause at the end of the verse.',
           answer: true,
-          explain: 'True. Mid-verse the ending is -\'cha with a sheva before it, as in וּבְשׇׁכְבְּךָ. At silluq a full vowel comes back: -e-cha.',
+          explain: 'True. Mid-verse the letter before ךָ has a vocal sheva, as in לְבָבְךָ and נַפְשְׁךָ. At silluq it has a full vowel: m\'o-DE-cha.',
         },
       ],
     },
@@ -3450,13 +3467,13 @@ return {
     {
       id: 'choice-where-pausal',
       type: 'choice',
-      prompt: 'Where do pausal forms usually appear?',
+      prompt: 'Where do pausal forms mostly appear?',
       options: [
         { text: 'At etnachta and silluq', correct: true },
         { text: 'Under any servant mark' },
         { text: 'Before a makaf' },
       ],
-      explain: 'At the two biggest breaks, etnachta in the middle of the verse and silluq at the end.',
+      explain: 'Mostly at the two biggest breaks, etnachta in the middle of the verse and silluq at the end.',
     },
     {
       id: 'choice-usual-form',
@@ -3467,7 +3484,7 @@ return {
         { text: 'הַמֵּיִם' },
         { text: 'הַמְּיִם' },
       ],
-      explain: 'הַמַּיִם, with a patach, as in Bereshit 1:22. At the pause the patach lengthens to a kamatz.',
+      explain: 'הַמַּיִם, with a patach, as in Bereshit 1:22. At the pause the stressed patach lengthens to a kamatz.',
     },
     {
       id: 'tf-only-tune',
@@ -3482,7 +3499,7 @@ return {
       prompt: 'Match each mark to what it does.',
       pairs: [
         { left: 'etnachta', right: 'the main break mid-verse' },
-        { left: 'silluq', right: 'the stressed syllable of the last word' },
+        { left: 'silluq', right: 'ends the verse, under the last word' },
         { left: 'sof pasuk', right: 'the two dots after the last word' },
         { left: 'a servant', right: 'joins its word to the next' },
       ],
@@ -3503,20 +3520,20 @@ return {
     {
       id: 'tf-lengthen',
       type: 'truefalse',
-      statement: 'At a pause, a short vowel often becomes long.',
+      statement: 'At a big break, a short stressed vowel often becomes long.',
       answer: true,
       explain: 'True. מַיִם becomes מָיִם at etnachta and silluq.',
     },
     {
       id: 'choice-which-pausal',
       type: 'choice',
-      prompt: 'Which of these two words from Devarim 6:7 is the pausal form?',
+      prompt: 'Which of these words from Devarim 6:5 is the pausal form?',
       options: [
-        { text: 'וּבְקוּמֶךָ', correct: true },
-        { text: 'וּבְשׇׁכְבְּךָ' },
+        { text: 'וּבְכָל־מְאֹדֶךָ', correct: true },
+        { text: 'וּבְכָל־נַפְשְׁךָ' },
+        { text: 'בְּכָל־לְבָבְךָ' },
       ],
-      keepOrder: true,
-      explain: 'וּבְקוּמֶךָ, at the end of the verse. Its ending has a full vowel, -e-cha, where mid-verse there is a sheva, -\'cha.',
+      explain: 'וּבְכָל־מְאֹדֶךָ, at the end of the verse. The letter before ךָ has a full vowel, a segol, where mid-verse there is a vocal sheva.',
     },
   ],
 
@@ -3530,7 +3547,7 @@ return {
         { text: 'The ו in front of it changes the vowel' },
         { text: 'They are two different verbs' },
       ],
-      explain: 'It is a pausal form. נַעֲשֶׂה וְנִשְׁמָע ends its verse, so the patach becomes a kamatz. In Yehoshua the word is mid-verse and keeps its patach.',
+      explain: 'It is a pausal form. נַעֲשֶׂה וְנִשְׁמָע ends its verse, so the stressed patach becomes a kamatz. In Yehoshua the word is mid-verse and keeps its patach.',
     },
     {
       id: 'chal-first-mayim',
@@ -3541,7 +3558,7 @@ return {
         { text: 'King marks always shorten a vowel' },
         { text: 'It is not a real word' },
       ],
-      explain: 'Pausal forms belong mainly to the two biggest breaks. The mark under the first מַיִם makes only a small break, so the word keeps its usual form.',
+      explain: 'Pausal forms belong mainly to the two biggest breaks. The mark under the first מַיִם makes only a small break, so here the word keeps its usual form.',
     },
     {
       id: 'chal-rashi',
@@ -3561,9 +3578,11 @@ return {
 (function () {
 // Ketiv and keri. Rules checked against Gesenius' Hebrew Grammar (1910), §17.
 // Explanations and examples are original; example words were checked against
-// the Masoretic text on Sefaria (Bereshit 3:20, 8:17, 24:14, 30:18;
-// Tehillim 122:3; Ruth 3:5). Jerusalem's extra chirik is described, not
-// shown: neither Hebrew font can place it between the ל and the ם.
+// the Masoretic text on Sefaria (Bereshit 3:20, 8:17, 24:16, 30:18;
+// Tehillim 122:3; Ruth 3:5). The mixed form הַוְצֵא (Bereshit 8:17) shows how
+// printed editions combine the written letters with the vowels of the reading
+// (§17a); Sefaria prints the two separately. Jerusalem's extra chirik is
+// described, not shown: neither Hebrew font can place it between the ל and ם.
 
 return {
   id: 'ketiv-keri',
@@ -3583,7 +3602,7 @@ return {
       ],
       examples: [
         { he: 'הוצא', note: 'Bereshit 8:17, as written: the ketiv.' },
-        { he: 'הַיְצֵא', note: 'As read: the keri, hay-tze, "bring out".' },
+        { he: 'הַיְצֵא', note: 'As read: the keri, hai-TZE, "bring out".' },
       ],
       check: [
         {
@@ -3601,7 +3620,11 @@ return {
       body: [
         'A printed Chumash keeps the written letters in the text, so you can see the ketiv. Usually it gives them the vowels of the keri, marks the word with a small circle, and prints the keri\'s letters in the margin or a footnote.',
         'So if a word in the text looks wrongly pointed, look in the margin. In Bereshit 8:17 the text has the letters הוצא with the vowels of הַיְצֵא.',
-        'Some editions, like the text on Sefaria, print both instead: the ketiv in round brackets and the keri in square brackets.',
+        'Some editions, like the text on Sefaria, print the two side by side instead: the ketiv in round brackets and the keri in square brackets.',
+        'A Sefer Torah has none of this help: no vowels, no circle, no note. The reader must know the keri.',
+      ],
+      examples: [
+        { he: 'הַוְצֵא', note: 'Bereshit 8:17 as many Chumashim print it: the letters הוצא with the vowels of הַיְצֵא. Read hai-TZE.' },
       ],
       check: [
         {
@@ -3622,18 +3645,16 @@ return {
       heading: 'Words that are always read differently',
       body: [
         'A few common words are read differently every time, so editions do not add a note. They simply give the written letters the vowels of the reading.',
-        'In the Torah the word for "she" is usually written הִוא, with a ו, but read hi, as if it had a י: כִּי הִוא הָיְתָה אֵם כָּל־חָי (Bereshit 3:20).',
-        'Jerusalem is written ירושלם, with no י before the ם, but read Ye-ru-sha-la-yim. Many editions show this with a small extra chirik between the ל and the ם.',
-        'And יִשָּׂשכָר is read Yis-sa-char: the second ש has no point and is not said.',
+        'In the Torah, the word for "she" is usually written with the letters הוא, but read hi, as if it had a י. Your Chumash points it הִוא: כִּי הִוא הָיְתָה אֵם כָּל־חָי (Bereshit 3:20).',
+        'And יִשָּׂשכָר is read yis-sa-CHAR: the second ש has no point and is not said.',
       ],
       examples: [
         { he: 'הִוא', note: 'Bereshit 3:20: read hi.', letters: [1] },
-        { he: 'ירושלם', note: 'Tehillim 122:3, the written letters: read Ye-ru-sha-la-yim.' },
-        { he: 'יִשָּׂשכָר', note: 'Bereshit 30:18: read Yis-sa-char.', letters: [2] },
+        { he: 'יִשָּׂשכָר', note: 'Bereshit 30:18: read yis-sa-CHAR.', letters: [2] },
       ],
       callout: {
         kind: 'note',
-        text: 'The best-known case of all is the Name, ה׳, which is never read as it is written.',
+        text: 'Two more you know. Jerusalem is written ירושלם, with no י before the ם, but read ye-ru-sha-LA-yim; many editions add a small extra chirik before the ם to show it. And the Name, ה׳, is never read as it is written.',
       },
       check: [
         {
@@ -3642,7 +3663,7 @@ return {
           prompt: 'Tap the letter that is written but not said.',
           he: 'יִשָּׂשכָר',
           answer: [2],
-          explain: 'The second ש. It has no point of its own, and the name is read Yis-sa-char.',
+          explain: 'The second ש. It has no point of its own, and the name is read yis-sa-CHAR.',
         },
       ],
     },
@@ -3655,7 +3676,16 @@ return {
         'The opposite also happens, more rarely still: a word is written but not read, and is left without vowels.',
       ],
       examples: [
-        { he: 'כֹּל אֲשֶׁר־תֹּאמְרִי אֶעֱשֶׂה', note: 'Ruth 3:5 as written. The reader says אֵלַי after תֹּאמְרִי.' },
+        { he: 'כֹּל אֲשֶׁר־תֹּאמְרִי אֶעֱשֶׂה', note: 'Ruth 3:5, the written words. In your Chumash there is a small gap after תֹּאמְרִי with only the vowels of אֵלַי.' },
+      ],
+      check: [
+        {
+          id: 'chk-ruth-letters',
+          type: 'truefalse',
+          statement: 'In Ruth 3:5 the letters of אֵלַי are written in the text.',
+          answer: false,
+          explain: 'False. Only its vowels are printed. The reader says the word from the note.',
+        },
       ],
     },
   ],
@@ -3680,16 +3710,16 @@ return {
         { left: 'ketiv', right: 'what is written' },
         { left: 'keri', right: 'what is read' },
         { left: 'הִוא in the Torah', right: 'read hi' },
-        { left: 'יִשָּׂשכָר', right: 'read Yis-sa-char' },
+        { left: 'יִשָּׂשכָר', right: 'read yis-sa-CHAR' },
       ],
       explain: 'Ketiv is written, keri is read. הִוא and יִשָּׂשכָר are read differently every time they appear.',
     },
     {
       id: 'tf-hu',
       type: 'truefalse',
-      statement: 'In the Torah, the word written הִוא is read hu.',
+      statement: 'In the Torah, the word for "she", written with the letters הוא, is read hu.',
       answer: false,
-      explain: 'False. It means "she" and is read hi. The chirik under the ה is the vowel of the reading.',
+      explain: 'False. It means "she" and is read hi. The chirik under the ה in הִוא is the vowel of the reading.',
     },
     {
       id: 'choice-chirik',
@@ -3714,11 +3744,11 @@ return {
       type: 'choice',
       prompt: 'Jerusalem is written ירושלם, with no י before the ם. How is it read?',
       options: [
-        { text: 'Ye-ru-sha-la-yim', correct: true },
-        { text: 'Ye-ru-sha-lem' },
-        { text: 'Ye-ru-sha-lim' },
+        { text: 'ye-ru-sha-LA-yim', correct: true },
+        { text: 'ye-ru-sha-LEM' },
+        { text: 'ye-ru-sha-LIM' },
       ],
-      explain: 'Ye-ru-sha-la-yim. The written letters have no י before the ם; many editions add a small chirik to show the reading.',
+      explain: 'ye-ru-sha-LA-yim. The written letters have no י before the ם; many editions add a small chirik to show the reading.',
     },
     {
       id: 'tf-wrong-pointing',
@@ -3750,29 +3780,29 @@ return {
         { text: 'The ה is read as an א' },
         { text: 'Nothing changes' },
       ],
-      explain: 'The written ו is read as a י: hay-tze. The other letters are the same.',
+      explain: 'The written ו is read as a י: hai-TZE. The other letters are the same.',
     },
     {
       id: 'chal-naarah',
       type: 'choice',
-      prompt: 'In Bereshit 24:14 Rivka is called הַנַּעֲרָ, written with no final ה. How is it read?',
+      prompt: 'In Bereshit 24:16 Rivka is called וְהַנַּעֲרָ, written with no final ה. How is it read?',
       options: [
-        { text: 'ha-na-a-ra, "the girl"', correct: true },
-        { text: 'ha-na-ar, "the boy"' },
-        { text: 'ha-na-a-rach' },
+        { text: 'v\'han-na-a-RA, "and the girl"', correct: true },
+        { text: 'v\'han-NA-ar, "and the boy"' },
+        { text: 'v\'han-na-a-RACH' },
       ],
-      explain: 'ha-na-a-ra. In the Torah, נער meaning "girl" is written without its ה but read נַעֲרָה. The vowels of the reading show it: a kamatz under the ר.',
+      explain: 'v\'han-na-a-RA. In the Torah, the word for "girl" is usually written נער, without its ה, but read נַעֲרָה. The vowels of the reading show it: a kamatz under the ר.',
     },
     {
       id: 'chal-issachar',
       type: 'choice',
       prompt: 'Why is the second ש of יִשָּׂשכָר left without a point?',
       options: [
-        { text: 'It is written but not read', correct: true },
+        { text: 'That ש is written but never said: the name is always read yis-sa-CHAR', correct: true },
         { text: 'It has lost its dagesh' },
         { text: 'It is a vowel letter' },
       ],
-      explain: 'It is written but not read. The name is said Yis-sa-char, with only one ש sounded.',
+      explain: 'It is one of the words that are always read differently. One ש is written but not said, so it gets no point.',
     },
   ],
 };
