@@ -8,6 +8,12 @@
   unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
 }
 @font-face {
+  font-family: 'Noto Serif Hebrew';
+  src: url('fonts/NotoSerifHebrew-Hebrew-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
   font-family: 'Frank Ruhl Libre';
   src: url('fonts/FrankRuhlLibre-Hebrew-700.woff2') format('woff2');
   font-weight: 700;
@@ -375,3 +381,6 @@ tr:last-child td { border-bottom: 0; }
 .progress-table th[scope="row"] a { color: var(--text); text-decoration: none; }
 .progress-table th[scope="row"] a:hover { text-decoration: underline; }
 .progress-table td { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* Hebrew with trop: one font for letters, vowels and trop, so the marks sit right. */
+.he.trop { font-family: 'Noto Serif Hebrew', var(--serif-he); font-weight: 400; }

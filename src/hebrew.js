@@ -8,7 +8,9 @@
 const HEB_CONSONANT = /^[א-ת]$/;
 // Combining marks that attach to the preceding consonant.
 // Excludes makaf (05BE), paseq (05C0), sof pasuq (05C3), nun hafukha (05C6).
-const HEB_POINT = /^[֑-ׇֽֿׁׂׅׄ]$/;
+// Includes the combining grapheme joiner (034F), which some sources put
+// between two vowel marks on one letter.
+const HEB_POINT = /^[\u034F֑-ׇֽֿׁׂׅׄ]$/;
 const HEB_WORD_BREAK = /^[\s־׀׃.,;:!?()"'\-]$/;
 
 const VOWEL_NAMES = {
