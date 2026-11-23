@@ -1,7 +1,7 @@
 // Screens: home, lesson (teach / check / test / challenge / results), review,
 // progress, settings.
 
-import { h, clear, formatText, textEl, hebrewWithMarks, focusEl } from './dom.js';
+import { h, clear, formatText, textEl, hebrewWithMarks, focusEl, markTrop } from './dom.js';
 import { buildRun, buildReviewRun, answer, scoreRun, canAdvance, progressFraction, nextLesson, stepKey, STAR_THRESHOLD } from './engine.js';
 import { renderQuestion } from './questions.js';
 import { recordResult, resetProgress } from './save.js';
@@ -286,6 +286,7 @@ function runScreen(app, ctx, run, opts) {
     clear(fb).append(
       h('p', { class: 'verdict' }, correct ? `${TICK} Correct` : '✗ Not quite'),
       textEl('p', step.q.explain, { class: 'explain' }));
+    markTrop(fb);
     setPrimary();
     if (moveFocus) focusEl(fb);
   }
@@ -315,6 +316,7 @@ function runScreen(app, ctx, run, opts) {
     else if (step.kind === 'intro') stage.append(opts.intro(step));
     else if (step.kind === 'question') stage.append(questionView(step));
     else if (step.kind === 'results') stage.append(opts.results(run));
+    markTrop(stage);
     setPrimary();
     window.scrollTo(0, 0);
     focusEl(stage.querySelector('h2, h1'));

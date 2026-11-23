@@ -4,13 +4,14 @@
 // Fonts and icons never change, so they are served from the cache first.
 // Bump CACHE only if the list of files below changes.
 
-const CACHE = 'dikduk-v1';
+const CACHE = 'dikduk-v2';
 const FILES = [
   './',
   './index.html',
   './manifest.json',
   './fonts/FrankRuhlLibre-Hebrew-400.woff2',
   './fonts/FrankRuhlLibre-Hebrew-700.woff2',
+  './fonts/NotoSerifHebrew-Hebrew-400.woff2',
   './icons/favicon.svg',
   './icons/apple-touch-icon.png',
   './icons/icon-192x192.png',

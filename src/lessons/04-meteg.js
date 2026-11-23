@@ -74,7 +74,7 @@ export default {
       id: 'silluq',
       heading: 'The same line at the end of a verse',
       body: [
-        'The same upright line also appears under the stressed syllable of the last word in every verse of Tanakh, just before the two dots of sof pasuk. There it is one of the trop marks (טְעָמִים), called **silluq** (סִלּוּק), marking the end of the verse.',
+        'The same upright line also appears under the stressed syllable of the last word in every verse of Tanakh, just before the two dots that end a verse (sof pasuk, "end of verse"). There it is one of the trop marks (טְעָמִים), called **silluq** (סִלּוּק), marking the end of the verse.',
         'The Shema ends this way: in אֶחָֽד the line under the ח is a silluq.',
       ],
       examples: [

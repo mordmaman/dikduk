@@ -32,7 +32,7 @@ const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;
 export const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ESC[c]);
 
 // A run of Hebrew, allowing spaces, makaf and geresh inside it.
-const HEB = '֑-״יִ-ﭏ';
+const HEB = '֑-״יִ-ﭏ\u034F';
 const HEB_RUN = new RegExp(`[${HEB}]+(?:[\\s\\-]+[${HEB}]+)*`, 'g');
 
 // English text with **bold**, *italic*, and Hebrew runs wrapped for RTL.
@@ -44,6 +44,14 @@ export function formatText(s) {
 }
 
 export const isHebrew = (s) => new RegExp(`[${HEB}]`).test(s);
+
+// Trop (cantillation) marks. The main Hebrew font has none, so Hebrew that
+// carries them is set in Noto Serif Hebrew, which has the trop and the vowels.
+export const hasTrop = (s) => /[\u0591-\u05AF]/.test(s);
+export function markTrop(root) {
+  if (!root) return;
+  for (const el of root.querySelectorAll('.he')) if (hasTrop(el.textContent)) el.classList.add('trop');
+}
 
 // Text node or element for a short label that may be Hebrew.
 export function textEl(tag, s, attrs = {}) {
