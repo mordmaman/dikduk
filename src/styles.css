@@ -360,3 +360,18 @@ tr:last-child td { border-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+/* --- main nav, review and progress ------------------------------------------- */
+.bar-nav { margin-left: auto; display: flex; gap: 1.1rem; }
+.bar-nav .bar-link { margin-left: 0; }
+.home-actions { margin-top: 1rem; }
+.from-lesson { color: var(--muted); font-size: 0.88rem; margin: -0.25rem 0 0.75rem; }
+.missed .from-lesson { margin: 0 0 0.15rem; }
+.progress.overall { height: 8px; border-radius: 4px; margin: 0.5rem 0 1rem; }
+.progress.overall .progress-fill { transition: none; }
+.summary { list-style: none; padding: 0; margin: 0 0 0.5rem; display: grid; gap: 0.35rem; }
+.summary strong { font-variant-numeric: tabular-nums; }
+.progress-table th[scope="row"] { font-weight: 500; text-align: left; }
+.progress-table th[scope="row"] a { color: var(--text); text-decoration: none; }
+.progress-table th[scope="row"] a:hover { text-decoration: underline; }
+.progress-table td { white-space: nowrap; font-variant-numeric: tabular-nums; }
